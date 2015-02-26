@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate {
+class MainViewController: UIViewController, UITableViewDelegate {
     
     var cellContent = ["One", "Two", "Three", "Four"]
 

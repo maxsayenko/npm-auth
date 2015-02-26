@@ -9,21 +9,17 @@
 import UIKit
 
 class MainViewController: UIViewController, UITableViewDelegate {
+
+    var cellContent = ["One", "Two", "Three", "Four"]
     
     @IBAction func ButtonClick(sender: UIButton) {
-    
-        let eventsViewController: EventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventsView") as EventsViewController
-        
+        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventsView") as EventsViewController
         self.navigationController?.pushViewController(eventsViewController, animated: true)
-        
-        println(eventsViewController)
     }
-    
-    var cellContent = ["One", "Two", "Three", "Four"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationController?.navigationBarHidden = true
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -51,16 +47,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
     // Cell Click
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //CODE TO BE RUN ON CELL TOUCH
-        let gameViewController: EventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventsView") as EventsViewController
-        
-        self.navigationController?.pushViewController(gameViewController, animated: true)
+        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventsView") as EventsViewController
+        self.navigationController?.pushViewController(eventsViewController, animated: true)
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        println("segue")
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    
 }
 

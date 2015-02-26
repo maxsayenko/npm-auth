@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8114B4631A9FC1C200AC4CB7 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4621A9FC1C200AC4CB7 /* Firebase.framework */; };
+		8114B4651A9FC29C00AC4CB7 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4641A9FC29C00AC4CB7 /* libicucore.dylib */; };
+		8114B4671A9FC2C500AC4CB7 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4661A9FC2C500AC4CB7 /* libc++.dylib */; };
+		8114B4691A9FC2D400AC4CB7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4681A9FC2D400AC4CB7 /* CFNetwork.framework */; };
+		8114B46B1A9FC2E200AC4CB7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B46A1A9FC2E200AC4CB7 /* Security.framework */; };
+		8114B46D1A9FC2F000AC4CB7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B46C1A9FC2F000AC4CB7 /* SystemConfiguration.framework */; };
 		E2A46EC01A9FAFCE0090FDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A46EBF1A9FAFCE0090FDCB /* AppDelegate.swift */; };
 		E2A46EC31A9FAFCE0090FDCB /* socializr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2A46EC11A9FAFCE0090FDCB /* socializr.xcdatamodeld */; };
 		E2A46EC51A9FAFCE0090FDCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A46EC41A9FAFCE0090FDCB /* ViewController.swift */; };
@@ -27,6 +33,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8114B4621A9FC1C200AC4CB7 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../../../../Downloads/Firebase.framework; sourceTree = "<group>"; };
+		8114B4641A9FC29C00AC4CB7 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		8114B4661A9FC2C500AC4CB7 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		8114B4681A9FC2D400AC4CB7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		8114B46A1A9FC2E200AC4CB7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8114B46C1A9FC2F000AC4CB7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8114B46E1A9FC53D00AC4CB7 /* socializr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "socializr-Bridging-Header.h"; sourceTree = "<group>"; };
 		E2A46EBA1A9FAFCE0090FDCB /* socializr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socializr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A46EBE1A9FAFCE0090FDCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2A46EBF1A9FAFCE0090FDCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +58,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8114B46D1A9FC2F000AC4CB7 /* SystemConfiguration.framework in Frameworks */,
+				8114B46B1A9FC2E200AC4CB7 /* Security.framework in Frameworks */,
+				8114B4691A9FC2D400AC4CB7 /* CFNetwork.framework in Frameworks */,
+				8114B4671A9FC2C500AC4CB7 /* libc++.dylib in Frameworks */,
+				8114B4651A9FC29C00AC4CB7 /* libicucore.dylib in Frameworks */,
+				8114B4631A9FC1C200AC4CB7 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +80,12 @@
 		E2A46EB11A9FAFCE0090FDCB = {
 			isa = PBXGroup;
 			children = (
+				8114B46C1A9FC2F000AC4CB7 /* SystemConfiguration.framework */,
+				8114B46A1A9FC2E200AC4CB7 /* Security.framework */,
+				8114B4681A9FC2D400AC4CB7 /* CFNetwork.framework */,
+				8114B4661A9FC2C500AC4CB7 /* libc++.dylib */,
+				8114B4641A9FC29C00AC4CB7 /* libicucore.dylib */,
+				8114B4621A9FC1C200AC4CB7 /* Firebase.framework */,
 				E2A46EBC1A9FAFCE0090FDCB /* socializr */,
 				E2A46ED51A9FAFCE0090FDCB /* socializrTests */,
 				E2A46EBB1A9FAFCE0090FDCB /* Products */,
@@ -86,6 +111,7 @@
 				E2A46ECB1A9FAFCE0090FDCB /* LaunchScreen.xib */,
 				E2A46EC11A9FAFCE0090FDCB /* socializr.xcdatamodeld */,
 				E2A46EBD1A9FAFCE0090FDCB /* Supporting Files */,
+				8114B46E1A9FC53D00AC4CB7 /* socializr-Bridging-Header.h */,
 			);
 			path = socializr;
 			sourceTree = "<group>";
@@ -340,9 +366,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/bdowling/Downloads,
+				);
 				INFOPLIST_FILE = socializr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "socializr/socializr-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -350,9 +384,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/bdowling/Downloads,
+				);
 				INFOPLIST_FILE = socializr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "socializr/socializr-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -409,6 +450,7 @@
 				E2A46EDE1A9FAFCE0090FDCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E2A46EDF1A9FAFCE0090FDCB /* Build configuration list for PBXNativeTarget "socializrTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +459,7 @@
 				E2A46EE11A9FAFCE0090FDCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

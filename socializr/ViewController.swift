@@ -11,10 +11,15 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate {
     
     var cellContent = ["One", "Two", "Three", "Four"]
+    var firebase = Firebase(url: "http://socializr.firebaseio.com")
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        firebase.observeEventType(.Value, withBlock: {
+            snapshot in
+            println("\(snapshot.key) -> \(snapshot.value)")
+        })
     }
 
     override func didReceiveMemoryWarning() {

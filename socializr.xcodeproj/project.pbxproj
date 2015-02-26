@@ -12,7 +12,6 @@
 		8114B4691A9FC2D400AC4CB7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4681A9FC2D400AC4CB7 /* CFNetwork.framework */; };
 		8114B46B1A9FC2E200AC4CB7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B46A1A9FC2E200AC4CB7 /* Security.framework */; };
 		8114B46D1A9FC2F000AC4CB7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B46C1A9FC2F000AC4CB7 /* SystemConfiguration.framework */; };
-		8114B4731A9FD31600AC4CB7 /* eventsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114B4721A9FD31600AC4CB7 /* eventsCollection.swift */; };
 		8114B4751A9FD4F500AC4CB7 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4741A9FD4F500AC4CB7 /* Firebase.framework */; };
 		8114B4761A9FD4F500AC4CB7 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4741A9FD4F500AC4CB7 /* Firebase.framework */; };
 		E2A46EC01A9FAFCE0090FDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A46EBF1A9FAFCE0090FDCB /* AppDelegate.swift */; };
@@ -42,7 +41,6 @@
 		8114B46A1A9FC2E200AC4CB7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		8114B46C1A9FC2F000AC4CB7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8114B46E1A9FC53D00AC4CB7 /* socializr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "socializr-Bridging-Header.h"; sourceTree = "<group>"; };
-		8114B4721A9FD31600AC4CB7 /* eventsCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = eventsCollection.swift; sourceTree = "<group>"; };
 		8114B4741A9FD4F500AC4CB7 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		E2A46EBA1A9FAFCE0090FDCB /* socializr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socializr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A46EBE1A9FAFCE0090FDCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 		8114B4711A9FD2F600AC4CB7 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				8114B4721A9FD31600AC4CB7 /* eventsCollection.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -258,7 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2A46EC51A9FAFCE0090FDCB /* MainViewController.swift in Sources */,
-				8114B4731A9FD31600AC4CB7 /* eventsCollection.swift in Sources */,
 				E2A46EE31A9FC9910090FDCB /* EventsViewController.swift in Sources */,
 				E2A46EC31A9FAFCE0090FDCB /* socializr.xcdatamodeld in Sources */,
 				E2A46EC01A9FAFCE0090FDCB /* AppDelegate.swift in Sources */,

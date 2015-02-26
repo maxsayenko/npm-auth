@@ -10,6 +10,10 @@ import UIKit
 
 class EventsViewController: UIViewController {
 
+    @IBAction func backButtonClicked(sender: UIButton) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

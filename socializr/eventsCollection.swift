@@ -9,6 +9,7 @@
 import Foundation
 
 var firebase = Firebase(url: "http://socializr.firebaseio.com/events")
+//var firebase = Firebase(url: "https://docs-examples.firebaseio.com/web/saving-data/fireblog/posts")
 
 class EventsCollection {
     

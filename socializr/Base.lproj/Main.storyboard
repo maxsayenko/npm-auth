@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="463" y="-263"/>
         </scene>
-        <!--Events View Controller-->
+        <!--Event View Controller-->
         <scene sceneID="zCB-8x-IOY">
             <objects>
-                <viewController storyboardIdentifier="eventsView" id="HQM-U0-m9h" customClass="EventsViewController" customModule="socializr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="eventView" id="HQM-U0-m9h" customClass="EventViewController" customModule="socializr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xVa-Fp-jMH"/>
                         <viewControllerLayoutGuide type="bottom" id="UDb-Rf-7RY"/>
@@ -80,7 +80,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5PN-wb-56g">
-                                <rect key="frame" x="11" y="99" width="293" height="232"/>
+                                <rect key="frame" x="11" y="99" width="293" height="127"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBt-ue-994">
@@ -95,6 +95,9 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HSg-yf-N1o">
+                                <rect key="frame" x="11" y="234" width="293" height="314"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -110,6 +113,9 @@
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="mapView" destination="HSg-yf-N1o" id="zDc-ji-Qh1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCR-eA-kud" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

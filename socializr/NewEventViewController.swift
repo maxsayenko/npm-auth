@@ -12,6 +12,7 @@ import MapKit
 class NewEventViewController: UIViewController, UITextFieldDelegate {
 
     var startDatePickerView : UIDatePicker = UIDatePicker()
+    var endDatePickerView : UIDatePicker = UIDatePicker()
 
     @IBOutlet var viewControl: UIControl!
     @IBOutlet var locationLabel: UILabel!
@@ -41,17 +42,32 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         startDatePickerView.datePickerMode = UIDatePickerMode.DateAndTime
         startDateTxt.inputView = startDatePickerView
         startDatePickerView.addTarget( self, action: Selector("handelStartDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+        
+        endDatePickerView = UIDatePicker()
+        endDatePickerView.datePickerMode = UIDatePickerMode.DateAndTime
+        endDateTxt.inputView = endDatePickerView
+        endDatePickerView.addTarget( self, action: Selector("handelEndDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
 
     }
     
     func handelStartDatePicker(datePicker:UIDatePicker) {
+        var dateFormatter = NSDateFormatter()
+
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        var strDate = dateFormatter.stringFromDate(datePicker.date)
+        startDateTxt.text =  strDate
+    }
+    
+    func handelEndDatePicker(datePicker:UIDatePicker) {
         var dateFormatter = NSDateFormatter()
         
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
         var strDate = dateFormatter.stringFromDate(datePicker.date)
-        startDateTxt.text =  strDate
+        endDateTxt.text =  strDate
     }
 
     override func didReceiveMemoryWarning() {

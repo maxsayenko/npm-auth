@@ -11,7 +11,9 @@ import UIKit
 class MainViewController: UIViewController, UITableViewDelegate {
 
     var cellContent = ["One", "Two", "Three", "Four"]
-    var events:AnyObject = [:]
+    var events:NSMutableArray = NSMutableArray()
+    
+    //var newEvents:NS
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func ButtonClick(sender: UIButton) {
@@ -45,14 +47,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
     // Populate table items
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        // send notification just for testing when the view is loaded
-        scheduleNotification()
-        
         // just testing
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
-        
-        cell.textLabel?.text = cellContent[indexPath.row]
-        
+        cell.textLabel?.text = self.events[indexPath.row]["name"] as NSString
         return cell
     }
     
@@ -60,17 +57,21 @@ class MainViewController: UIViewController, UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //CODE TO BE RUN ON CELL TOUCH
         let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as EventViewController
+        
+        eventsViewController.id = self.events[indexPath.row]["id"] as NSString
         self.navigationController?.pushViewController(eventsViewController, animated: true)
     }
     
     func updateList(notification: NSNotification) {
-        var events = notification.userInfo!
-       
-        for e in (events as NSDictionary) {
-            self.events.addItem(e.value)
+        for e in notification.userInfo!{
+            self.events.addObject(e.1)
         }
+        
+        // send notification just for testing when the view is loaded
+        scheduleNotification()
 
-        tableView.reloadData()    }
+        tableView.reloadData()
+    }
     
     // schedule notification
     func scheduleNotification() {

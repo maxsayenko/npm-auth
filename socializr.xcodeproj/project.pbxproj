@@ -7,20 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8114541C1A9FEB0A00E6B556 /* eventsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114541B1A9FEB0A00E6B556 /* eventsCollection.swift */; };
-		8114B4631A9FC1C200AC4CB7 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4621A9FC1C200AC4CB7 /* Firebase.framework */; };
+		8114541E1A9FEE1000E6B556 /* EventsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114541D1A9FEE1000E6B556 /* EventsCollection.swift */; };
 		8114B4651A9FC29C00AC4CB7 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4641A9FC29C00AC4CB7 /* libicucore.dylib */; };
 		8114B4671A9FC2C500AC4CB7 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4661A9FC2C500AC4CB7 /* libc++.dylib */; };
 		8114B4691A9FC2D400AC4CB7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4681A9FC2D400AC4CB7 /* CFNetwork.framework */; };
 		8114B46B1A9FC2E200AC4CB7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B46A1A9FC2E200AC4CB7 /* Security.framework */; };
 		8114B46D1A9FC2F000AC4CB7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B46C1A9FC2F000AC4CB7 /* SystemConfiguration.framework */; };
+		8114B4751A9FD4F500AC4CB7 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4741A9FD4F500AC4CB7 /* Firebase.framework */; };
+		8114B4761A9FD4F500AC4CB7 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4741A9FD4F500AC4CB7 /* Firebase.framework */; };
 		E2A46EC01A9FAFCE0090FDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A46EBF1A9FAFCE0090FDCB /* AppDelegate.swift */; };
 		E2A46EC31A9FAFCE0090FDCB /* socializr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2A46EC11A9FAFCE0090FDCB /* socializr.xcdatamodeld */; };
-		E2A46EC51A9FAFCE0090FDCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A46EC41A9FAFCE0090FDCB /* ViewController.swift */; };
+		E2A46EC51A9FAFCE0090FDCB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A46EC41A9FAFCE0090FDCB /* MainViewController.swift */; };
 		E2A46EC81A9FAFCE0090FDCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A46EC61A9FAFCE0090FDCB /* Main.storyboard */; };
 		E2A46ECA1A9FAFCE0090FDCB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2A46EC91A9FAFCE0090FDCB /* Images.xcassets */; };
 		E2A46ECD1A9FAFCE0090FDCB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2A46ECB1A9FAFCE0090FDCB /* LaunchScreen.xib */; };
 		E2A46ED91A9FAFCE0090FDCB /* socializrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A46ED81A9FAFCE0090FDCB /* socializrTests.swift */; };
+		E2A46EE31A9FC9910090FDCB /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A46EE21A9FC9910090FDCB /* EventsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,25 +36,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8114541B1A9FEB0A00E6B556 /* eventsCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = eventsCollection.swift; sourceTree = "<group>"; };
-		8114B4621A9FC1C200AC4CB7 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../../../../Downloads/Firebase.framework; sourceTree = "<group>"; };
+		8114541D1A9FEE1000E6B556 /* EventsCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCollection.swift; sourceTree = "<group>"; };
 		8114B4641A9FC29C00AC4CB7 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		8114B4661A9FC2C500AC4CB7 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		8114B4681A9FC2D400AC4CB7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		8114B46A1A9FC2E200AC4CB7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		8114B46C1A9FC2F000AC4CB7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8114B46E1A9FC53D00AC4CB7 /* socializr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "socializr-Bridging-Header.h"; sourceTree = "<group>"; };
+		8114B4741A9FD4F500AC4CB7 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		E2A46EBA1A9FAFCE0090FDCB /* socializr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socializr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A46EBE1A9FAFCE0090FDCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2A46EBF1A9FAFCE0090FDCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2A46EC21A9FAFCE0090FDCB /* socializr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = socializr.xcdatamodel; sourceTree = "<group>"; };
-		E2A46EC41A9FAFCE0090FDCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E2A46EC41A9FAFCE0090FDCB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E2A46EC71A9FAFCE0090FDCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2A46EC91A9FAFCE0090FDCB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E2A46ECC1A9FAFCE0090FDCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		E2A46ED21A9FAFCE0090FDCB /* socializrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = socializrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A46ED71A9FAFCE0090FDCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2A46ED81A9FAFCE0090FDCB /* socializrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = socializrTests.swift; sourceTree = "<group>"; };
+		E2A46EE21A9FC9910090FDCB /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,11 +64,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8114B46D1A9FC2F000AC4CB7 /* SystemConfiguration.framework in Frameworks */,
+				8114B4751A9FD4F500AC4CB7 /* Firebase.framework in Frameworks */,
 				8114B46B1A9FC2E200AC4CB7 /* Security.framework in Frameworks */,
 				8114B4691A9FC2D400AC4CB7 /* CFNetwork.framework in Frameworks */,
 				8114B4671A9FC2C500AC4CB7 /* libc++.dylib in Frameworks */,
 				8114B4651A9FC29C00AC4CB7 /* libicucore.dylib in Frameworks */,
-				8114B4631A9FC1C200AC4CB7 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8114B4761A9FD4F500AC4CB7 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +86,7 @@
 		8114B47A1A9FEA8800AC4CB7 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				8114541B1A9FEB0A00E6B556 /* eventsCollection.swift */,
+				8114541D1A9FEE1000E6B556 /* EventsCollection.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -90,12 +94,12 @@
 		E2A46EB11A9FAFCE0090FDCB = {
 			isa = PBXGroup;
 			children = (
+				8114B4741A9FD4F500AC4CB7 /* Firebase.framework */,
 				8114B46C1A9FC2F000AC4CB7 /* SystemConfiguration.framework */,
 				8114B46A1A9FC2E200AC4CB7 /* Security.framework */,
 				8114B4681A9FC2D400AC4CB7 /* CFNetwork.framework */,
 				8114B4661A9FC2C500AC4CB7 /* libc++.dylib */,
 				8114B4641A9FC29C00AC4CB7 /* libicucore.dylib */,
-				8114B4621A9FC1C200AC4CB7 /* Firebase.framework */,
 				E2A46EBC1A9FAFCE0090FDCB /* socializr */,
 				E2A46ED51A9FAFCE0090FDCB /* socializrTests */,
 				E2A46EBB1A9FAFCE0090FDCB /* Products */,
@@ -116,7 +120,8 @@
 			children = (
 				8114B47A1A9FEA8800AC4CB7 /* models */,
 				E2A46EBF1A9FAFCE0090FDCB /* AppDelegate.swift */,
-				E2A46EC41A9FAFCE0090FDCB /* ViewController.swift */,
+				E2A46EE21A9FC9910090FDCB /* EventsViewController.swift */,
+				E2A46EC41A9FAFCE0090FDCB /* MainViewController.swift */,
 				E2A46EC61A9FAFCE0090FDCB /* Main.storyboard */,
 				E2A46EC91A9FAFCE0090FDCB /* Images.xcassets */,
 				E2A46ECB1A9FAFCE0090FDCB /* LaunchScreen.xib */,
@@ -252,9 +257,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2A46EC51A9FAFCE0090FDCB /* ViewController.swift in Sources */,
+				E2A46EC51A9FAFCE0090FDCB /* MainViewController.swift in Sources */,
+				E2A46EE31A9FC9910090FDCB /* EventsViewController.swift in Sources */,
+				8114541E1A9FEE1000E6B556 /* EventsCollection.swift in Sources */,
 				E2A46EC31A9FAFCE0090FDCB /* socializr.xcdatamodeld in Sources */,
-				8114541C1A9FEB0A00E6B556 /* eventsCollection.swift in Sources */,
 				E2A46EC01A9FAFCE0090FDCB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,6 +388,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/bdowling/Downloads,
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = socializr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -400,6 +407,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/bdowling/Downloads,
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = socializr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -416,6 +424,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -435,6 +444,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = socializrTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

@@ -51,7 +51,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         var eventRef = firebaseRef.childByAppendingPath(eventId)
 
         eventRef.setValue(data)
-        eventRef.childByAppendingPath("location").setValue(["lnt":lnt, "lng": lng])
+        eventRef.childByAppendingPath("location").setValue(["lat":lnt, "lng": lng])
         
         self.navigationController?.popViewControllerAnimated(true)
     }

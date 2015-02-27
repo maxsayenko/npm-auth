@@ -29,9 +29,11 @@ class MainViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func ButtonClick(sender: UIButton) {
+
         // joinLunchRoulette();
 //        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as EventViewController
 //        self.navigationController?.pushViewController(eventsViewController, animated: true)
+
     }
     
     override func viewDidLoad() {
@@ -149,14 +151,22 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     func parseRouletteEvents(notification: NSNotification) {
         for e in notification.userInfo! {
-            var users:NSMutableArray = e.1["name"] as NSMutableArray
+            var users:NSMutableArray = e.1["users"] as NSMutableArray
             if (users.count < 5) {
-                rouletteEvents.addObject(e.1)
+                self.rouletteEvents.addObject(e.1)
             }
         }
-//         TODO: figure this out
-//        rouletteEvents.shuffle()
-//        eventsCollection.addUserToEvent(userId)
+        addUserToEvent()
+    }
+    
+    func addUserToEvent() {
+        var index = randomInt(0, max: self.rouletteEvents.count)
+        var event:NSDictionary = self.rouletteEvents[index] as NSDictionary
+        eventsCollection.addUserToEvent(event["id"] as String)
+    }
+    
+    func randomInt(min: Int, max:Int) -> Int {
+        return min + Int(arc4random_uniform(UInt32(max - min + 1)))
     }
 }
 

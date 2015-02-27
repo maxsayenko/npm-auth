@@ -11,6 +11,8 @@ import UIKit
 class MainViewController: UIViewController, UITableViewDelegate {
 
     var cellContent = ["One", "Two", "Three", "Four"]
+    var events:AnyObject = [:]
+    @IBOutlet weak var tableView: UITableView!
     
     @IBAction func ButtonClick(sender: UIButton) {
         let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventsView") as EventsViewController
@@ -36,7 +38,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     // Get Cell Count
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellContent.count
+        return self.events.count
     }
     
     // Populate table items
@@ -57,11 +59,13 @@ class MainViewController: UIViewController, UITableViewDelegate {
     }
     
     func updateList(notification: NSNotification) {
-        var events = notification.userInfo
-//        for e in self.events {
-//            println(e)
-//        }
-    }
+        var events = notification.userInfo!
+       
+        for e in (events as NSDictionary) {
+            self.events.addItem(e.value)
+        }
+
+        tableView.reloadData()    }
     
 }
 

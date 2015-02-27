@@ -39,6 +39,19 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         var startDateText = dateFormatter.stringFromDate(startDate)
         var endDateText = dateFormatter.stringFromDate(endDate)
+        var name = titleTxt.text
+        var lnt = Singleton.sharedInstance.eventLocation.latitude
+        var lng = Singleton.sharedInstance.eventLocation.longitude
+        
+        // save to firebase
+        var eventId = NSUUID().UUIDString
+        var firebaseRef = Firebase(url: "http://socializr.firebaseio.com/events")
+        
+        var data = ["id": eventId, "name": name, "startDate": startDateText, "endDate": endDateText]
+        var eventRef = firebaseRef.childByAppendingPath(eventId)
+
+        eventRef.setValue(data)
+        eventRef.childByAppendingPath("location").setValue(["lnt":lnt, "lng": lng])
     }
     
     @IBAction func backgroundTouched(sender: UIControl) {

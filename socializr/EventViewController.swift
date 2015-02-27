@@ -22,6 +22,11 @@ class EventViewController: UIViewController {
         println(id)
         super.viewDidLoad()
 
+        var longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressAction:")
+        longPressRecognizer.minimumPressDuration = 2
+        mapView.addGestureRecognizer(longPressRecognizer)
+        
+        
         var latitude:CLLocationDegrees = 37.779492
         var longditude:CLLocationDegrees = -122.391669
         
@@ -30,13 +35,30 @@ class EventViewController: UIViewController {
         
         var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
         
-        var churchLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longditude)
+        var placeLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longditude)
         
-        var theRegion:MKCoordinateRegion = MKCoordinateRegionMake(churchLocation, theSpan)
+        var theRegion:MKCoordinateRegion = MKCoordinateRegionMake(placeLocation, theSpan)
         
         mapView.setRegion(theRegion, animated: true)
         
+        var annotation = MKPointAnnotation()
+        annotation.coordinate = placeLocation
+        annotation.title = "Start"
+        annotation.subtitle = "Details..."
+        mapView.addAnnotation(annotation)
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func longPressAction(gestureRecognizer: UIGestureRecognizer) {
+        var touchPoint = gestureRecognizer.locationInView(self.mapView)
+        var newCoordinate:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: self.mapView)
+        println(newCoordinate)
+        var annotation = MKPointAnnotation()
+        annotation.coordinate = newCoordinate
+        annotation.title = "Finish"
+        annotation.subtitle = "Details..."
+        mapView.addAnnotation(annotation)
     }
 
     override func didReceiveMemoryWarning() {

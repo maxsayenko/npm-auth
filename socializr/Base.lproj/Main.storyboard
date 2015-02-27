@@ -27,7 +27,7 @@
         <!--New Ancestry Event-->
         <scene sceneID="YwQ-7m-v6F">
             <objects>
-                <viewController id="3yT-aS-1Jk" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newEvent" id="3yT-aS-1Jk" customClass="NewEventViewController" customModule="socializr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dO8-Ux-Rcx"/>
                         <viewControllerLayoutGuide type="bottom" id="4Lh-yf-5zx"/>
@@ -37,7 +37,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Ancestry Event" id="Qr8-0L-Eja"/>
+                    <navigationItem key="navigationItem" title="New Ancestry Event" id="Qr8-0L-Eja">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="o1R-9e-iDx">
+                            <connections>
+                                <action selector="addButtonClick:" destination="3yT-aS-1Jk" id="YkM-yE-Pbz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jn7-3X-OpR" userLabel="First Responder" sceneMemberID="firstResponder"/>

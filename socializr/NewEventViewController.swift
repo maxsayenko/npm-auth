@@ -13,6 +13,8 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
 
     var startDatePickerView : UIDatePicker = UIDatePicker()
     var endDatePickerView : UIDatePicker = UIDatePicker()
+    var startDate : NSDate = NSDate()
+    var endDate : NSDate = NSDate()
 
     @IBOutlet var viewControl: UIControl!
     @IBOutlet var locationLabel: UILabel!
@@ -21,7 +23,14 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var noteTxtBox: UITextView!
 
     @IBAction func addButtonClick(sender: UIBarButtonItem) {
-        
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        //dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        //var sDate = dateFormatter.dateFromString(startDateTxt.text)
+        //var date = dateFormatter.stringFromDate(startDate)
+        println(startDateTxt.text)
+        //println(sDate)
+        var startDate = startDateTxt.text
     }
     
     @IBAction func backgroundTouched(sender: UIControl) {
@@ -59,6 +68,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         
         var strDate = dateFormatter.stringFromDate(datePicker.date)
         startDateTxt.text =  strDate
+        startDate = datePicker.date
     }
     
     func handelEndDatePicker(datePicker:UIDatePicker) {
@@ -69,6 +79,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         
         var strDate = dateFormatter.stringFromDate(datePicker.date)
         endDateTxt.text =  strDate
+        endDate = datePicker.date
     }
 
     override func didReceiveMemoryWarning() {

@@ -59,7 +59,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         //CODE TO BE RUN ON CELL TOUCH
         let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as EventViewController
         
-        var event = self.events[indexPath.row] as AnyObject
+        var event: AnyObject = self.events[indexPath.row] as AnyObject
         
         eventsViewController.id = event["id"] as NSString
         eventsViewController.name = event["name"] as NSString

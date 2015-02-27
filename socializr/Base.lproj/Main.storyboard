@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cxj-lS-eQc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cxj-lS-eQc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -189,7 +189,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="CMe-AF-wkX">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="438"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="5jV-gu-uWL"/>
@@ -197,7 +197,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZR-yL-6jZ">
-                                <rect key="frame" x="16" y="338" width="46" height="30"/>
+                                <rect key="frame" x="16" y="518" width="95" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -205,10 +205,50 @@
                                     <action selector="ButtonClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mrk-WP-5cW"/>
                                 </connections>
                             </button>
+                            <view alpha="0.84999999999999987" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cPI-Ch-cBo">
+                                <rect key="frame" x="0.0" y="64" width="320" height="86"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZU-41-EVe">
+                                        <rect key="frame" x="74" y="37" width="75" height="30"/>
+                                        <state key="normal" title="Yes! I'm in">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="yesButtonClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uEw-0c-d1l"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lwj-4e-I5E">
+                                        <rect key="frame" x="168" y="37" width="63" height="30"/>
+                                        <state key="normal" title="Busy :(">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="noButtonClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ixn-x9-Gn8"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Join Lunch Roulette today?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYa-1B-g00">
+                                        <rect key="frame" x="52" y="8" width="216" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Lwj-4e-I5E" secondAttribute="trailing" constant="106" id="KWm-iG-Enn"/>
+                                    <constraint firstItem="nZU-41-EVe" firstAttribute="leading" secondItem="cPI-Ch-cBo" secondAttribute="leading" constant="103" id="jou-hc-20J"/>
+                                    <constraint firstAttribute="centerX" secondItem="tYa-1B-g00" secondAttribute="centerX" id="mKG-nm-QzL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="cPI-Ch-cBo" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="2YT-Vi-cEq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cPI-Ch-cBo" secondAttribute="trailing" constant="-16" id="KWZ-3F-FjL"/>
                             <constraint firstItem="CMe-AF-wkX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="R4S-B8-a52"/>
+                            <constraint firstItem="cPI-Ch-cBo" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="uJ2-9p-9oE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CMe-AF-wkX" secondAttribute="trailing" constant="-16" id="ztD-ft-9xR"/>
                         </constraints>
                     </view>
@@ -222,6 +262,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="lunchRouletteView" destination="cPI-Ch-cBo" id="PzD-Y4-Ezy"/>
                         <outlet property="tableView" destination="CMe-AF-wkX" id="1Qp-PU-cmK"/>
                         <segue destination="HQM-U0-m9h" kind="show" identifier="toEventView" id="4ZC-hb-ORm"/>
                     </connections>

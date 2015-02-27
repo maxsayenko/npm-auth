@@ -14,11 +14,20 @@ class MainViewController: UIViewController, UITableViewDelegate {
     var rouletteEvents:NSMutableArray = NSMutableArray()
     var userId = Singleton.sharedInstance.userId
     
+@IBOutlet var lunchRouletteView: UIView!
+
+@IBAction func noButtonClick(sender: UIButton) {
+}
+
+
+    @IBAction func yesButtonClick(sender: UIButton) {
+    }
+
     //var newEvents:NS
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func ButtonClick(sender: UIButton) {
-        joinLunchRoulette();
+        // joinLunchRoulette();
 //        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as EventViewController
 //        self.navigationController?.pushViewController(eventsViewController, animated: true)
     }

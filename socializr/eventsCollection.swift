@@ -20,11 +20,6 @@ class EventsCollection {
             NSNotificationCenter.defaultCenter().postNotificationName("EventsUpdated", object: self, userInfo: events)
         })
         
-        firebase.observeEventType(.ChildAdded, withBlock: { snapshot in
-            var events = snapshot.value as NSDictionary
-            NSNotificationCenter.defaultCenter().postNotificationName("EventAdded", object: self, userInfo: events)
-        })
-        
         // Get the data on a post that has changed
         firebase.observeEventType(.ChildChanged, withBlock: { snapshot in
             var events = snapshot.value as NSDictionary

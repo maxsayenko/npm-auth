@@ -52,6 +52,8 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
 
         eventRef.setValue(data)
         eventRef.childByAppendingPath("location").setValue(["lnt":lnt, "lng": lng])
+        
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func backgroundTouched(sender: UIControl) {

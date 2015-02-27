@@ -9,8 +9,6 @@
 import UIKit
 
 class MainViewController: UIViewController, UITableViewDelegate {
-
-    var cellContent = ["One", "Two", "Three", "Four"]
     var events:NSMutableArray = NSMutableArray()
     
     //var newEvents:NS
@@ -18,7 +16,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     @IBAction func ButtonClick(sender: UIButton) {
         let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as EventViewController
-        eventsViewController.id = "newId"
         self.navigationController?.pushViewController(eventsViewController, animated: true)
     }
 

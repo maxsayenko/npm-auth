@@ -19,7 +19,6 @@ class NewEventViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         if(Singleton.sharedInstance.eventLocation != nil) {
-            println("Not NIL :)")
             locationLabel.text = "Set"
         }
     }

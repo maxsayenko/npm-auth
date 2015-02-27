@@ -31,8 +31,17 @@ class MapPickViewController: UIViewController {
         
         var placeLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longditude)
         
-        var theRegion:MKCoordinateRegion = MKCoordinateRegionMake(placeLocation, theSpan)
+        if(Singleton.sharedInstance.eventLocation != nil) {
+            placeLocation = Singleton.sharedInstance.eventLocation
+            
+            var annotation = MKPointAnnotation()
+            annotation.coordinate = placeLocation
+            annotation.title = "Start"
+            annotation.subtitle = "Details..."
+            mapView.addAnnotation(annotation)
+        }
         
+        var theRegion:MKCoordinateRegion = MKCoordinateRegionMake(placeLocation, theSpan)
         mapView.setRegion(theRegion, animated: true)
     }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8114541E1A9FEE1000E6B556 /* EventsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114541D1A9FEE1000E6B556 /* EventsCollection.swift */; };
 		8114B4651A9FC29C00AC4CB7 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4641A9FC29C00AC4CB7 /* libicucore.dylib */; };
 		8114B4671A9FC2C500AC4CB7 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4661A9FC2C500AC4CB7 /* libc++.dylib */; };
 		8114B4691A9FC2D400AC4CB7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4681A9FC2D400AC4CB7 /* CFNetwork.framework */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8114541D1A9FEE1000E6B556 /* EventsCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCollection.swift; sourceTree = "<group>"; };
 		8114B4641A9FC29C00AC4CB7 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		8114B4661A9FC2C500AC4CB7 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		8114B4681A9FC2D400AC4CB7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -81,9 +83,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8114B4711A9FD2F600AC4CB7 /* models */ = {
+		8114B47A1A9FEA8800AC4CB7 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				8114541D1A9FEE1000E6B556 /* EventsCollection.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -115,7 +118,7 @@
 		E2A46EBC1A9FAFCE0090FDCB /* socializr */ = {
 			isa = PBXGroup;
 			children = (
-				8114B4711A9FD2F600AC4CB7 /* models */,
+				8114B47A1A9FEA8800AC4CB7 /* models */,
 				E2A46EBF1A9FAFCE0090FDCB /* AppDelegate.swift */,
 				E2A46EE21A9FC9910090FDCB /* EventsViewController.swift */,
 				E2A46EC41A9FAFCE0090FDCB /* MainViewController.swift */,
@@ -256,6 +259,7 @@
 			files = (
 				E2A46EC51A9FAFCE0090FDCB /* MainViewController.swift in Sources */,
 				E2A46EE31A9FC9910090FDCB /* EventsViewController.swift in Sources */,
+				8114541E1A9FEE1000E6B556 /* EventsCollection.swift in Sources */,
 				E2A46EC31A9FAFCE0090FDCB /* socializr.xcdatamodeld in Sources */,
 				E2A46EC01A9FAFCE0090FDCB /* AppDelegate.swift in Sources */,
 			);

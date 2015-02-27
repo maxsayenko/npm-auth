@@ -15,6 +15,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
     var endDatePickerView : UIDatePicker = UIDatePicker()
     var startDate : NSDate = NSDate()
     var endDate : NSDate = NSDate()
+    
 
     @IBOutlet var viewControl: UIControl!
     @IBOutlet var locationLabel: UILabel!
@@ -22,17 +23,22 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var startDateTxt: UITextField!
     @IBOutlet var noteTxtBox: UITextView!
     @IBOutlet var titleTxt: UITextField!
-    
-    
+
     @IBAction func addButtonClick(sender: UIBarButtonItem) {
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        ////var dateFormatter = NSDateFormatter()
+        ////date Formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         //dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         //var sDate = dateFormatter.dateFromString(startDateTxt.text)
         //var date = dateFormatter.stringFromDate(startDate)
-        println(startDateTxt.text)
+        ////println(startDateTxt.text)
         //println(sDate)
-        var startDate = startDateTxt.text
+        ////var startDate = startDateTxt.text
+        
+        var dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        var startDateText = dateFormatter.stringFromDate(startDate)
+        var endDateText = dateFormatter.stringFromDate(endDate)
     }
     
     @IBAction func backgroundTouched(sender: UIControl) {

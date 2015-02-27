@@ -9,18 +9,21 @@
 import UIKit
 import MapKit
 
-class NewEventViewController: UIViewController {
+class NewEventViewController: UIViewController, UITextFieldDelegate {
 
     var startDatePickerView : UIDatePicker = UIDatePicker()
 
-    
+    @IBOutlet var viewControl: UIControl!
+    @IBOutlet var locationLabel: UILabel!
+    @IBOutlet var endDateTxt: UITextField!
     @IBOutlet var startDateTxt: UITextField!
 
-
-    @IBOutlet var locationLabel: UILabel!
-    
     @IBAction func addButtonClick(sender: UIBarButtonItem) {
         
+    }
+    
+    @IBAction func backgroundTouched(sender: UIControl) {
+        viewControl.endEditing(true)
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -31,11 +34,14 @@ class NewEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        startDateTxt.delegate = self
+        endDateTxt.delegate = self
         
         startDatePickerView = UIDatePicker()
         startDatePickerView.datePickerMode = UIDatePickerMode.DateAndTime
         startDateTxt.inputView = startDatePickerView
         startDatePickerView.addTarget( self, action: Selector("handelStartDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+
     }
     
     func handelStartDatePicker(datePicker:UIDatePicker) {
@@ -51,6 +57,12 @@ class NewEventViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // called when 'return' key pressed. return NO to ignore.
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        textField.resignFirstResponder()
+        return true;
     }
 
 }

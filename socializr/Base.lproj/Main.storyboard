@@ -33,7 +33,7 @@
                         <viewControllerLayoutGuide type="top" id="dO8-Ux-Rcx"/>
                         <viewControllerLayoutGuide type="bottom" id="4Lh-yf-5zx"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9Od-Bx-Ol4">
+                    <view key="view" contentMode="scaleToFill" id="9Od-Bx-Ol4" customClass="UIControl">
                         <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -70,24 +70,32 @@
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t1J-FD-iGO" userLabel="DateBlock">
                                 <rect key="frame" x="0.0" y="228" width="320" height="127"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OL7-AY-tNo">
-                                        <rect key="frame" x="74" y="8" width="238" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="textClicked:" destination="3yT-aS-1Jk" eventType="touchUpInside" id="SWu-qj-Ulz"/>
-                                            <action selector="textEditingEnd:" destination="3yT-aS-1Jk" eventType="editingDidEnd" id="sxV-Yn-ag5"/>
-                                        </connections>
-                                    </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Starts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fim-Wg-OLx">
                                         <rect key="frame" x="8" y="12" width="58" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OL7-AY-tNo">
+                                        <rect key="frame" x="74" y="8" width="238" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ends" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhd-me-KFg">
+                                        <rect key="frame" x="8" y="53" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0lp-kW-ZfP">
+                                        <rect key="frame" x="74" y="50" width="238" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="0lp-kW-ZfP" secondAttribute="trailing" constant="8" id="3BZ-Dk-MdE"/>
                                     <constraint firstAttribute="trailing" secondItem="OL7-AY-tNo" secondAttribute="trailing" constant="8" id="3va-Db-rsf"/>
                                 </constraints>
                             </view>
@@ -101,6 +109,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="7XM-pk-cS4" secondAttribute="trailing" constant="-16" id="iOs-zV-Yoc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="t1J-FD-iGO" secondAttribute="trailing" constant="-16" id="jp4-mu-tOk"/>
                         </constraints>
+                        <connections>
+                            <action selector="backgroundTouched:" destination="3yT-aS-1Jk" eventType="touchUpInside" id="Hov-aS-7cA"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="New Ancestry Event" id="Qr8-0L-Eja">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="o1R-9e-iDx">
@@ -111,8 +122,10 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="endDateTxt" destination="0lp-kW-ZfP" id="sbu-Nu-4bL"/>
                         <outlet property="locationLabel" destination="LnW-ng-Upv" id="Ry9-ZG-qeC"/>
                         <outlet property="startDateTxt" destination="OL7-AY-tNo" id="Pi1-Bk-6H0"/>
+                        <outlet property="viewControl" destination="9Od-Bx-Ol4" id="Oms-hO-mr4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jn7-3X-OpR" userLabel="First Responder" sceneMemberID="firstResponder"/>

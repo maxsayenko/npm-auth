@@ -21,14 +21,14 @@ class MainViewController: UIViewController, UITableViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
 //      self.navigationController?.navigationBarHidden = true
         
         NSNotificationCenter.defaultCenter().removeObserver(self)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateList:", name: "EventsUpdated", object: nil)
         
-        EventsCollection()
+        // EventsCollection()
     }
 
     override func didReceiveMemoryWarning() {

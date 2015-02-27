@@ -9,12 +9,15 @@
 import UIKit
 
 class EventsViewController: UIViewController {
-
-    @IBAction func backButtonClicked(sender: UIButton) {
+    
+    var id = "1"
+    
+    @IBAction func backButtonClick(sender: UIBarButtonItem) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     override func viewDidLoad() {
+        println(id)
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -25,7 +28,6 @@ class EventsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 

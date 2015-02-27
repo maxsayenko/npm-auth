@@ -14,6 +14,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     @IBAction func ButtonClick(sender: UIButton) {
         let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventsView") as EventsViewController
+        eventsViewController.id = "newId"
         self.navigationController?.pushViewController(eventsViewController, animated: true)
     }
 

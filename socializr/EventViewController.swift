@@ -14,7 +14,9 @@ class EventViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var eventNameLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var eventUsersLabel: UILabel!
     
+    @IBOutlet var notesText: UITextView!
     
     var id = "1"
     
@@ -54,6 +56,8 @@ class EventViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         eventNameLabel.text = "Running"
         dateLabel.text = "date goes here"
+        eventUsersLabel.text = "one \n two \n three \n four \n five \n six \n seven"
+        notesText.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, mais also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s avec the release of Letraset sheets containing Lorem Ipsum passages, and more recently avec desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
     }
     
     func longPressAction(gestureRecognizer: UIGestureRecognizer) {

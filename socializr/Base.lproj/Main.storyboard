@@ -135,6 +135,7 @@
                         <outlet property="locationLabel" destination="LnW-ng-Upv" id="Ry9-ZG-qeC"/>
                         <outlet property="noteTxtBox" destination="ntU-zz-LgV" id="H9V-cr-pLe"/>
                         <outlet property="startDateTxt" destination="OL7-AY-tNo" id="Pi1-Bk-6H0"/>
+                        <outlet property="titleTxt" destination="cBz-Te-Oqx" id="9vu-ub-bJU"/>
                         <outlet property="viewControl" destination="9Od-Bx-Ol4" id="Oms-hO-mr4"/>
                     </connections>
                 </viewController>

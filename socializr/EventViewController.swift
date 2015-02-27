@@ -12,11 +12,12 @@ import MapKit
 class EventViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
+    @IBOutlet var eventNameLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    
+    
     var id = "1"
     
-    @IBAction func butClick(sender: AnyObject) {
-
-    }
     
     override func viewDidLoad() {
         println(id)
@@ -48,6 +49,11 @@ class EventViewController: UIViewController {
         mapView.addAnnotation(annotation)
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        eventNameLabel.text = "Running"
+        dateLabel.text = "date goes here"
     }
     
     func longPressAction(gestureRecognizer: UIGestureRecognizer) {

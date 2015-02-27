@@ -77,9 +77,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
         if(event["users"]? != nil) {
             eventsViewController.users = event["users"] as NSMutableArray
         }
-        else {
-            println("nil")
-        }
         
         self.navigationController?.pushViewController(eventsViewController, animated: true)
     }

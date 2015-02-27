@@ -14,10 +14,20 @@ var firebase = Firebase(url: "http://socializr.firebaseio.com/events")
 class EventsCollection {
     
     init() {
-        firebase.observeEventType(.Value, withBlock: {
-            snapshot in
+        firebase.observeEventType(.Value, withBlock: { snapshot in
             var events = snapshot.value as NSDictionary
             NSNotificationCenter.defaultCenter().postNotificationName("EventsUpdated", object: self, userInfo: events)
+        })
+        
+        firebase.observeEventType(.ChildAdded, withBlock: { snapshot in
+            var events = snapshot.value as NSDictionary
+            NSNotificationCenter.defaultCenter().postNotificationName("EventAdded", object: self, userInfo: events)
+        })
+        
+        // Get the data on a post that has changed
+        firebase.observeEventType(.ChildChanged, withBlock: { snapshot in
+            var events = snapshot.value as NSDictionary
+            NSNotificationCenter.defaultCenter().postNotificationName("EventChanged", object: self, userInfo: events)
         })
     }
     

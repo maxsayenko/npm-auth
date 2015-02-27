@@ -99,15 +99,24 @@
                                     <constraint firstAttribute="trailing" secondItem="OL7-AY-tNo" secondAttribute="trailing" constant="8" id="3va-Db-rsf"/>
                                 </constraints>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Note" translatesAutoresizingMaskIntoConstraints="NO" id="ntU-zz-LgV">
+                                <rect key="frame" x="0.0" y="432" width="320" height="136"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7XM-pk-cS4" firstAttribute="leading" secondItem="9Od-Bx-Ol4" secondAttribute="leadingMargin" constant="-16" id="2tt-GU-hC8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ntU-zz-LgV" secondAttribute="trailing" constant="-16" id="AE3-oq-4Jg"/>
                             <constraint firstItem="t1J-FD-iGO" firstAttribute="top" secondItem="7XM-pk-cS4" secondAttribute="bottom" constant="37" id="Ifj-Pu-xi8"/>
                             <constraint firstItem="t1J-FD-iGO" firstAttribute="leading" secondItem="9Od-Bx-Ol4" secondAttribute="leadingMargin" constant="-16" id="XUF-ok-1gS"/>
                             <constraint firstItem="7XM-pk-cS4" firstAttribute="top" secondItem="dO8-Ux-Rcx" secondAttribute="bottom" constant="36" id="cjx-hv-gXX"/>
+                            <constraint firstItem="4Lh-yf-5zx" firstAttribute="top" secondItem="ntU-zz-LgV" secondAttribute="bottom" id="fDd-6v-VXC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7XM-pk-cS4" secondAttribute="trailing" constant="-16" id="iOs-zV-Yoc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="t1J-FD-iGO" secondAttribute="trailing" constant="-16" id="jp4-mu-tOk"/>
+                            <constraint firstItem="ntU-zz-LgV" firstAttribute="leading" secondItem="9Od-Bx-Ol4" secondAttribute="leadingMargin" constant="-16" id="rbs-fN-vRF"/>
                         </constraints>
                         <connections>
                             <action selector="backgroundTouched:" destination="3yT-aS-1Jk" eventType="touchUpInside" id="Hov-aS-7cA"/>
@@ -124,6 +133,7 @@
                     <connections>
                         <outlet property="endDateTxt" destination="0lp-kW-ZfP" id="sbu-Nu-4bL"/>
                         <outlet property="locationLabel" destination="LnW-ng-Upv" id="Ry9-ZG-qeC"/>
+                        <outlet property="noteTxtBox" destination="ntU-zz-LgV" id="H9V-cr-pLe"/>
                         <outlet property="startDateTxt" destination="OL7-AY-tNo" id="Pi1-Bk-6H0"/>
                         <outlet property="viewControl" destination="9Od-Bx-Ol4" id="Oms-hO-mr4"/>
                     </connections>

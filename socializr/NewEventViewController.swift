@@ -18,6 +18,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var endDateTxt: UITextField!
     @IBOutlet var startDateTxt: UITextField!
+    @IBOutlet var noteTxtBox: UITextView!
 
     @IBAction func addButtonClick(sender: UIBarButtonItem) {
         

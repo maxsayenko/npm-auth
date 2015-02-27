@@ -29,4 +29,8 @@ class EventsCollection {
                 NSNotificationCenter.defaultCenter().postNotificationName("GetRouletteEvents", object: self, userInfo: events)
             })
     }
+    
+    func addUserToEvent(eventId: String) {
+        println(eventId)
+    }
 }

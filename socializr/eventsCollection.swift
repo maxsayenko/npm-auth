@@ -11,16 +11,12 @@ import Foundation
 var firebase = Firebase(url: "http://socializr.firebaseio.com/events")
 
 class EventsCollection {
-    var events:NSMutableDictionary = [:]
     
     init() {
         firebase.observeEventType(.Value, withBlock: {
             snapshot in
-            
-            self.events = snapshot.value as NSMutableDictionary
-            for e in self.events {
-                println(e)
-            }
+            var events = snapshot.value as NSDictionary
+            NSNotificationCenter.defaultCenter().postNotificationName("EventsUpdated", object: self, userInfo: events)
         })
     }
 }

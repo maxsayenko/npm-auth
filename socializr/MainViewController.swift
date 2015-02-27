@@ -74,6 +74,13 @@ class MainViewController: UIViewController, UITableViewDelegate {
         eventsViewController.lat = lat
         eventsViewController.lng = lng
         
+        if(event["users"]? != nil) {
+            eventsViewController.users = event["users"] as NSMutableArray
+        }
+        else {
+            println("nil")
+        }
+        
         self.navigationController?.pushViewController(eventsViewController, animated: true)
     }
     

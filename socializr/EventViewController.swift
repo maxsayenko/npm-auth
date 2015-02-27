@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import MapKit
 
-class EventsViewController: UIViewController {
+class EventViewController: UIViewController {
     
+    @IBOutlet var mapView: MKMapView!
     var id = "1"
     
     @IBAction func backButtonClick(sender: UIBarButtonItem) {
@@ -20,6 +22,20 @@ class EventsViewController: UIViewController {
         println(id)
         super.viewDidLoad()
 
+        var latitude:CLLocationDegrees = 37.779492
+        var longditude:CLLocationDegrees = -122.391669
+        
+        var latDelta:CLLocationDegrees = 0.01
+        var longDelta:CLLocationDegrees = 0.01
+        
+        var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+        
+        var churchLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longditude)
+        
+        var theRegion:MKCoordinateRegion = MKCoordinateRegionMake(churchLocation, theSpan)
+        
+        mapView.setRegion(theRegion, animated: true)
+        
         // Do any additional setup after loading the view.
     }
 

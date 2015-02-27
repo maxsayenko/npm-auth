@@ -13,7 +13,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     var cellContent = ["One", "Two", "Three", "Four"]
     
     @IBAction func ButtonClick(sender: UIButton) {
-        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventsView") as EventsViewController
+        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as EventViewController
         eventsViewController.id = "newId"
         self.navigationController?.pushViewController(eventsViewController, animated: true)
     }
@@ -51,7 +51,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     // Cell Click
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //CODE TO BE RUN ON CELL TOUCH
-        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventsView") as EventsViewController
+        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as EventViewController
         self.navigationController?.pushViewController(eventsViewController, animated: true)
     }
     

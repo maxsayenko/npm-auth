@@ -47,7 +47,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         var eventId = NSUUID().UUIDString
         var firebaseRef = Firebase(url: "http://socializr.firebaseio.com/events")
         
-        var data = ["id": eventId, "name": name, "startTime": startDateText, "endTime": endDateText]
+        var data = ["id": eventId, "name": name, "startTime": startDateText, "endTime": endDateText, "notes": noteTxtBox.text]
         var eventRef = firebaseRef.childByAppendingPath(eventId)
 
         eventRef.setValue(data)

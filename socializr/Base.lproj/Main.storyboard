@@ -37,11 +37,11 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="block1" translatesAutoresizingMaskIntoConstraints="NO" id="7XM-pk-cS4" userLabel="TitleLocationBlock">
-                                <rect key="frame" x="0.0" y="99" width="320" height="153"/>
+                            <view contentMode="scaleToFill" restorationIdentifier="block1" translatesAutoresizingMaskIntoConstraints="NO" id="7XM-pk-cS4" userLabel="TitleLocationBlock">
+                                <rect key="frame" x="0.0" y="100" width="320" height="91"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cBz-Te-Oqx">
-                                        <rect key="frame" x="8" y="8" width="304" height="30"/>
+                                        <rect key="frame" x="15" y="8" width="297" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -63,15 +63,43 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="LnW-ng-Upv" secondAttribute="trailing" constant="8" id="ccF-6L-Ke9"/>
+                                    <constraint firstAttribute="trailing" secondItem="LnW-ng-Upv" secondAttribute="trailing" constant="8" id="Hti-p9-Jcq"/>
+                                    <constraint firstAttribute="height" constant="91" id="yw6-jH-YA1"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t1J-FD-iGO" userLabel="DateBlock">
+                                <rect key="frame" x="0.0" y="228" width="320" height="127"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OL7-AY-tNo">
+                                        <rect key="frame" x="74" y="8" width="238" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="textClicked:" destination="3yT-aS-1Jk" eventType="touchUpInside" id="SWu-qj-Ulz"/>
+                                            <action selector="textEditingEnd:" destination="3yT-aS-1Jk" eventType="editingDidEnd" id="sxV-Yn-ag5"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Starts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fim-Wg-OLx">
+                                        <rect key="frame" x="8" y="12" width="58" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="OL7-AY-tNo" secondAttribute="trailing" constant="8" id="3va-Db-rsf"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7XM-pk-cS4" firstAttribute="leading" secondItem="9Od-Bx-Ol4" secondAttribute="leadingMargin" constant="-16" id="3Qa-v7-kTa"/>
-                            <constraint firstItem="7XM-pk-cS4" firstAttribute="top" secondItem="dO8-Ux-Rcx" secondAttribute="bottom" constant="35" id="De8-D6-obZ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="7XM-pk-cS4" secondAttribute="trailing" constant="-16" id="JdD-ba-1Ml"/>
+                            <constraint firstItem="7XM-pk-cS4" firstAttribute="leading" secondItem="9Od-Bx-Ol4" secondAttribute="leadingMargin" constant="-16" id="2tt-GU-hC8"/>
+                            <constraint firstItem="t1J-FD-iGO" firstAttribute="top" secondItem="7XM-pk-cS4" secondAttribute="bottom" constant="37" id="Ifj-Pu-xi8"/>
+                            <constraint firstItem="t1J-FD-iGO" firstAttribute="leading" secondItem="9Od-Bx-Ol4" secondAttribute="leadingMargin" constant="-16" id="XUF-ok-1gS"/>
+                            <constraint firstItem="7XM-pk-cS4" firstAttribute="top" secondItem="dO8-Ux-Rcx" secondAttribute="bottom" constant="36" id="cjx-hv-gXX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7XM-pk-cS4" secondAttribute="trailing" constant="-16" id="iOs-zV-Yoc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="t1J-FD-iGO" secondAttribute="trailing" constant="-16" id="jp4-mu-tOk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Ancestry Event" id="Qr8-0L-Eja">
@@ -84,11 +112,12 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="locationLabel" destination="LnW-ng-Upv" id="Ry9-ZG-qeC"/>
+                        <outlet property="startDateTxt" destination="OL7-AY-tNo" id="Pi1-Bk-6H0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jn7-3X-OpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="463" y="-879"/>
+            <point key="canvasLocation" x="463" y="-876"/>
         </scene>
         <!--Map Pick View Controller-->
         <scene sceneID="Toe-hz-T57">
@@ -166,7 +195,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="CMe-AF-wkX" id="1Qp-PU-cmK"/>
-                        <segue destination="HQM-U0-m9h" kind="show" id="4ZC-hb-ORm"/>
+                        <segue destination="HQM-U0-m9h" kind="show" identifier="toEventView" id="4ZC-hb-ORm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

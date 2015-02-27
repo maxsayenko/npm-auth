@@ -11,12 +11,18 @@ import MapKit
 
 class NewEventViewController: UIViewController {
 
+    var startDatePickerView : UIDatePicker = UIDatePicker()
+
+    
+    @IBOutlet var startDateTxt: UITextField!
+
+
     @IBOutlet var locationLabel: UILabel!
     
     @IBAction func addButtonClick(sender: UIBarButtonItem) {
         
     }
-    
+
     override func viewDidAppear(animated: Bool) {
         if(Singleton.sharedInstance.eventLocation != nil) {
             locationLabel.text = "Set"
@@ -25,7 +31,21 @@ class NewEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        startDatePickerView = UIDatePicker()
+        startDatePickerView.datePickerMode = UIDatePickerMode.DateAndTime
+        startDateTxt.inputView = startDatePickerView
+        startDatePickerView.addTarget( self, action: Selector("handelStartDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+    }
+    
+    func handelStartDatePicker(datePicker:UIDatePicker) {
+        var dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        var strDate = dateFormatter.stringFromDate(datePicker.date)
+        startDateTxt.text =  strDate
     }
 
     override func didReceiveMemoryWarning() {

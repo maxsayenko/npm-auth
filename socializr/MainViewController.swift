@@ -31,7 +31,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateList:", name: "EventsUpdated", object: nil)
         
         EventsCollection()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,7 +56,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //CODE TO BE RUN ON CELL TOUCH
         let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as EventViewController
-        
         eventsViewController.id = self.events[indexPath.row]["id"] as NSString
         self.navigationController?.pushViewController(eventsViewController, animated: true)
     }

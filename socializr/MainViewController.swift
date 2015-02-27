@@ -28,7 +28,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateList:", name: "EventsUpdated", object: nil)
         
-        // EventsCollection()
+        EventsCollection()
     }
 
     override func didReceiveMemoryWarning() {

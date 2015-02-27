@@ -13,7 +13,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
     var cellContent = ["One", "Two", "Three", "Four"]
     
     @IBAction func ButtonClick(sender: UIButton) {
-        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventsView") as EventsViewController
+        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as EventViewController
+        eventsViewController.id = "newId"
         self.navigationController?.pushViewController(eventsViewController, animated: true)
     }
 
@@ -40,6 +41,10 @@ class MainViewController: UIViewController, UITableViewDelegate {
     // Populate table items
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        // send notification just for testing when the view is loaded
+        scheduleNotification()
+        
+        // just testing
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
         
         cell.textLabel?.text = cellContent[indexPath.row]
@@ -50,7 +55,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     // Cell Click
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //CODE TO BE RUN ON CELL TOUCH
-        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventsView") as EventsViewController
+        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as EventViewController
         self.navigationController?.pushViewController(eventsViewController, animated: true)
     }
     
@@ -61,5 +66,15 @@ class MainViewController: UIViewController, UITableViewDelegate {
 //        }
     }
     
+    // schedule notification
+    func scheduleNotification() {
+        var localNotification:UILocalNotification = UILocalNotification()
+        localNotification.alertAction = "Testing notifications on iOS8"
+        localNotification.alertBody = "Local notifications are working"
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 5)
+        localNotification.soundName = UILocalNotificationDefaultSoundName
+        localNotification.category = "invite"
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+    }
 }
 

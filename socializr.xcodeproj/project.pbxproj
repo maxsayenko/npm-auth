@@ -22,7 +22,8 @@
 		E2A46ECA1A9FAFCE0090FDCB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2A46EC91A9FAFCE0090FDCB /* Images.xcassets */; };
 		E2A46ECD1A9FAFCE0090FDCB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2A46ECB1A9FAFCE0090FDCB /* LaunchScreen.xib */; };
 		E2A46ED91A9FAFCE0090FDCB /* socializrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A46ED81A9FAFCE0090FDCB /* socializrTests.swift */; };
-		E2A46EE31A9FC9910090FDCB /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A46EE21A9FC9910090FDCB /* EventsViewController.swift */; };
+		E2A46EE31A9FC9910090FDCB /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A46EE21A9FC9910090FDCB /* EventViewController.swift */; };
+		E2A46EE51A9FF73E0090FDCB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A46EE41A9FF73E0090FDCB /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +56,8 @@
 		E2A46ED21A9FAFCE0090FDCB /* socializrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = socializrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A46ED71A9FAFCE0090FDCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2A46ED81A9FAFCE0090FDCB /* socializrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = socializrTests.swift; sourceTree = "<group>"; };
-		E2A46EE21A9FC9910090FDCB /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		E2A46EE21A9FC9910090FDCB /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		E2A46EE41A9FF73E0090FDCB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2A46EE51A9FF73E0090FDCB /* MapKit.framework in Frameworks */,
 				8114B46D1A9FC2F000AC4CB7 /* SystemConfiguration.framework in Frameworks */,
 				8114B4751A9FD4F500AC4CB7 /* Firebase.framework in Frameworks */,
 				8114B46B1A9FC2E200AC4CB7 /* Security.framework in Frameworks */,
@@ -94,6 +97,7 @@
 		E2A46EB11A9FAFCE0090FDCB = {
 			isa = PBXGroup;
 			children = (
+				E2A46EE41A9FF73E0090FDCB /* MapKit.framework */,
 				8114B4741A9FD4F500AC4CB7 /* Firebase.framework */,
 				8114B46C1A9FC2F000AC4CB7 /* SystemConfiguration.framework */,
 				8114B46A1A9FC2E200AC4CB7 /* Security.framework */,
@@ -120,7 +124,7 @@
 			children = (
 				8114B47A1A9FEA8800AC4CB7 /* models */,
 				E2A46EBF1A9FAFCE0090FDCB /* AppDelegate.swift */,
-				E2A46EE21A9FC9910090FDCB /* EventsViewController.swift */,
+				E2A46EE21A9FC9910090FDCB /* EventViewController.swift */,
 				E2A46EC41A9FAFCE0090FDCB /* MainViewController.swift */,
 				E2A46EC61A9FAFCE0090FDCB /* Main.storyboard */,
 				E2A46EC91A9FAFCE0090FDCB /* Images.xcassets */,
@@ -258,7 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2A46EC51A9FAFCE0090FDCB /* MainViewController.swift in Sources */,
-				E2A46EE31A9FC9910090FDCB /* EventsViewController.swift in Sources */,
+				E2A46EE31A9FC9910090FDCB /* EventViewController.swift in Sources */,
 				8114541E1A9FEE1000E6B556 /* EventsCollection.swift in Sources */,
 				E2A46EC31A9FAFCE0090FDCB /* socializr.xcdatamodeld in Sources */,
 				E2A46EC01A9FAFCE0090FDCB /* AppDelegate.swift in Sources */,

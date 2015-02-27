@@ -66,6 +66,16 @@ class MainViewController: UIViewController, UITableViewDelegate {
         eventsViewController.startTime = convertStringToDate(event["startTime"] as NSString)
         eventsViewController.endTime = convertStringToDate(event["endTime"] as NSString)
         
+        var location = event["location"]? as AnyObject?
+        
+        println(location?["lat"])
+        
+        var lat:Double = location?["lat"] as Double
+        var lng:Double = location?["lng"] as Double
+        
+        eventsViewController.lat = lat
+        eventsViewController.lng = lng
+        
         self.navigationController?.pushViewController(eventsViewController, animated: true)
     }
     

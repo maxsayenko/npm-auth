@@ -17,6 +17,15 @@ class EventViewController: UIViewController {
     @IBOutlet var eventUsersLabel: UILabel!
     
     @IBOutlet var notesText: UITextView!
+    @IBOutlet var joinView: UIView!
+    
+    @IBAction func yesButtonClick(sender: AnyObject) {
+        joinView.hidden = true
+    }
+    
+    @IBAction func noButtonClick(sender: AnyObject) {
+        joinView.hidden = true
+    }
     
     var id = "1"
     var name = ""

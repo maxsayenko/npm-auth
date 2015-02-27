@@ -366,7 +366,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view alpha="0.79999999999999982" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qKL-Yk-kB4">
+                            <view alpha="0.79999999999999982" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qKL-Yk-kB4" userLabel="Title">
                                 <rect key="frame" x="0.0" y="64" width="320" height="87"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rj-5l-2Rr">
@@ -394,17 +394,55 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gsE-5b-avQ" userLabel="Join">
+                                <rect key="frame" x="0.0" y="469" width="320" height="99"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Are you going?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVa-mL-b4K">
+                                        <rect key="frame" x="61" y="16" width="199" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCc-nn-hvW">
+                                        <rect key="frame" x="56" y="45" width="106" height="30"/>
+                                        <state key="normal" title="Yes, I'm going">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="yesButtonClick:" destination="HQM-U0-m9h" eventType="touchUpInside" id="FNF-z8-hsk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCv-6D-yz6">
+                                        <rect key="frame" x="196" y="45" width="57" height="30"/>
+                                        <state key="normal" title="Busy :(">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="noButtonClick:" destination="HQM-U0-m9h" eventType="touchUpInside" id="QYT-3v-l4w"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.047058823530000002" green="0.81568627449999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="99" id="lXn-M4-9Gb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="nLa-gV-ghn" firstAttribute="leading" secondItem="2sK-FT-6N5" secondAttribute="leadingMargin" constant="-16" id="3Ib-lk-qea"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gsE-5b-avQ" secondAttribute="trailing" constant="-16" id="3TU-NY-swb"/>
                             <constraint firstItem="HSg-yf-N1o" firstAttribute="top" secondItem="xVa-Fp-jMH" secondAttribute="bottom" id="5C9-JW-Ask"/>
+                            <constraint firstItem="UDb-Rf-7RY" firstAttribute="top" secondItem="gsE-5b-avQ" secondAttribute="bottom" id="F6x-IN-AyM"/>
                             <constraint firstItem="qKL-Yk-kB4" firstAttribute="leading" secondItem="2sK-FT-6N5" secondAttribute="leadingMargin" constant="-16" id="RHb-1l-xbr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SW1-9q-2Xr" secondAttribute="trailing" constant="-16" id="Rj2-50-5bp"/>
                             <constraint firstItem="HSg-yf-N1o" firstAttribute="leading" secondItem="2sK-FT-6N5" secondAttribute="leadingMargin" constant="-16" id="SKk-rV-q9v"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HSg-yf-N1o" secondAttribute="trailing" constant="-16" id="TEi-d0-Znh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qKL-Yk-kB4" secondAttribute="trailing" constant="-16" id="TqE-jx-KWs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nLa-gV-ghn" secondAttribute="trailing" constant="-16" id="bme-OV-nex"/>
+                            <constraint firstItem="gsE-5b-avQ" firstAttribute="leading" secondItem="2sK-FT-6N5" secondAttribute="leadingMargin" constant="-16" id="eUC-no-xTM"/>
                             <constraint firstItem="SW1-9q-2Xr" firstAttribute="leading" secondItem="2sK-FT-6N5" secondAttribute="leadingMargin" constant="-16" id="j2A-VQ-7UB"/>
                             <constraint firstItem="qKL-Yk-kB4" firstAttribute="top" secondItem="xVa-Fp-jMH" secondAttribute="bottom" id="ogd-Wy-gXv"/>
                             <constraint firstItem="nLa-gV-ghn" firstAttribute="top" secondItem="jhq-Ky-Wh7" secondAttribute="bottom" constant="8" id="qIv-uH-wSn"/>
@@ -418,6 +456,7 @@
                         <outlet property="dateLabel" destination="5Rj-5l-2Rr" id="foe-zg-b6S"/>
                         <outlet property="eventNameLabel" destination="M1T-Rc-qj5" id="Eb1-eu-gG3"/>
                         <outlet property="eventUsersLabel" destination="cMQ-S6-8kn" id="Kee-8B-i9A"/>
+                        <outlet property="joinView" destination="gsE-5b-avQ" id="pX5-jv-bhY"/>
                         <outlet property="mapView" destination="HSg-yf-N1o" id="zDc-ji-Qh1"/>
                         <outlet property="notesText" destination="SW1-9q-2Xr" id="WRD-kM-DzH"/>
                     </connections>

@@ -28,19 +28,21 @@ class EventViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        println(id)
         super.viewDidLoad()
 
         var longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressAction:")
         longPressRecognizer.minimumPressDuration = 2
         mapView.addGestureRecognizer(longPressRecognizer)
         
+// ancestry coords
+//        var latitude:CLLocationDegrees = 37.779492
+//        var longditude:CLLocationDegrees = -122.391669
         
-        var latitude:CLLocationDegrees = 37.779492
-        var longditude:CLLocationDegrees = -122.391669
+        var latitude:CLLocationDegrees = lat
+        var longditude:CLLocationDegrees = lng
         
-        var latDelta:CLLocationDegrees = 0.01
-        var longDelta:CLLocationDegrees = 0.01
+        var latDelta:CLLocationDegrees = 0.03
+        var longDelta:CLLocationDegrees = 0.03
         
         var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
         
@@ -60,8 +62,20 @@ class EventViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        var dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        var startDate = dateFormatter.stringFromDate(startTime)
+        var endDate = dateFormatter.stringFromDate(endTime)
+        
         eventNameLabel.text = name
-        dateLabel.text = "date goes here"
+        dateLabel.text = "\(startDate) - \(endDate)"
+        
+        //println(users.count)
+        // println(users[0])
+        
         eventUsersLabel.text = "one \n two \n three \n four \n five \n six \n seven"
         notesText.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, mais also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s avec the release of Letraset sheets containing Lorem Ipsum passages, and more recently avec desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
     }
@@ -69,7 +83,6 @@ class EventViewController: UIViewController {
     func longPressAction(gestureRecognizer: UIGestureRecognizer) {
         var touchPoint = gestureRecognizer.locationInView(self.mapView)
         var newCoordinate:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: self.mapView)
-        println(newCoordinate)
         var annotation = MKPointAnnotation()
         annotation.coordinate = newCoordinate
         annotation.title = "Finish"

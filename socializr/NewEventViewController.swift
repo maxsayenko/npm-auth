@@ -21,7 +21,9 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var endDateTxt: UITextField!
     @IBOutlet var startDateTxt: UITextField!
     @IBOutlet var noteTxtBox: UITextView!
-
+    @IBOutlet var titleTxt: UITextField!
+    
+    
     @IBAction func addButtonClick(sender: UIBarButtonItem) {
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"

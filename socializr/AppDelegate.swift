@@ -17,6 +17,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let notificationType = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
+        let acceptAction = UIMutableUserNotificationAction()
+        acceptAction.identifier = "Accept"
+        acceptAction.title = "Accept"
+        acceptAction.activationMode = UIUserNotificationActivationMode.Background
+        acceptAction.destructive = false
+        acceptAction.authenticationRequired = false
+        
+        let declineAction = UIMutableUserNotificationAction()
+        declineAction.identifier = "Decline"
+        declineAction.title = "Decline"
+        declineAction.activationMode = UIUserNotificationActivationMode.Background
+        declineAction.destructive = false
+        declineAction.authenticationRequired = false
+        
+        let category = UIMutableUserNotificationCategory()
+        category.identifier = "invite"
+        category.setActions([acceptAction, declineAction], forContext: UIUserNotificationActionContext.Default)
+        let categories = NSSet(array: [category])
+        let settings = UIUserNotificationSettings(forTypes: notificationType, categories: categories)
+        application.registerUserNotificationSettings(settings)
         return true
     }
 

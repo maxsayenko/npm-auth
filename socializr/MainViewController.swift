@@ -31,6 +31,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         
         NSNotificationCenter.defaultCenter().removeObserver(self)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateList:", name: "EventsUpdated", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "eventChanged:", name: "EventChanged", object: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -111,19 +112,27 @@ class MainViewController: UIViewController, UITableViewDelegate {
         for e in notification.userInfo!{
             self.events.addObject(e.1)
         }
-        
-        // send notification just for testing when the view is loaded
-        scheduleNotification()
-        
+
         tableView.reloadData()
+        
+        scheduleNotification()
+    }
+    
+    func eventChanged(notification: NSNotification) {
+        // send notification just for testing when the view is loaded
+        // println(notification.userInfo!["name"])
+        // println(notification.userInfo!["startTime"])
+        // scheduleNotification(notification.userInfo!)
+        scheduleNotification()
     }
     
     // schedule notification
     func scheduleNotification() {
+        
         var localNotification:UILocalNotification = UILocalNotification()
         localNotification.alertAction = "Testing notifications on iOS8"
-        localNotification.alertBody = "Local notifications are working"
-        localNotification.fireDate = NSDate(timeIntervalSinceNow: 5)
+        localNotification.alertBody = "New Ancestry event created, please check it out!"
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 3)
         localNotification.soundName = UILocalNotificationDefaultSoundName
         localNotification.category = "invite"
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)

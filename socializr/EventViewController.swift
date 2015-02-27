@@ -13,6 +13,12 @@ class EventViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     var id = "1"
+    var name = ""
+    var lat:CLLocationDegrees = 0
+    var lng:CLLocationDegrees = 0
+    var startTime:NSDate = NSDate()
+    var endTime:NSDate = NSDate()
+    var users:NSMutableArray = NSMutableArray()    
     
     @IBAction func butClick(sender: AnyObject) {
 

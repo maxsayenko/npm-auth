@@ -58,8 +58,24 @@ class MainViewController: UIViewController, UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //CODE TO BE RUN ON CELL TOUCH
         let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as EventViewController
-        eventsViewController.id = self.events[indexPath.row]["id"] as NSString
+        
+        var event = self.events[indexPath.row] as AnyObject
+        
+        eventsViewController.id = event["id"] as NSString
+        eventsViewController.name = event["name"] as NSString
+        eventsViewController.startTime = convertStringToDate(event["startTime"] as NSString)
+        eventsViewController.endTime = convertStringToDate(event["endTime"] as NSString)
+        
         self.navigationController?.pushViewController(eventsViewController, animated: true)
+    }
+    
+    func convertStringToDate(date: NSString) -> NSDate {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        /*find out and place date format from http://userguide.icu-project.org/formatparse/datetime*/
+        println(dateFormatter.dateFromString(date))
+        return dateFormatter.dateFromString(date)!
     }
     
     func updateList(notification: NSNotification) {

@@ -13,15 +13,47 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
 
     var startDatePickerView : UIDatePicker = UIDatePicker()
     var endDatePickerView : UIDatePicker = UIDatePicker()
+    var startDate : NSDate = NSDate()
+    var endDate : NSDate = NSDate()
+    
 
     @IBOutlet var viewControl: UIControl!
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var endDateTxt: UITextField!
     @IBOutlet var startDateTxt: UITextField!
     @IBOutlet var noteTxtBox: UITextView!
+    @IBOutlet var titleTxt: UITextField!
 
     @IBAction func addButtonClick(sender: UIBarButtonItem) {
+        ////var dateFormatter = NSDateFormatter()
+        ////date Formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        //dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        //var sDate = dateFormatter.dateFromString(startDateTxt.text)
+        //var date = dateFormatter.stringFromDate(startDate)
+        ////println(startDateTxt.text)
+        //println(sDate)
+        ////var startDate = startDateTxt.text
         
+        var dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        var startDateText = dateFormatter.stringFromDate(startDate)
+        var endDateText = dateFormatter.stringFromDate(endDate)
+        var name = titleTxt.text
+        var lnt = Singleton.sharedInstance.eventLocation.latitude
+        var lng = Singleton.sharedInstance.eventLocation.longitude
+        
+        // save to firebase
+        var eventId = NSUUID().UUIDString
+        var firebaseRef = Firebase(url: "http://socializr.firebaseio.com/events")
+        
+        var data = ["id": eventId, "name": name, "startTime": startDateText, "endTime": endDateText, "notes": noteTxtBox.text]
+        var eventRef = firebaseRef.childByAppendingPath(eventId)
+
+        eventRef.setValue(data)
+        eventRef.childByAppendingPath("location").setValue(["lnt":lnt, "lng": lng])
+        
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func backgroundTouched(sender: UIControl) {
@@ -59,6 +91,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         
         var strDate = dateFormatter.stringFromDate(datePicker.date)
         startDateTxt.text =  strDate
+        startDate = datePicker.date
     }
     
     func handelEndDatePicker(datePicker:UIDatePicker) {
@@ -69,6 +102,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         
         var strDate = dateFormatter.stringFromDate(datePicker.date)
         endDateTxt.text =  strDate
+        endDate = datePicker.date
     }
 
     override func didReceiveMemoryWarning() {

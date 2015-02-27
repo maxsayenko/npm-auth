@@ -16,7 +16,6 @@ class EventsCollection {
     init() {
         firebase.observeEventType(.Value, withBlock: {
             snapshot in
-            println(snapshot.value)
             var events = snapshot.value as NSDictionary
             NSNotificationCenter.defaultCenter().postNotificationName("EventsUpdated", object: self, userInfo: events)
         })

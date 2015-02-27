@@ -12,26 +12,38 @@ import MapKit
 class EventViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
-    var id = "1"
+    @IBOutlet var eventNameLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var eventUsersLabel: UILabel!
     
-    @IBAction func butClick(sender: AnyObject) {
-
-    }
+    @IBOutlet var notesText: UITextView!
+    
+    var id = "1"
+    var name = ""
+    var lat:CLLocationDegrees = 0
+    var lng:CLLocationDegrees = 0
+    var startTime:NSDate = NSDate()
+    var endTime:NSDate = NSDate()
+    var users:NSMutableArray = NSMutableArray()
+    var notes: String = ""
+    
     
     override func viewDidLoad() {
-        println(id)
         super.viewDidLoad()
 
         var longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressAction:")
         longPressRecognizer.minimumPressDuration = 2
         mapView.addGestureRecognizer(longPressRecognizer)
         
+// ancestry coords
+//        var latitude:CLLocationDegrees = 37.779492
+//        var longditude:CLLocationDegrees = -122.391669
         
-        var latitude:CLLocationDegrees = 37.779492
-        var longditude:CLLocationDegrees = -122.391669
+        var latitude:CLLocationDegrees = lat
+        var longditude:CLLocationDegrees = lng
         
-        var latDelta:CLLocationDegrees = 0.01
-        var longDelta:CLLocationDegrees = 0.01
+        var latDelta:CLLocationDegrees = 0.03
+        var longDelta:CLLocationDegrees = 0.03
         
         var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
         
@@ -50,10 +62,34 @@ class EventViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        var dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        var startDate = dateFormatter.stringFromDate(startTime)
+        var endDate = dateFormatter.stringFromDate(endTime)
+        
+        eventNameLabel.text = name
+        dateLabel.text = "\(startDate) - \(endDate)"
+        
+        if(users.count > 0) {
+            var usersString = ""
+            for name in self.users {
+                usersString += "\(name)\n"
+            }
+            
+            eventUsersLabel.text = usersString
+        }
+        
+        // eventUsersLabel.text = "one \n two \n three \n four \n five \n six \n seven"
+        notesText.text = notes
+    }
+    
     func longPressAction(gestureRecognizer: UIGestureRecognizer) {
         var touchPoint = gestureRecognizer.locationInView(self.mapView)
         var newCoordinate:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: self.mapView)
-        println(newCoordinate)
         var annotation = MKPointAnnotation()
         annotation.coordinate = newCoordinate
         annotation.title = "Finish"

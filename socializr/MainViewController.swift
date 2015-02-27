@@ -22,12 +22,12 @@ class MainViewController: UIViewController, UITableViewDelegate {
 //        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as EventViewController
 //        self.navigationController?.pushViewController(eventsViewController, animated: true)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
-//      self.navigationController?.navigationBarHidden = true
+        //      self.navigationController?.navigationBarHidden = true
         
         NSNotificationCenter.defaultCenter().removeObserver(self)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateList:", name: "EventsUpdated", object: nil)
@@ -36,7 +36,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     override func viewDidAppear(animated: Bool) {
         Singleton.sharedInstance.eventLocation  = nil
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -60,8 +60,51 @@ class MainViewController: UIViewController, UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //CODE TO BE RUN ON CELL TOUCH
         let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as EventViewController
-        eventsViewController.id = self.events[indexPath.row]["id"] as NSString
+        
+        var event: AnyObject = self.events[indexPath.row] as AnyObject
+        
+        if(event["id"]? != nil) {
+            eventsViewController.id = event["id"] as NSString
+        }
+        
+        if(event["name"]? != nil) {
+            eventsViewController.name = event["name"] as NSString
+        }
+        
+        if(event["startTime"]? != nil) {
+            eventsViewController.startTime = convertStringToDate(event["startTime"] as NSString)
+        }
+        
+        if(event["endTime"]? != nil) {
+            eventsViewController.endTime = convertStringToDate(event["endTime"] as NSString)
+        }
+        
+        var location: AnyObject? = event["location"]? as AnyObject?
+        
+        var lat:Double = location?["lat"] as Double
+        var lng:Double = location?["lng"] as Double
+        
+        eventsViewController.lat = lat
+        eventsViewController.lng = lng
+        
+        if(event["users"]? != nil) {
+            eventsViewController.users = event["users"] as NSMutableArray
+        }
+        
+        if(event["notes"]? != nil) {
+            eventsViewController.notes = event["notes"] as String
+        }
+        
         self.navigationController?.pushViewController(eventsViewController, animated: true)
+    }
+    
+    func convertStringToDate(date: NSString) -> NSDate {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        /*find out and place date format from http://userguide.icu-project.org/formatparse/datetime*/
+        // println(dateFormatter.dateFromString(date))
+        return dateFormatter.dateFromString(date)!
     }
     
     func updateList(notification: NSNotification) {
@@ -71,7 +114,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         
         // send notification just for testing when the view is loaded
         scheduleNotification()
-
+        
         tableView.reloadData()
     }
     

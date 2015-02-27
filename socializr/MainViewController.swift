@@ -19,8 +19,12 @@ class MainViewController: UIViewController, UITableViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.navigationBarHidden = true
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateList:", name: "EventsUpdated", object: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,5 +53,13 @@ class MainViewController: UIViewController, UITableViewDelegate {
         let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventsView") as EventsViewController
         self.navigationController?.pushViewController(eventsViewController, animated: true)
     }
+    
+    func updateList(notification: NSNotification) {
+        var events = notification.userInfo
+//        for e in self.events {
+//            println(e)
+//        }
+    }
+    
 }
 

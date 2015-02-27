@@ -8,7 +8,8 @@
 
 import Foundation
 
-var firebase = Firebase(url: "http://socializr.firebaseio.com/events")
+var firebaseUrl = "http://socializr.firebaseio.com/events"
+var firebase = Firebase(url: firebaseUrl)
 //var firebase = Firebase(url: "https://docs-examples.firebaseio.com/web/saving-data/fireblog/posts")
 
 class EventsCollection {
@@ -40,7 +41,13 @@ class EventsCollection {
             })
     }
     
-    func addUserToEvent(eventId: String) {
-        println(eventId)
+    func addUserToEvent(event: NSDictionary) {
+//        var users:NSMutableArray = event["users"] as NSMutableArray
+//        var eventId = event["id"] as NSString;
+//        var eventRef = Firebase(url: firebaseUrl + "/" + eventId + "/users")
+//        
+//        println(event["users"])
+//        eventRef.setValue(users)
     }
+    
 }

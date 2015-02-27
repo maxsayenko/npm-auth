@@ -147,7 +147,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     func addUserToEvent() {
         var index = randomInt(0, max: self.rouletteEvents.count)
         var event:NSDictionary = self.rouletteEvents[index] as NSDictionary
-        eventsCollection.addUserToEvent(event["id"] as String)
+        eventsCollection.addUserToEvent(event)
     }
     
     func randomInt(min: Int, max:Int) -> Int {

@@ -9,14 +9,18 @@
 import UIKit
 
 class MainViewController: UIViewController, UITableViewDelegate {
+    var eventsCollection = EventsCollection()
     var events:NSMutableArray = NSMutableArray()
+    var rouletteEvents:NSMutableArray = NSMutableArray()
+    var userId = Singleton.sharedInstance.userId
     
     //var newEvents:NS
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func ButtonClick(sender: UIButton) {
-        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as EventViewController
-        self.navigationController?.pushViewController(eventsViewController, animated: true)
+        joinLunchRoulette();
+//        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as EventViewController
+//        self.navigationController?.pushViewController(eventsViewController, animated: true)
     }
 
     override func viewDidLoad() {
@@ -27,8 +31,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
         
         NSNotificationCenter.defaultCenter().removeObserver(self)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateList:", name: "EventsUpdated", object: nil)
-        
-        EventsCollection()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -82,6 +84,25 @@ class MainViewController: UIViewController, UITableViewDelegate {
         localNotification.soundName = UILocalNotificationDefaultSoundName
         localNotification.category = "invite"
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+    }
+    
+    func joinLunchRoulette() {
+        rouletteEvents = NSMutableArray()
+        eventsCollection.fetchLunchRouletteEvents()
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "parseRouletteEvents:", name: "GetRouletteEvents", object: nil)
+    }
+    
+    func parseRouletteEvents(notification: NSNotification) {
+        for e in notification.userInfo! {
+            var users:NSMutableArray = e.1["name"] as NSMutableArray
+            if (users.count < 5) {
+                rouletteEvents.addObject(e.1)
+            }
+        }
+//         TODO: figure this out
+//        rouletteEvents.shuffle()
+//        eventsCollection.addUserToEvent(userId)
     }
 }
 

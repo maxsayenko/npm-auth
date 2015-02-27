@@ -21,4 +21,13 @@ class EventsCollection {
             NSNotificationCenter.defaultCenter().postNotificationName("EventsUpdated", object: self, userInfo: events)
         })
     }
+    
+    func fetchLunchRouletteEvents() {
+        firebase.queryOrderedByChild("type").queryStartingAtValue("lunchRoulette")
+            .observeEventType(.Value, withBlock: {
+                snapshot in
+                var events = snapshot.value as NSDictionary
+                NSNotificationCenter.defaultCenter().postNotificationName("GetRouletteEvents", object: self, userInfo: events)
+            })
+    }
 }

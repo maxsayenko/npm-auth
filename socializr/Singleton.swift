@@ -13,6 +13,7 @@ class Singleton {
     
     var eventLocation:CLLocationCoordinate2D!
     var test = "A"
+    var userId = "Bob Dowling"
     
     class var sharedInstance: Singleton {
         struct Static {

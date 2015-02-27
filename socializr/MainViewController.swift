@@ -74,6 +74,13 @@ class MainViewController: UIViewController, UITableViewDelegate {
         eventsViewController.lat = lat
         eventsViewController.lng = lng
         
+        if(event["users"]? != nil) {
+            eventsViewController.users = event["users"] as NSMutableArray
+        }
+        else {
+            println("nil")
+        }
+        
         self.navigationController?.pushViewController(eventsViewController, animated: true)
     }
     
@@ -82,7 +89,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         /*find out and place date format from http://userguide.icu-project.org/formatparse/datetime*/
-        println(dateFormatter.dateFromString(date))
+        // println(dateFormatter.dateFromString(date))
         return dateFormatter.dateFromString(date)!
     }
     

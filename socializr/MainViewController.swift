@@ -30,6 +30,10 @@ class MainViewController: UIViewController, UITableViewDelegate {
         
         EventsCollection()
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        Singleton.sharedInstance.eventLocation  = nil
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

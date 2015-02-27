@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cxj-lS-eQc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -35,7 +36,43 @@
                     <view key="view" contentMode="scaleToFill" id="9Od-Bx-Ol4">
                         <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="block1" translatesAutoresizingMaskIntoConstraints="NO" id="7XM-pk-cS4" userLabel="TitleLocationBlock">
+                                <rect key="frame" x="0.0" y="99" width="320" height="153"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cBz-Te-Oqx">
+                                        <rect key="frame" x="8" y="8" width="304" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQp-Cg-0Fk">
+                                        <rect key="frame" x="8" y="46" width="70" height="30"/>
+                                        <state key="normal" title="Location">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="dZ0-RD-0jm" kind="show" id="mSn-iY-uE7"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="None" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LnW-ng-Upv">
+                                        <rect key="frame" x="267" y="50" width="45" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="LnW-ng-Upv" secondAttribute="trailing" constant="8" id="ccF-6L-Ke9"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7XM-pk-cS4" firstAttribute="leading" secondItem="9Od-Bx-Ol4" secondAttribute="leadingMargin" constant="-16" id="3Qa-v7-kTa"/>
+                            <constraint firstItem="7XM-pk-cS4" firstAttribute="top" secondItem="dO8-Ux-Rcx" secondAttribute="bottom" constant="35" id="De8-D6-obZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7XM-pk-cS4" secondAttribute="trailing" constant="-16" id="JdD-ba-1Ml"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Ancestry Event" id="Qr8-0L-Eja">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="o1R-9e-iDx">
@@ -45,10 +82,46 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="locationLabel" destination="LnW-ng-Upv" id="Ry9-ZG-qeC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jn7-3X-OpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="463" y="-879"/>
+        </scene>
+        <!--Map Pick View Controller-->
+        <scene sceneID="Toe-hz-T57">
+            <objects>
+                <viewController storyboardIdentifier="mapPick" id="dZ0-RD-0jm" customClass="MapPickViewController" customModule="socializr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="R9I-Dq-39R"/>
+                        <viewControllerLayoutGuide type="bottom" id="PPz-op-68N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rpM-m0-yGZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fOf-zP-tKl">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="fOf-zP-tKl" secondAttribute="trailing" constant="-16" id="AZ7-J9-TDW"/>
+                            <constraint firstItem="PPz-op-68N" firstAttribute="top" secondItem="fOf-zP-tKl" secondAttribute="bottom" id="E8t-Hv-DyO"/>
+                            <constraint firstItem="fOf-zP-tKl" firstAttribute="leading" secondItem="rpM-m0-yGZ" secondAttribute="leadingMargin" constant="-16" id="kYg-Sd-6NE"/>
+                            <constraint firstItem="fOf-zP-tKl" firstAttribute="top" secondItem="R9I-Dq-39R" secondAttribute="bottom" id="yrD-ru-1XI"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="mapView" destination="fOf-zP-tKl" id="D3r-rQ-tkO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f5l-Ze-FfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="849" y="-879"/>
         </scene>
         <!--All Events-->
         <scene sceneID="ufC-wZ-h7g">
@@ -125,12 +198,19 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HSg-yf-N1o">
                                 <rect key="frame" x="11" y="234" width="293" height="314"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Enp-SY-OR3">
+                                <rect key="frame" x="99" y="73" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="butClick:" destination="HQM-U0-m9h" eventType="touchUpInside" id="mR7-8Z-JLp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Event details" id="Fhf-8X-kII">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="YjS-CR-LpU"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Event details" id="Fhf-8X-kII"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="mapView" destination="HSg-yf-N1o" id="zDc-ji-Qh1"/>

@@ -7,16 +7,25 @@
 //
 
 import UIKit
+import MapKit
 
 class NewEventViewController: UIViewController {
 
+    @IBOutlet var locationLabel: UILabel!
+    
     @IBAction func addButtonClick(sender: UIBarButtonItem) {
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        if(Singleton.sharedInstance.eventLocation != nil) {
+            println("Not NIL :)")
+            locationLabel.text = "Set"
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 

@@ -1,5 +1,5 @@
 //
-//  EventsViewController.swift
+//  MapPickViewController.swift
 //  socializr
 //
 //  Created by Max Saienko on 2/26/15.
@@ -9,21 +9,15 @@
 import UIKit
 import MapKit
 
-class EventViewController: UIViewController {
-    
-    @IBOutlet var mapView: MKMapView!
-    var id = "1"
-    
-    @IBAction func butClick(sender: AnyObject) {
+class MapPickViewController: UIViewController {
 
-    }
+    @IBOutlet var mapView: MKMapView!
     
     override func viewDidLoad() {
-        println(id)
         super.viewDidLoad()
 
         var longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressAction:")
-        longPressRecognizer.minimumPressDuration = 2
+        //longPressRecognizer.minimumPressDuration = 2
         mapView.addGestureRecognizer(longPressRecognizer)
         
         
@@ -40,32 +34,25 @@ class EventViewController: UIViewController {
         var theRegion:MKCoordinateRegion = MKCoordinateRegionMake(placeLocation, theSpan)
         
         mapView.setRegion(theRegion, animated: true)
-        
-        var annotation = MKPointAnnotation()
-        annotation.coordinate = placeLocation
-        annotation.title = "Start"
-        annotation.subtitle = "Details..."
-        mapView.addAnnotation(annotation)
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    func longPressAction(gestureRecognizer: UIGestureRecognizer) {
-        var touchPoint = gestureRecognizer.locationInView(self.mapView)
-        var newCoordinate:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: self.mapView)
-        println(newCoordinate)
-        var annotation = MKPointAnnotation()
-        annotation.coordinate = newCoordinate
-        annotation.title = "Finish"
-        annotation.subtitle = "Details..."
-        mapView.addAnnotation(annotation)
     }
 
+    
+    func longPressAction(gestureRecognizer: UIGestureRecognizer) {
+        if(gestureRecognizer.state == UIGestureRecognizerState.Began) {
+            var touchPoint = gestureRecognizer.locationInView(self.mapView)
+            var newCoordinate:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: self.mapView)
+            
+            Singleton.sharedInstance.eventLocation = newCoordinate
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+
     /*
     // MARK: - Navigation
 

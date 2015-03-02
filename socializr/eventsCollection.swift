@@ -37,12 +37,17 @@ class EventsCollection {
     }
     
     func addUserToEvent(event: NSDictionary) {
-//        var users:NSMutableArray = event["users"] as NSMutableArray
-//        var eventId = event["id"] as NSString;
-//        var eventRef = Firebase(url: firebaseUrl + "/" + eventId + "/users")
-//        
-//        println(event["users"])
-//        eventRef.setValue(users)
+        var users:NSMutableArray = event["users"] as NSMutableArray
+        var eventId = event["id"] as NSString;
+        var eventRef = Firebase(url: firebaseUrl + "/" + eventId + "/users")
+        
+        users.addObject(Singleton.sharedInstance.userId)
+        
+        firebase
+            .childByAppendingPath(eventId)
+            .childByAppendingPath("users")
+            
+        eventRef.setValue(users)
     }
     
 }

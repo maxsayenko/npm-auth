@@ -21,7 +21,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     }
 
     @IBAction func yesButtonClick(sender: UIButton) {
-        //joinLunchRoulette()
+        joinLunchRoulette()
         lunchRouletteView.hidden = true
     }
 
@@ -165,11 +165,15 @@ class MainViewController: UIViewController, UITableViewDelegate {
                 self.rouletteEvents.addObject(e.1)
             }
         }
-        addUserToEvent()
+        if (self.rouletteEvents.count > 0) {
+            addUserToEvent()
+        } else {
+            // createEventWithUser
+        }
     }
     
     func addUserToEvent() {
-        var index = randomInt(0, max: self.rouletteEvents.count)
+        var index = randomInt(0, max: self.rouletteEvents.count) - 1
         var event:NSDictionary = self.rouletteEvents[index] as NSDictionary
         eventsCollection.addUserToEvent(event)
     }

@@ -46,8 +46,7 @@ class EventsCollection {
         firebase
             .childByAppendingPath(eventId)
             .childByAppendingPath("users")
-            
-        eventRef.setValue(users)
+            .setValue(users)
     }
     
 }

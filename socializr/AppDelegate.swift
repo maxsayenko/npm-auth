@@ -23,6 +23,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        /* Parse */
+        Parse.enableLocalDatastore()
+        Parse.setApplicationId("BfZlGnAFxwfpMM6KXFuy2XtkTu0NiowTWcjomDfC", clientKey: "E6wE7XvgtvpKYzmS8Zj4LEJcII0CxywaqX0SmFdW")
+        //PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(<#launchOptions: [NSObject : AnyObject]!#>, block: <#PFBooleanResultBlock!##(Bool, NSError!) -> Void#>)
+        var testObj: PFObject = PFObject(className: "testClass")
+        testObj.setObject("blah", forKey: "newProp")
+        
+        testObj.saveInBackgroundWithBlock{
+            (success:Bool!, error: NSError!) -> Void in
+            
+                println(success)
+            
+        }
+        
         let notificationType = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
         let acceptAction = UIMutableUserNotificationAction()
         acceptAction.identifier = "Accept"

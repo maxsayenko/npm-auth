@@ -48,20 +48,24 @@ class MainViewController: UIViewController, UITableViewDelegate {
         
         var permissions = ["public_profile", "email"]
         
-        PFFacebookUtils.logInWithPermissions(permissions, {
-            (user: PFUser!, error: NSError!) -> Void in
-            if let user = user {
-                if (user.isNew) {
-                    println("User signed up and logged in through Facebook!")
-                    println(user)
-                } else {
-                    println("User logged in through Facebook!")
-                    println(user)
-                }
-            } else {
-                println("Uh oh. The user cancelled the Facebook login.")
-            }
-        })
+//        PFFacebookUtils.logInWithPermissions(permissions, {
+//            (user: PFUser!, error: NSError!) -> Void in
+//            if let user = user {
+//                if (user.isNew) {
+//                    println("User signed up and logged in through Facebook!")
+//                    println(user)
+//                } else {
+//                    println("User logged in through Facebook!")
+//                    println(user)
+//                }
+//            } else {
+//                println("Uh oh. The user cancelled the Facebook login.")
+//            }
+//        })
+//        
+//        var usr:PFUser = PFUser.currentUser()
+//
+//        println("usr=\(usr) -- \(usr.email) -- \(usr.username)")
     }
     
     override func viewDidAppear(animated: Bool) {

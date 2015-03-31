@@ -23,12 +23,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IpL-mU-KUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-607" y="-263"/>
+            <point key="canvasLocation" x="-502" y="-263"/>
         </scene>
         <!--Login-->
         <scene sceneID="LCV-fW-hMl">
             <objects>
-                <viewController id="S1H-LK-s5k" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginView" id="S1H-LK-s5k" customClass="LoginViewController" customModule="socializr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q95-eX-hLi"/>
                         <viewControllerLayoutGuide type="bottom" id="4Yl-zm-EZ7"/>
@@ -51,18 +51,27 @@
                                 <state key="normal" title="FB Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="FBLoginClick:" destination="S1H-LK-s5k" eventType="touchUpInside" id="sti-Bw-Zrl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXS-on-KxZ">
                                 <rect key="frame" x="114" y="146" width="94" height="30"/>
                                 <state key="normal" title="FB Logout">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="FBLogoutClick:" destination="S1H-LK-s5k" eventType="touchUpInside" id="pCu-aS-3NX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEW-Zw-fLz">
                                 <rect key="frame" x="116" y="184" width="92" height="30"/>
                                 <state key="normal" title="Get Data">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="GetDataClick:" destination="S1H-LK-s5k" eventType="touchUpInside" id="2T1-Hz-NRw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -72,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oax-wL-TyZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-51" y="-263"/>
+            <point key="canvasLocation" x="-17" y="-263"/>
         </scene>
         <!--New Ancestry Event-->
         <scene sceneID="YwQ-7m-v6F">
@@ -223,7 +232,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f5l-Ze-FfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="849" y="-879"/>
+            <point key="canvasLocation" x="872" y="-876"/>
         </scene>
         <!--All Events-->
         <scene sceneID="ufC-wZ-h7g">

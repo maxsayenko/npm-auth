@@ -15,6 +15,7 @@
 		8114B46D1A9FC2F000AC4CB7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B46C1A9FC2F000AC4CB7 /* SystemConfiguration.framework */; };
 		8114B4751A9FD4F500AC4CB7 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4741A9FD4F500AC4CB7 /* Firebase.framework */; };
 		8114B4761A9FD4F500AC4CB7 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4741A9FD4F500AC4CB7 /* Firebase.framework */; };
+		E235E38F1ACA72E7008CF278 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E235E38E1ACA72E7008CF278 /* LoginViewController.swift */; };
 		E23D34E51AC2946F00EC2E90 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23D34E41AC2946F00EC2E90 /* FacebookSDK.framework */; };
 		E23D34E71AC2963300EC2E90 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23D34E61AC2963300EC2E90 /* ParseFacebookUtils.framework */; };
 		E26BFF681ABD4DA100269700 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BFF671ABD4DA100269700 /* AudioToolbox.framework */; };
@@ -61,6 +62,7 @@
 		8114B46C1A9FC2F000AC4CB7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8114B46E1A9FC53D00AC4CB7 /* socializr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "socializr-Bridging-Header.h"; sourceTree = "<group>"; };
 		8114B4741A9FD4F500AC4CB7 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		E235E38E1ACA72E7008CF278 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E23D34E41AC2946F00EC2E90 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		E23D34E61AC2963300EC2E90 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		E26BFF671ABD4DA100269700 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -187,6 +189,7 @@
 				E2BBD8961AA03070005EA3AE /* MapPickViewController.swift */,
 				E2BBD8941AA02B8A005EA3AE /* NewEventViewController.swift */,
 				E2A46EC41A9FAFCE0090FDCB /* MainViewController.swift */,
+				E235E38E1ACA72E7008CF278 /* LoginViewController.swift */,
 				E2A46EC61A9FAFCE0090FDCB /* Main.storyboard */,
 				E2A46EC91A9FAFCE0090FDCB /* Images.xcassets */,
 				E2A46ECB1A9FAFCE0090FDCB /* LaunchScreen.xib */,
@@ -322,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E235E38F1ACA72E7008CF278 /* LoginViewController.swift in Sources */,
 				E2BBD8971AA03070005EA3AE /* MapPickViewController.swift in Sources */,
 				E2A46EC51A9FAFCE0090FDCB /* MainViewController.swift in Sources */,
 				E2A46EE31A9FC9910090FDCB /* EventViewController.swift in Sources */,

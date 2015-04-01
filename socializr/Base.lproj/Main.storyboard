@@ -37,13 +37,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="R2i-1S-GuN">
-                                <rect key="frame" x="51" y="133" width="218" height="86"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="218" id="bqf-K8-bWs"/>
-                                    <constraint firstAttribute="height" constant="86" id="d62-0P-XoK"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sn-DP-Act">
                                 <rect key="frame" x="103" y="245" width="114" height="34"/>
                                 <state key="normal" title="Continue">
@@ -80,16 +73,34 @@
                                     <action selector="GetDataClick:" destination="S1H-LK-s5k" eventType="touchUpInside" id="2T1-Hz-NRw"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="R2i-1S-GuN">
+                                <rect key="frame" x="51" y="133" width="218" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="218" id="bqf-K8-bWs"/>
+                                    <constraint firstAttribute="height" constant="86" id="d62-0P-XoK"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dv-nZ-a0M">
+                                <rect key="frame" x="83" y="427" width="154" height="30"/>
+                                <state key="normal" title="Login with Facebook">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="3dv-nZ-a0M" secondAttribute="centerX" id="25t-S1-z3J"/>
                             <constraint firstItem="R2i-1S-GuN" firstAttribute="top" secondItem="Q95-eX-hLi" secondAttribute="bottom" constant="48" id="9DD-7p-WnP"/>
+                            <constraint firstAttribute="centerX" secondItem="3dv-nZ-a0M" secondAttribute="centerX" id="Btq-cQ-GIO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="R2i-1S-GuN" secondAttribute="trailing" constant="35" id="Fnn-kO-xzw"/>
                             <constraint firstAttribute="centerX" secondItem="R2i-1S-GuN" secondAttribute="centerX" id="HFG-Rb-lOv"/>
                             <constraint firstItem="R2i-1S-GuN" firstAttribute="leading" secondItem="IXj-h6-sH2" secondAttribute="leadingMargin" constant="35" id="SlW-fA-yuF"/>
                             <constraint firstItem="R2i-1S-GuN" firstAttribute="top" secondItem="Q95-eX-hLi" secondAttribute="bottom" constant="29" id="aFj-JK-3Ao"/>
+                            <constraint firstItem="4Yl-zm-EZ7" firstAttribute="top" secondItem="3dv-nZ-a0M" secondAttribute="bottom" constant="111" id="cfT-P5-YL0"/>
                             <constraint firstItem="R2i-1S-GuN" firstAttribute="top" secondItem="Q95-eX-hLi" secondAttribute="bottom" constant="69" id="rAc-2N-Nyn"/>
                             <constraint firstItem="R2i-1S-GuN" firstAttribute="top" secondItem="Q95-eX-hLi" secondAttribute="bottom" constant="48" id="wXb-EE-eJ3"/>
+                            <constraint firstAttribute="centerX" secondItem="3dv-nZ-a0M" secondAttribute="centerX" id="wjW-cK-Fuc"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -98,6 +109,8 @@
                                 <exclude reference="SlW-fA-yuF"/>
                                 <exclude reference="aFj-JK-3Ao"/>
                                 <exclude reference="wXb-EE-eJ3"/>
+                                <exclude reference="25t-S1-z3J"/>
+                                <exclude reference="wjW-cK-Fuc"/>
                             </mask>
                         </variation>
                     </view>

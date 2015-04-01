@@ -37,8 +37,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="R2i-1S-GuN">
+                                <rect key="frame" x="51" y="133" width="218" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="218" id="bqf-K8-bWs"/>
+                                    <constraint firstAttribute="height" constant="86" id="d62-0P-XoK"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sn-DP-Act">
-                                <rect key="frame" x="104" y="80" width="114" height="34"/>
+                                <rect key="frame" x="103" y="245" width="114" height="34"/>
                                 <state key="normal" title="Continue">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -47,7 +54,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEE-rI-bvc">
-                                <rect key="frame" x="121" y="104" width="80" height="45"/>
+                                <rect key="frame" x="120" y="269" width="80" height="45"/>
                                 <state key="normal" title="FB Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -56,7 +63,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXS-on-KxZ">
-                                <rect key="frame" x="114" y="146" width="94" height="30"/>
+                                <rect key="frame" x="113" y="311" width="94" height="30"/>
                                 <state key="normal" title="FB Logout">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -65,7 +72,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEW-Zw-fLz">
-                                <rect key="frame" x="116" y="184" width="92" height="30"/>
+                                <rect key="frame" x="115" y="349" width="92" height="30"/>
                                 <state key="normal" title="Get Data">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -74,7 +81,25 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="R2i-1S-GuN" firstAttribute="top" secondItem="Q95-eX-hLi" secondAttribute="bottom" constant="48" id="9DD-7p-WnP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="R2i-1S-GuN" secondAttribute="trailing" constant="35" id="Fnn-kO-xzw"/>
+                            <constraint firstAttribute="centerX" secondItem="R2i-1S-GuN" secondAttribute="centerX" id="HFG-Rb-lOv"/>
+                            <constraint firstItem="R2i-1S-GuN" firstAttribute="leading" secondItem="IXj-h6-sH2" secondAttribute="leadingMargin" constant="35" id="SlW-fA-yuF"/>
+                            <constraint firstItem="R2i-1S-GuN" firstAttribute="top" secondItem="Q95-eX-hLi" secondAttribute="bottom" constant="29" id="aFj-JK-3Ao"/>
+                            <constraint firstItem="R2i-1S-GuN" firstAttribute="top" secondItem="Q95-eX-hLi" secondAttribute="bottom" constant="69" id="rAc-2N-Nyn"/>
+                            <constraint firstItem="R2i-1S-GuN" firstAttribute="top" secondItem="Q95-eX-hLi" secondAttribute="bottom" constant="48" id="wXb-EE-eJ3"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9DD-7p-WnP"/>
+                                <exclude reference="Fnn-kO-xzw"/>
+                                <exclude reference="SlW-fA-yuF"/>
+                                <exclude reference="aFj-JK-3Ao"/>
+                                <exclude reference="wXb-EE-eJ3"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="0pP-6F-sUo"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -524,4 +549,7 @@
             <point key="canvasLocation" x="872" y="-263"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logo.png" width="410" height="175"/>
+    </resources>
 </document>

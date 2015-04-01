@@ -15,32 +15,40 @@ class ParseFacebook {
         // here I assume that a user must be linked to Facebook
         return user == nil || !PFFacebookUtils.isLinkedWithUser(user)
     }
+    
     class func loggedIn() -> Bool {
         return !notLoggedIn()
     }
     
-    
     class func logInWithFacebook() {
-        PFFacebookUtils.logInWithPermissions(["public_profile", "user_friends"]) {
+        var permissions = ["public_profile", "email"]
+        
+        PFFacebookUtils.logInWithPermissions(permissions) {
             (user: PFUser!, error: NSError!) -> Void in
-            if user == nil {
+            if (user == nil) {
                 NSLog("The user cancelled the Facebook login (user is nil)")
             } else {
                 NSLog("The user successfully logged in with Facebook (user is NOT nil)")
                 // HERE I SET AN ACL TO THE INSTALLATION
-                if let installation = PFInstallation.currentInstallation() {
-                    let acl = PFACL(user: PFUser.currentUser()) // Only user can write
-                    acl.setPublicReadAccess(true) // Everybody can read
-                    acl.setWriteAccess(true, forRoleWithName: "Admin") // Also Admins can write
-                    installation.ACL = acl
-                    installation.saveEventually({ (success:Bool, error:NSError!) -> Void in
-                        println("Save eventually logInWithFacebook. Success=\(success)")
-                    })
-                }
+                //TODO: Check if we need this
+//                if let installation = PFInstallation.currentInstallation() {
+//                    let acl = PFACL(user: PFUser.currentUser()) // Only user can write
+//                    acl.setPublicReadAccess(true) // Everybody can read
+//                    acl.setWriteAccess(true, forRoleWithName: "Admin") // Also Admins can write
+//                    installation.ACL = acl
+//                    installation.saveEventually({ (success:Bool, error:NSError!) -> Void in
+//                        println("Save eventually logInWithFacebook. Success=\(success)")
+//                    })
+//                }
                 // THEN I GET THE USERNAME AND fbId
                 ParseFacebook.obtainUserNameAndFbId()
             }
         }
+    }
+    
+    class func logOut() -> Void
+    {
+        PFUser.logOut()
     }
     
     

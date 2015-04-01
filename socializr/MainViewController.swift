@@ -46,7 +46,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateList:", name: "EventsUpdated", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "eventChanged:", name: "EventChanged", object: nil)
         
-        var permissions = ["public_profile", "email"]
+//        var permissions = ["public_profile", "email"]
         
 //        PFFacebookUtils.logInWithPermissions(permissions, {
 //            (user: PFUser!, error: NSError!) -> Void in
@@ -66,15 +66,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
 //        var usr:PFUser = PFUser.currentUser()
 //
 //        println("usr=\(usr) -- \(usr.email) -- \(usr.username)")
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        Singleton.sharedInstance.eventLocation  = nil
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // Get Cell Count
@@ -197,6 +188,20 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     func randomInt(min: Int, max:Int) -> Int {
         return min + Int(arc4random_uniform(UInt32(max - min + 1)))
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false
+    }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        Singleton.sharedInstance.eventLocation  = nil
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 }
 

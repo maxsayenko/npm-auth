@@ -43,6 +43,7 @@
 		E2BBD8991AA04E7C005EA3AE /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BBD8981AA04E7C005EA3AE /* Singleton.swift */; };
 		E2EB29F51ACBCF1200634DD8 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E2EB29F41ACBCF1200634DD8 /* Logo.png */; };
 		E2EB29F71ACBCF8500634DD8 /* logoSml.png in Resources */ = {isa = PBXBuildFile; fileRef = E2EB29F61ACBCF8500634DD8 /* logoSml.png */; };
+		E2EB29FA1ACBD28200634DD8 /* ParseFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EB29F91ACBD28200634DD8 /* ParseFacebook.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		E2BBD8981AA04E7C005EA3AE /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		E2EB29F41ACBCF1200634DD8 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 		E2EB29F61ACBCF8500634DD8 /* logoSml.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoSml.png; sourceTree = "<group>"; };
+		E2EB29F91ACBD28200634DD8 /* ParseFacebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseFacebook.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 		E2A46EBC1A9FAFCE0090FDCB /* socializr */ = {
 			isa = PBXGroup;
 			children = (
+				E2EB29F81ACBD1FB00634DD8 /* utils */,
 				E2EB29F31ACBCEFC00634DD8 /* images */,
 				8114B47A1A9FEA8800AC4CB7 /* models */,
 				E2A46EBF1A9FAFCE0090FDCB /* AppDelegate.swift */,
@@ -237,6 +240,14 @@
 				E2EB29F41ACBCF1200634DD8 /* Logo.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		E2EB29F81ACBD1FB00634DD8 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				E2EB29F91ACBD28200634DD8 /* ParseFacebook.swift */,
+			);
+			name = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +355,7 @@
 				E235E38F1ACA72E7008CF278 /* LoginViewController.swift in Sources */,
 				E2BBD8971AA03070005EA3AE /* MapPickViewController.swift in Sources */,
 				E2A46EC51A9FAFCE0090FDCB /* MainViewController.swift in Sources */,
+				E2EB29FA1ACBD28200634DD8 /* ParseFacebook.swift in Sources */,
 				E2A46EE31A9FC9910090FDCB /* EventViewController.swift in Sources */,
 				8114541E1A9FEE1000E6B556 /* EventsCollection.swift in Sources */,
 				E2A46EC31A9FAFCE0090FDCB /* socializr.xcdatamodeld in Sources */,

@@ -37,40 +37,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sn-DP-Act">
-                                <rect key="frame" x="103" y="245" width="114" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sn-DP-Act">
+                                <rect key="frame" x="103" y="486" width="114" height="34"/>
                                 <state key="normal" title="Continue">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="vXZ-lx-hvc" kind="show" id="gx1-cD-7fI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEE-rI-bvc">
-                                <rect key="frame" x="120" y="269" width="80" height="45"/>
-                                <state key="normal" title="FB Login">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="FBLoginClick:" destination="S1H-LK-s5k" eventType="touchUpInside" id="sti-Bw-Zrl"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXS-on-KxZ">
-                                <rect key="frame" x="113" y="311" width="94" height="30"/>
-                                <state key="normal" title="FB Logout">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="FBLogoutClick:" destination="S1H-LK-s5k" eventType="touchUpInside" id="pCu-aS-3NX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEW-Zw-fLz">
-                                <rect key="frame" x="115" y="349" width="92" height="30"/>
-                                <state key="normal" title="Get Data">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="GetDataClick:" destination="S1H-LK-s5k" eventType="touchUpInside" id="2T1-Hz-NRw"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="R2i-1S-GuN">
@@ -81,23 +55,31 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dv-nZ-a0M">
-                                <rect key="frame" x="83" y="427" width="154" height="30"/>
+                                <rect key="frame" x="83" y="448" width="154" height="30"/>
                                 <state key="normal" title="Login with Facebook">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="FBLoginClick:" destination="S1H-LK-s5k" eventType="touchUpInside" id="rxK-h5-f37"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="3dv-nZ-a0M" secondAttribute="centerX" id="25t-S1-z3J"/>
                             <constraint firstItem="R2i-1S-GuN" firstAttribute="top" secondItem="Q95-eX-hLi" secondAttribute="bottom" constant="48" id="9DD-7p-WnP"/>
+                            <constraint firstItem="4Yl-zm-EZ7" firstAttribute="top" secondItem="7sn-DP-Act" secondAttribute="bottom" constant="69" id="Ahn-HC-L2E"/>
                             <constraint firstAttribute="centerX" secondItem="3dv-nZ-a0M" secondAttribute="centerX" id="Btq-cQ-GIO"/>
+                            <constraint firstItem="7sn-DP-Act" firstAttribute="top" secondItem="3dv-nZ-a0M" secondAttribute="bottom" constant="8" id="ELK-re-XFP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="R2i-1S-GuN" secondAttribute="trailing" constant="35" id="Fnn-kO-xzw"/>
                             <constraint firstAttribute="centerX" secondItem="R2i-1S-GuN" secondAttribute="centerX" id="HFG-Rb-lOv"/>
                             <constraint firstItem="R2i-1S-GuN" firstAttribute="leading" secondItem="IXj-h6-sH2" secondAttribute="leadingMargin" constant="35" id="SlW-fA-yuF"/>
+                            <constraint firstItem="7sn-DP-Act" firstAttribute="top" secondItem="3dv-nZ-a0M" secondAttribute="bottom" constant="8" id="VWE-Sa-qBd"/>
                             <constraint firstItem="R2i-1S-GuN" firstAttribute="top" secondItem="Q95-eX-hLi" secondAttribute="bottom" constant="29" id="aFj-JK-3Ao"/>
                             <constraint firstItem="4Yl-zm-EZ7" firstAttribute="top" secondItem="3dv-nZ-a0M" secondAttribute="bottom" constant="111" id="cfT-P5-YL0"/>
+                            <constraint firstAttribute="centerX" secondItem="7sn-DP-Act" secondAttribute="centerX" id="eOw-xT-BJO"/>
+                            <constraint firstItem="4Yl-zm-EZ7" firstAttribute="top" secondItem="7sn-DP-Act" secondAttribute="bottom" constant="48" id="oET-YW-mdg"/>
                             <constraint firstItem="R2i-1S-GuN" firstAttribute="top" secondItem="Q95-eX-hLi" secondAttribute="bottom" constant="69" id="rAc-2N-Nyn"/>
                             <constraint firstItem="R2i-1S-GuN" firstAttribute="top" secondItem="Q95-eX-hLi" secondAttribute="bottom" constant="48" id="wXb-EE-eJ3"/>
                             <constraint firstAttribute="centerX" secondItem="3dv-nZ-a0M" secondAttribute="centerX" id="wjW-cK-Fuc"/>
@@ -111,6 +93,9 @@
                                 <exclude reference="wXb-EE-eJ3"/>
                                 <exclude reference="25t-S1-z3J"/>
                                 <exclude reference="wjW-cK-Fuc"/>
+                                <exclude reference="ELK-re-XFP"/>
+                                <exclude reference="Ahn-HC-L2E"/>
+                                <exclude reference="cfT-P5-YL0"/>
                             </mask>
                         </variation>
                     </view>

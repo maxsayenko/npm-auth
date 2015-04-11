@@ -20,7 +20,7 @@ class ParseFacebook {
         return !notLoggedIn()
     }
     
-    class func logInWithFacebook() {
+    class func logInWithFacebook(completion: (() -> Void)!) -> Void {
         var permissions = ["public_profile", "email"]
         
         PFFacebookUtils.logInWithPermissions(permissions) {
@@ -42,6 +42,10 @@ class ParseFacebook {
 //                }
                 // THEN I GET THE USERNAME AND fbId
                 ParseFacebook.obtainUserNameAndFbId()
+                
+                if(completion != nil) {
+                    completion()
+                }
             }
         }
     }
@@ -50,7 +54,6 @@ class ParseFacebook {
     {
         PFUser.logOut()
     }
-    
     
     class func obtainUserNameAndFbId() {
         if notLoggedIn() {
@@ -65,6 +68,7 @@ class ParseFacebook {
                 return
             }
         }
+        
         // REQUEST TO FACEBOOK
         println("performing request to FB for username and IDF...")
         if let session = PFFacebookUtils.session() {
@@ -79,9 +83,9 @@ class ParseFacebook {
                         println(result)
                         // You have 2 ways to access the result:
                         // 1)
-                        println(result["name"])
-                        println(result["id"])
-                        println(result["gender"])
+//                        println(result["name"])
+//                        println(result["id"])
+//                        println(result["gender"])
                         // 2)
                         //println(result.name)
                         //println(result.objectID)

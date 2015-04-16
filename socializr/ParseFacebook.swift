@@ -13,7 +13,7 @@ class ParseFacebook {
     class func notLoggedIn() -> Bool {
         let user = PFUser.currentUser()
         // here I assume that a user must be linked to Facebook
-        return user == nil || !PFFacebookUtils.isLinkedWithUser(user)
+        return user == nil || !PFFacebookUtils.isLinkedWithUser(user!)
     }
     
     class func loggedIn() -> Bool {
@@ -90,10 +90,10 @@ class ParseFacebook {
                         //println(result.name)
                         //println(result.objectID)
                         // Save to Parse:
-                        PFUser.currentUser().username = result.name
-                        PFUser.currentUser().email = result.email
-                        PFUser.currentUser().setValue(result["gender"], forKey: "gender")
-                        PFUser.currentUser().setValue(result.objectID, forKey: "fbId")
+                        PFUser.currentUser()!.username = result.name
+                        PFUser.currentUser()!.email = result.email
+                        PFUser.currentUser()!.setValue(result["gender"], forKey: "gender")
+                        PFUser.currentUser()!.setValue(result.objectID, forKey: "fbId")
                         
                         // Always use saveEventually if you want to be sure that the save will succeed
                         PFUser.currentUser().saveEventually({ (success:Bool, error:NSError!) -> Void in

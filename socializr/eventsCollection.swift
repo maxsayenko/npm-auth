@@ -15,14 +15,14 @@ class EventsCollection {
     
     init() {
         firebase.observeEventType(.Value, withBlock: { snapshot in
-            var events = snapshot.value as NSDictionary
-            NSNotificationCenter.defaultCenter().postNotificationName("EventsUpdated", object: self, userInfo: events)
+            var events = snapshot.value as! NSDictionary
+            NSNotificationCenter.defaultCenter().postNotificationName("EventsUpdated", object: self, userInfo: events as [NSObject : AnyObject])
         })
         
         // Get the data on a post that has changed
         firebase.observeEventType(.ChildChanged, withBlock: { snapshot in
-            var events = snapshot.value as NSDictionary
-            NSNotificationCenter.defaultCenter().postNotificationName("EventChanged", object: self, userInfo: events)
+            var events = snapshot.value as! NSDictionary
+            NSNotificationCenter.defaultCenter().postNotificationName("EventChanged", object: self, userInfo: events as [NSObject : AnyObject])
         })
     }
     
@@ -30,8 +30,8 @@ class EventsCollection {
         firebase.queryOrderedByChild("type").queryStartingAtValue("lunchRoulette")
             .observeEventType(.Value, withBlock: {
                 snapshot in
-                var events = snapshot.value as NSDictionary
-                NSNotificationCenter.defaultCenter().postNotificationName("GetRouletteEvents", object: self, userInfo: events)
+                var events = snapshot.value as! NSDictionary
+                NSNotificationCenter.defaultCenter().postNotificationName("GetRouletteEvents", object: self, userInfo: events as [NSObject : AnyObject])
             })
     }
     

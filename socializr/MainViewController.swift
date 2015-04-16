@@ -78,47 +78,47 @@ class MainViewController: UIViewController, UITableViewDelegate {
         
         // just testing
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
-        cell.textLabel?.text = self.events[indexPath.row]["name"] as NSString
+        cell.textLabel?.text = self.events[indexPath.row]["name"] as? String
         return cell
     }
     
     // Cell Click
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //CODE TO BE RUN ON CELL TOUCH
-        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as EventViewController
+        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as! EventViewController
         
         var event: AnyObject = self.events[indexPath.row] as AnyObject
         
-        if(event["id"]? != nil) {
-            eventsViewController.id = event["id"] as NSString
+        if(event["id"] != nil) {
+            eventsViewController.id = event["id"] as! String
         }
         
-        if(event["name"]? != nil) {
-            eventsViewController.name = event["name"] as NSString
+        if(event["name"] != nil) {
+            eventsViewController.name = event["name"] as! String
         }
         
-        if(event["startTime"]? != nil) {
-            eventsViewController.startTime = convertStringToDate(event["startTime"] as NSString)
+        if(event["startTime"] != nil) {
+            eventsViewController.startTime = convertStringToDate(event["startTime"] as! NSString)
         }
         
-        if(event["endTime"]? != nil) {
-            eventsViewController.endTime = convertStringToDate(event["endTime"] as NSString)
+        if(event["endTime"] != nil) {
+            eventsViewController.endTime = convertStringToDate(event["endTime"] as! NSString)
         }
         
-        var location: AnyObject? = event["location"]? as AnyObject?
+        var location: AnyObject? = event["location"]
         
-        var lat:Double = location?["lat"] as Double
-        var lng:Double = location?["lng"] as Double
+        var lat:Double = location?["lat"] as! Double
+        var lng:Double = location?["lng"] as! Double
         
         eventsViewController.lat = lat
         eventsViewController.lng = lng
         
-        if(event["users"]? != nil) {
-            eventsViewController.users = event["users"] as NSMutableArray
+        if(event["users"] != nil) {
+            eventsViewController.users = event["users"] as! NSMutableArray
         }
         
-        if(event["notes"]? != nil) {
-            eventsViewController.notes = event["notes"] as String
+        if(event["notes"] != nil) {
+            eventsViewController.notes = event["notes"] as! String
         }
         
         self.navigationController?.pushViewController(eventsViewController, animated: true)
@@ -130,7 +130,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         
         /*find out and place date format from http://userguide.icu-project.org/formatparse/datetime*/
         // println(dateFormatter.dateFromString(date))
-        return dateFormatter.dateFromString(date)!
+        return dateFormatter.dateFromString(date as String)!
     }
     
     func updateList(notification: NSNotification) {
@@ -172,7 +172,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     func parseRouletteEvents(notification: NSNotification) {
         for e in notification.userInfo! {
-            var users:NSMutableArray = e.1["users"] as NSMutableArray
+            var users:NSMutableArray = e.1["users"] as! NSMutableArray
             if (users.count < 5) {
                 self.rouletteEvents.addObject(e.1)
             }
@@ -182,8 +182,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     func addUserToEvent() {
         var index = randomInt(0, max: self.rouletteEvents.count)
-        var event:NSDictionary = self.rouletteEvents[index] as NSDictionary
-        eventsCollection.addUserToEvent(event["id"] as String)
+        var event:NSDictionary = self.rouletteEvents[index] as! NSDictionary
+        eventsCollection.addUserToEvent(event["id"] as! String)
     }
     
     func randomInt(min: Int, max:Int) -> Int {

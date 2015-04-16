@@ -12,7 +12,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func FBLoginClick(sender: UIButton) {    
         ParseFacebook.logInWithFacebook({() -> Void in
-            let mainViewController = self.storyboard?.instantiateViewControllerWithIdentifier("mainView") as MainViewController
+            let mainViewController = self.storyboard?.instantiateViewControllerWithIdentifier("mainView") as! MainViewController
             self.navigationController?.pushViewController(mainViewController, animated: true)
         })
     }

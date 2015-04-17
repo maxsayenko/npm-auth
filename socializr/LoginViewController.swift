@@ -17,17 +17,13 @@ class LoginViewController: UIViewController {
         })
     }
     
-//    @IBAction func FBLogoutClick(sender: UIButton) {
-//        ParseFacebook.logOut()
-//    }
-//    
-//    @IBAction func GetDataClick(sender: UIButton) {
-//        ParseFacebook.obtainUserNameAndFbId()
-//    }
-    
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true
-        //self.navigationController?.pushViewController(eventsViewController, animated: true)
-        //println(PFUser.currentUser())
+
+        if(ParseFacebook.loggedIn()) {
+            println("User is already logged in")
+            let mainViewController = self.storyboard?.instantiateViewControllerWithIdentifier("mainView") as! MainViewController
+            self.navigationController?.pushViewController(mainViewController, animated: true)
+        }
     }
 }

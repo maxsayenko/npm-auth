@@ -60,10 +60,10 @@ class ParseFacebook {
             return
         }
         
-        let user = PFUser.currentUser() // Won't be nil because is logged in
+        let user: PFUser? = PFUser.currentUser() // Won't be nil because is logged in
         // RETURN IF WE ALREADY HAVE A USERNAME AND FBID (note that we check the fbId because Parse automatically fills in the username with random numbers)
         
-        if let fbId = user?["fbId"] as? String {
+        if let fbId = user!["fbId"] as? String {
             if (!fbId.isEmpty) {
                 println("we already have a username and fbId -> return")
                 return
@@ -104,8 +104,6 @@ class ParseFacebook {
                     }
                 })
             }
-        }
-        
+        }   
     }
-    
 }

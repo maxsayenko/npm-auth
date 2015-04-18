@@ -89,19 +89,19 @@ class MainViewController: UIViewController, UITableViewDelegate {
         
         var event: AnyObject = self.events[indexPath.row] as AnyObject
         
-        if(event["id"] != nil) {
+        if(event["id"]! != nil) {
             eventsViewController.id = event["id"] as! String
         }
         
-        if(event["name"] != nil) {
+        if(event["name"]! != nil) {
             eventsViewController.name = event["name"] as! String
         }
         
-        if(event["startTime"] != nil) {
+        if(event["startTime"]! != nil) {
             eventsViewController.startTime = convertStringToDate(event["startTime"] as! NSString)
         }
         
-        if(event["endTime"] != nil) {
+        if(event["endTime"]! != nil) {
             eventsViewController.endTime = convertStringToDate(event["endTime"] as! NSString)
         }
         
@@ -113,11 +113,11 @@ class MainViewController: UIViewController, UITableViewDelegate {
         eventsViewController.lat = lat
         eventsViewController.lng = lng
         
-        if(event["users"] != nil) {
+        if(event["users"]! != nil) {
             eventsViewController.users = event["users"] as! NSMutableArray
         }
         
-        if(event["notes"] != nil) {
+        if(event["notes"]! != nil) {
             eventsViewController.notes = event["notes"] as! String
         }
         

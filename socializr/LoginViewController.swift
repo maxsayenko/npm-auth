@@ -10,7 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    @IBAction func FBLoginClick(sender: UIButton) {    
+    @IBAction func FBLoginClick(sender: UIButton) {
         ParseFacebook.logInWithFacebook({() -> Void in
             let mainViewController = self.storyboard?.instantiateViewControllerWithIdentifier("mainView") as! MainViewController
             self.navigationController?.pushViewController(mainViewController, animated: true)
@@ -18,12 +18,18 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = true
 
+        
+        self.navigationController?.navigationBarHidden = true
+        
+        Console.log("Debugging")
+        Console.log([1,2,3])
+        Console.log(PFUser)
+        
         if(ParseFacebook.loggedIn()) {
             println("User is already logged in")
             let mainViewController = self.storyboard?.instantiateViewControllerWithIdentifier("mainView") as! MainViewController
-            self.navigationController?.pushViewController(mainViewController, animated: true)
+            //self.navigationController?.pushViewController(mainViewController, animated: true)
         }
     }
 }

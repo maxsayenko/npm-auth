@@ -26,9 +26,9 @@ class ParseFacebook {
         PFFacebookUtils.logInWithPermissions(permissions) {
             (user: PFUser?, error: NSError?) -> Void in
             if (user == nil) {
-                NSLog("The user cancelled the Facebook login (user is nil)")
+                Console.log("The user cancelled the Facebook login (user is nil)")
             } else {
-                NSLog("The user successfully logged in with Facebook (user is NOT nil)")
+                Console.log("The user successfully logged in with Facebook (user is NOT nil)")
                 // HERE I SET AN ACL TO THE INSTALLATION
                 //TODO: Check if we need this
                 //                if let installation = PFInstallation.currentInstallation() {
@@ -65,23 +65,23 @@ class ParseFacebook {
         
         if let fbId = user!["fbId"] as? String {
             if (!fbId.isEmpty) {
-                println("we already have a username and fbId -> return")
+                Console.log("we already have a username and fbId -> return")
                 return
             }
         }
         
         // REQUEST TO FACEBOOK
-        println("performing request to FB for username and IDF...")
+        Console.log("performing request to FB for username and IDF...")
         if let session = PFFacebookUtils.session() {
             if (session.isOpen) {
-                println("session is open")
+                Console.log("session is open")
                 FBRequestConnection.startForMeWithCompletionHandler({ (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
-                    println("done me request")
+                    Console.log("done me request")
                     if (error != nil) {
-                        println("facebook me request - error is not nil :(")
+                        Console.log("facebook me request - error is not nil :(")
                     } else {
-                        println("facebook me request - error is nil :)")
-                        println(result)
+                        Console.log("facebook me request - error is nil :)")
+                        Console.log(result)
                         // You have 2 ways to access the result:
                         // 1)
                         //                        println(result["name"])
@@ -99,7 +99,7 @@ class ParseFacebook {
                         
                         // Always use saveEventually if you want to be sure that the save will succeed
                         PFUser.currentUser()?.saveEventually({ (success:Bool, error:NSError?) -> Void in
-                            println("Save eventually. Success=\(success)")
+                            Console.log("Save eventually. Success=\(success)")
                         })
                     }
                 })

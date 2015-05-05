@@ -36,6 +36,6 @@ class EventsCollection {
     }
     
     func addUserToEvent(eventId: String) {
-        println(eventId)
+        Console.log(eventId)
     }
 }

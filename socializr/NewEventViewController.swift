@@ -111,7 +111,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
     }
     
     // called when 'return' key pressed. return NO to ignore.
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true;
     }

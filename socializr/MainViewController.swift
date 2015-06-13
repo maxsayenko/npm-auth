@@ -66,6 +66,11 @@ class MainViewController: UIViewController, UITableViewDelegate {
 //        var usr:PFUser = PFUser.currentUser()
 //
 //        println("usr=\(usr) -- \(usr.email) -- \(usr.username)")
+        
+        
+        // Regestering custom table cell
+        var nib = UINib(nibName: "eventTableCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "eventTableCellId")
     }
     
     // Get Cell Count
@@ -75,15 +80,21 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     // Populate table items
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+      
+//        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+//        cell.textLabel?.text = self.events[indexPath.row]["name"] as? String
+
         
-        // just testing
-        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
-        cell.textLabel?.text = self.events[indexPath.row]["name"] as? String
+        
+        var cell:eventTableCellClass = self.tableView.dequeueReusableCellWithIdentifier("eventTableCellId") as! eventTableCellClass
+        cell.label.text = self.events[indexPath.row]["name"] as? String
         return cell
     }
     
     // Cell Click
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //Console.log("tableCellClicked \(indexPath)")
+        //println("tableCellClicked \(indexPath)")
         //CODE TO BE RUN ON CELL TOUCH
         let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as! EventViewController
         
@@ -191,11 +202,13 @@ class MainViewController: UIViewController, UITableViewDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
+        println("MainViewCtrlr")
         self.navigationController?.navigationBarHidden = false
     }
     
     
     override func viewDidAppear(animated: Bool) {
+        println("MainViewCtrlrDid")
         Singleton.sharedInstance.eventLocation  = nil
     }
     

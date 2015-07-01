@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class EventViewController: UIViewController {
+class EventViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var eventNameLabel: UILabel!
@@ -94,6 +94,16 @@ class EventViewController: UIViewController {
         
         // eventUsersLabel.text = "one \n two \n three \n four \n five \n six \n seven"
         notesText.text = notes
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return users.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell: textViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("textCell", forIndexPath: indexPath) as! textViewCell
+        cell.textInCell.text = users[indexPath.row] as? String
+        return cell
     }
     
     func longPressAction(gestureRecognizer: UIGestureRecognizer) {

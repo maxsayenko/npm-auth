@@ -14,7 +14,7 @@ class EventViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var eventNameLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
-    @IBOutlet var eventUsersLabel: UILabel!
+    //@IBOutlet var eventUsersLabel: UILabel!
     
     @IBOutlet var notesText: UITextView!
     @IBOutlet var joinView: UIView!
@@ -89,7 +89,7 @@ class EventViewController: UIViewController {
                 usersString += "\(name)\n"
             }
             
-            eventUsersLabel.text = usersString
+            //eventUsersLabel.text = usersString
         }
         
         // eventUsersLabel.text = "one \n two \n three \n four \n five \n six \n seven"

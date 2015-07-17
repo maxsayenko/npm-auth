@@ -96,24 +96,24 @@ class MainViewController: UIViewController, UITableViewDelegate {
         //Console.log("tableCellClicked \(indexPath)")
         //println("tableCellClicked \(indexPath)")
         //CODE TO BE RUN ON CELL TOUCH
-        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as! EventViewController
+        let eventViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as! EventViewController
         
         var event: AnyObject = self.events[indexPath.row] as AnyObject
         
         if(event["id"]! != nil) {
-            eventsViewController.id = event["id"] as! String
+            eventViewController.id = event["id"] as! String
         }
         
         if(event["name"]! != nil) {
-            eventsViewController.name = event["name"] as! String
+            eventViewController.name = event["name"] as! String
         }
         
         if(event["startTime"]! != nil) {
-            eventsViewController.startTime = convertStringToDate(event["startTime"] as! NSString)
+            eventViewController.startTime = convertStringToDate(event["startTime"] as! NSString)
         }
         
         if(event["endTime"]! != nil) {
-            eventsViewController.endTime = convertStringToDate(event["endTime"] as! NSString)
+            eventViewController.endTime = convertStringToDate(event["endTime"] as! NSString)
         }
         
         var location: AnyObject? = event["location"]
@@ -121,18 +121,18 @@ class MainViewController: UIViewController, UITableViewDelegate {
         var lat:Double = location?["lat"] as! Double
         var lng:Double = location?["lng"] as! Double
         
-        eventsViewController.lat = lat
-        eventsViewController.lng = lng
+        eventViewController.lat = lat
+        eventViewController.lng = lng
         
         if(event["users"]! != nil) {
-            eventsViewController.users = event["users"] as! NSMutableArray
+            eventViewController.users = event["users"] as! NSMutableArray
         }
         
         if(event["notes"]! != nil) {
-            eventsViewController.notes = event["notes"] as! String
+            eventViewController.notes = event["notes"] as! String
         }
         
-        self.navigationController?.pushViewController(eventsViewController, animated: true)
+        self.navigationController?.pushViewController(eventViewController, animated: true)
     }
     
     func convertStringToDate(date: NSString) -> NSDate {

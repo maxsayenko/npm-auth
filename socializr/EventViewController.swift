@@ -69,6 +69,10 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         mapView.addAnnotation(annotation)
         
         // Do any additional setup after loading the view.
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -102,6 +106,11 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: textViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("textCell", forIndexPath: indexPath) as! textViewCell
+        cell.backgroundColor = UIColor.greenColor()
+        cell.layer.borderColor = UIColor.blackColor().CGColor
+        cell.layer.borderWidth = 0.5
+        cell.textInCell.backgroundColor = UIColor.redColor()
+        
         cell.textInCell.text = users[indexPath.row] as? String
         return cell
     }

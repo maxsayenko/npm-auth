@@ -19,6 +19,8 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     @IBOutlet var notesText: UITextView!
     @IBOutlet var joinView: UIView!
     
+    @IBOutlet var namesCollectionView: UICollectionView!
+    
     @IBAction func yesButtonClick(sender: AnyObject) {
         joinView.hidden = true
     }
@@ -99,6 +101,19 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         // eventUsersLabel.text = "one \n two \n three \n four \n five \n six \n seven"
         notesText.text = notes
     }
+
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+    {
+        let numberOfCellsPerRow : CGFloat = 3.0
+        let minGapBetweenCells : CGFloat = 10.0
+        let totalSpaceBetweenCells : CGFloat = (numberOfCellsPerRow - 1) * minGapBetweenCells
+        let cellWidth : CGFloat = (collectionView.frame.size.width - totalSpaceBetweenCells) / numberOfCellsPerRow
+        
+        Console.log(cellWidth)
+        Console.log(collectionView.frame.size.width)
+        return CGSize(width: cellWidth, height: 20)
+    }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return users.count
@@ -110,11 +125,15 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         cell.layer.borderColor = UIColor.blackColor().CGColor
         cell.layer.borderWidth = 0.5
         cell.textInCell.backgroundColor = UIColor.redColor()
+        //cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, 250, 30)
+Console.log(cell.frame.size.width)
+
         
         cell.textInCell.text = users[indexPath.row] as? String
         return cell
     }
     
+    // not sure if I need it here
     func longPressAction(gestureRecognizer: UIGestureRecognizer) {
         var touchPoint = gestureRecognizer.locationInView(self.mapView)
         var newCoordinate:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: self.mapView)

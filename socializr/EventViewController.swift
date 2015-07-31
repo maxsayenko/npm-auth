@@ -109,9 +109,7 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         let minGapBetweenCells : CGFloat = 10.0
         let totalSpaceBetweenCells : CGFloat = (numberOfCellsPerRow - 1) * minGapBetweenCells
         let cellWidth : CGFloat = (collectionView.frame.size.width - totalSpaceBetweenCells) / numberOfCellsPerRow
-        
-        Console.log(cellWidth)
-        Console.log(collectionView.frame.size.width)
+
         return CGSize(width: cellWidth, height: 20)
     }
     
@@ -121,14 +119,6 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: textViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("textCell", forIndexPath: indexPath) as! textViewCell
-        cell.backgroundColor = UIColor.greenColor()
-        cell.layer.borderColor = UIColor.blackColor().CGColor
-        cell.layer.borderWidth = 0.5
-        cell.textInCell.backgroundColor = UIColor.redColor()
-        //cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, 250, 30)
-Console.log(cell.frame.size.width)
-
-        
         cell.textInCell.text = users[indexPath.row] as? String
         return cell
     }

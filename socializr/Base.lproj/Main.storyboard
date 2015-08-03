@@ -375,19 +375,24 @@
                             <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKL-Yk-kB4" userLabel="Title">
                                 <rect key="frame" x="0.0" y="20" width="320" height="87"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rj-5l-2Rr">
-                                        <rect key="frame" x="8" y="51" width="304" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1T-Rc-qj5">
+                                        <rect key="frame" x="8" y="8" width="304" height="35"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="UbU-pj-EL7"/>
+                                            <constraint firstAttribute="width" constant="116" id="Bc7-KI-C4B"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Bc7-KI-C4B"/>
+                                            </mask>
+                                        </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1T-Rc-qj5">
-                                        <rect key="frame" x="102" y="8" width="116" height="35"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rj-5l-2Rr">
+                                        <rect key="frame" x="8" y="51" width="304" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="116" id="Bc7-KI-C4B"/>
+                                            <constraint firstAttribute="height" constant="21" id="UbU-pj-EL7"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -401,9 +406,19 @@
                                     <constraint firstAttribute="bottom" secondItem="5Rj-5l-2Rr" secondAttribute="bottom" constant="15" id="6TD-ac-d3k"/>
                                     <constraint firstAttribute="height" constant="87" id="AkV-Z1-QRi"/>
                                     <constraint firstItem="M1T-Rc-qj5" firstAttribute="centerX" secondItem="qKL-Yk-kB4" secondAttribute="centerX" id="U4c-Pg-dvT"/>
+                                    <constraint firstItem="5Rj-5l-2Rr" firstAttribute="leading" secondItem="qKL-Yk-kB4" secondAttribute="leading" constant="8" id="Vm1-pe-yGI"/>
+                                    <constraint firstAttribute="trailing" secondItem="M1T-Rc-qj5" secondAttribute="trailing" constant="8" id="WYY-3e-6eH"/>
                                     <constraint firstItem="M1T-Rc-qj5" firstAttribute="centerX" secondItem="5Rj-5l-2Rr" secondAttribute="centerX" id="f79-IN-7f8"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Rj-5l-2Rr" secondAttribute="trailing" constant="8" id="pIJ-aT-Iuc"/>
+                                    <constraint firstItem="M1T-Rc-qj5" firstAttribute="leading" secondItem="qKL-Yk-kB4" secondAttribute="leading" constant="8" id="qC3-lQ-fmg"/>
                                     <constraint firstItem="5Rj-5l-2Rr" firstAttribute="leading" secondItem="qKL-Yk-kB4" secondAttribute="leadingMargin" id="sqh-Wa-4uy"/>
+                                    <constraint firstAttribute="centerX" secondItem="5Rj-5l-2Rr" secondAttribute="centerX" id="vgl-bC-u2s"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="f79-IN-7f8"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="whosGoingView" translatesAutoresizingMaskIntoConstraints="NO" id="dq3-eZ-bvK" userLabel="WhosGoing">
                                 <rect key="frame" x="16" y="258" width="288" height="105"/>
@@ -491,7 +506,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBQ-Dv-Ov9">
-                                        <rect key="frame" x="0.0" y="29.5" width="288" height="147.5"/>
+                                        <rect key="frame" x="0.0" y="29" width="288" height="147.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>

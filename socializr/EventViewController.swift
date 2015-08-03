@@ -99,7 +99,7 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         }
         
         // eventUsersLabel.text = "one \n two \n three \n four \n five \n six \n seven"
-        notesText.text = notes
+        //notesText.text = notes
     }
 
     

@@ -409,13 +409,13 @@
                                 <rect key="frame" x="16" y="258" width="288" height="105"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who's going?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhq-Ky-Wh7">
-                                        <rect key="frame" x="0.0" y="0.0" width="106" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="106" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.14999999999999969" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vui-aF-2fN">
-                                        <rect key="frame" x="0.0" y="28" width="288" height="77"/>
+                                        <rect key="frame" x="0.0" y="28" width="288" height="76.5"/>
                                         <color key="backgroundColor" red="0.80000000000000004" green="1" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="76" id="VUS-Zy-6eu"/>
@@ -484,42 +484,29 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Mg-Of-yXk" userLabel="NotesView">
                                 <rect key="frame" x="16" y="371" width="288" height="177"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apz-4B-LED">
-                                        <rect key="frame" x="0.0" y="0.0" width="46" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apz-4B-LED">
+                                        <rect key="frame" x="0.0" y="0.0" width="45.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vd7-SG-hbI">
-                                        <rect key="frame" x="0.0" y="28" width="288" height="149"/>
-                                    </scrollView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CXa-YT-Dru">
-                                        <rect key="frame" x="0.0" y="28" width="288" height="149"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <attributedString key="attributedText">
-                                            <fragment>
-                                                <string key="content">ZCZCZCZCzjzG CZG CjkZGCjkZGJCK ZKJCgkajcg jka DGJKa gdjkagD JKa gdjkag DJKag djka gDJKag djkg ajkDG jkadgjkaDG KJagdjkaGDJKa gdjkaGDKJagjkdgakjDGkjadgkjaGDJKagdjk a GDKJa gdkja GDKJ hjkasj kdagsjkf gasjkfg asjkfgjkas gfjkasg fkjas gfjkas gjkfg asjkf gjkasfg jkasg fjkasg fjkasg fjkags fjkag sjkfg asjkfg kjsaf gjkasg fjkasg fjkasg fkjg asf qiwryioqwyrioqwu riqwuriuqwioru qwi ruiqwurpqwurpo qwurpoqwurp</string>
-                                                <attributes>
-                                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7km-eW-CLD">
+                                        <rect key="frame" x="0.0" y="28.5" width="288" height="148.5"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.76492680629999998" blue="0.066089679200000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="Vd7-SG-hbI" firstAttribute="leading" secondItem="0Mg-Of-yXk" secondAttribute="leading" id="BgP-7k-Mub"/>
-                                    <constraint firstItem="CXa-YT-Dru" firstAttribute="leading" secondItem="0Mg-Of-yXk" secondAttribute="leading" id="Btp-5S-HY5"/>
-                                    <constraint firstItem="CXa-YT-Dru" firstAttribute="top" secondItem="apz-4B-LED" secondAttribute="bottom" constant="8" id="CKo-Kh-3PK"/>
+                                    <constraint firstAttribute="trailing" secondItem="7km-eW-CLD" secondAttribute="trailing" id="Cqh-Rz-8kg"/>
                                     <constraint firstItem="apz-4B-LED" firstAttribute="leading" secondItem="0Mg-Of-yXk" secondAttribute="leading" id="ELI-s9-t9I"/>
-                                    <constraint firstAttribute="trailing" secondItem="CXa-YT-Dru" secondAttribute="trailing" id="HL5-zW-YBN"/>
-                                    <constraint firstAttribute="trailing" secondItem="Vd7-SG-hbI" secondAttribute="trailing" id="N59-xs-n8U"/>
-                                    <constraint firstAttribute="bottom" secondItem="CXa-YT-Dru" secondAttribute="bottom" id="T8u-lC-KZH"/>
-                                    <constraint firstItem="Vd7-SG-hbI" firstAttribute="top" secondItem="apz-4B-LED" secondAttribute="bottom" constant="8" id="fce-WH-5Q7"/>
+                                    <constraint firstItem="7km-eW-CLD" firstAttribute="top" secondItem="apz-4B-LED" secondAttribute="bottom" constant="8" id="EUe-Tf-ry7"/>
+                                    <constraint firstAttribute="bottom" secondItem="7km-eW-CLD" secondAttribute="bottom" id="eKq-bF-JkL"/>
+                                    <constraint firstItem="7km-eW-CLD" firstAttribute="leading" secondItem="0Mg-Of-yXk" secondAttribute="leading" id="gGg-Kr-X7f"/>
                                     <constraint firstItem="apz-4B-LED" firstAttribute="top" secondItem="0Mg-Of-yXk" secondAttribute="top" id="iTS-Eb-cZP"/>
-                                    <constraint firstAttribute="bottom" secondItem="Vd7-SG-hbI" secondAttribute="bottom" id="mjT-Er-KPS"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gsE-5b-avQ" userLabel="Join">

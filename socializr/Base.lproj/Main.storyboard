@@ -366,6 +366,9 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lwf-0d-iAT">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                            </scrollView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HSg-yf-N1o">
                                 <rect key="frame" x="0.0" y="20" width="320" height="230"/>
                                 <constraints>
@@ -375,7 +378,7 @@
                             <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKL-Yk-kB4" userLabel="Title">
                                 <rect key="frame" x="0.0" y="20" width="320" height="87"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1T-Rc-qj5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1T-Rc-qj5" userLabel="EventName">
                                         <rect key="frame" x="8" y="8" width="304" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="116" id="Bc7-KI-C4B"/>
@@ -389,7 +392,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rj-5l-2Rr">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rj-5l-2Rr" userLabel="EventTime">
                                         <rect key="frame" x="8" y="51" width="304" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="UbU-pj-EL7"/>
@@ -567,8 +570,10 @@
                             <constraint firstItem="HSg-yf-N1o" firstAttribute="top" secondItem="xVa-Fp-jMH" secondAttribute="bottom" id="5C9-JW-Ask"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0Mg-Of-yXk" secondAttribute="trailing" id="6hq-H9-pky"/>
                             <constraint firstItem="HSg-yf-N1o" firstAttribute="leading" secondItem="2sK-FT-6N5" secondAttribute="leadingMargin" constant="-16" id="7CC-hM-tOo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lwf-0d-iAT" secondAttribute="trailing" id="CpR-p4-fnP"/>
                             <constraint firstItem="dq3-eZ-bvK" firstAttribute="top" secondItem="HSg-yf-N1o" secondAttribute="bottom" constant="8" id="Dz4-Oc-uXN"/>
                             <constraint firstItem="UDb-Rf-7RY" firstAttribute="top" secondItem="gsE-5b-avQ" secondAttribute="bottom" id="F6x-IN-AyM"/>
+                            <constraint firstItem="lwf-0d-iAT" firstAttribute="leading" secondItem="2sK-FT-6N5" secondAttribute="leadingMargin" id="FQk-yJ-NJG"/>
                             <constraint firstItem="0Mg-Of-yXk" firstAttribute="top" secondItem="dq3-eZ-bvK" secondAttribute="bottom" constant="8" id="QDF-M9-d5V"/>
                             <constraint firstItem="UDb-Rf-7RY" firstAttribute="top" secondItem="0Mg-Of-yXk" secondAttribute="bottom" constant="20" id="QyJ-kQ-hks"/>
                             <constraint firstItem="qKL-Yk-kB4" firstAttribute="leading" secondItem="2sK-FT-6N5" secondAttribute="leadingMargin" constant="-16" id="RHb-1l-xbr"/>
@@ -578,19 +583,26 @@
                             <constraint firstItem="dq3-eZ-bvK" firstAttribute="top" secondItem="HSg-yf-N1o" secondAttribute="bottom" constant="8" id="Zv9-mu-jWg"/>
                             <constraint firstItem="0Mg-Of-yXk" firstAttribute="leading" secondItem="2sK-FT-6N5" secondAttribute="leadingMargin" id="Zyk-oZ-sQ8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HSg-yf-N1o" secondAttribute="trailing" constant="-16" id="cAA-uX-ySS"/>
+                            <constraint firstItem="lwf-0d-iAT" firstAttribute="top" secondItem="xVa-Fp-jMH" secondAttribute="bottom" id="ctR-cq-90b"/>
                             <constraint firstItem="gsE-5b-avQ" firstAttribute="leading" secondItem="2sK-FT-6N5" secondAttribute="leadingMargin" constant="-16" id="eUC-no-xTM"/>
+                            <constraint firstItem="UDb-Rf-7RY" firstAttribute="top" secondItem="lwf-0d-iAT" secondAttribute="bottom" id="fXg-2N-MTx"/>
                             <constraint firstItem="dq3-eZ-bvK" firstAttribute="trailing" secondItem="2sK-FT-6N5" secondAttribute="trailingMargin" id="iet-2u-GBV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lwf-0d-iAT" secondAttribute="trailing" constant="-16" id="nHx-bD-2cC"/>
                             <constraint firstItem="qKL-Yk-kB4" firstAttribute="top" secondItem="xVa-Fp-jMH" secondAttribute="bottom" id="ogd-Wy-gXv"/>
+                            <constraint firstItem="lwf-0d-iAT" firstAttribute="leading" secondItem="2sK-FT-6N5" secondAttribute="leadingMargin" constant="-16" id="tWl-7h-M3d"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="SKk-rV-q9v"/>
                                 <exclude reference="TEi-d0-Znh"/>
+                                <exclude reference="CpR-p4-fnP"/>
+                                <exclude reference="FQk-yJ-NJG"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Event details" id="Fhf-8X-kII"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="dateLabel" destination="5Rj-5l-2Rr" id="foe-zg-b6S"/>
                         <outlet property="eventNameLabel" destination="M1T-Rc-qj5" id="Eb1-eu-gG3"/>

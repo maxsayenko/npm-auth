@@ -69,12 +69,6 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         annotation.title = "Start"
         annotation.subtitle = "Details..."
         mapView.addAnnotation(annotation)
-        
-        // Do any additional setup after loading the view.
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
-        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -94,12 +88,9 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
             for name in self.users {
                 usersString += "\(name)\n"
             }
-            
-            //eventUsersLabel.text = usersString
         }
         
-        // eventUsersLabel.text = "one \n two \n three \n four \n five \n six \n seven"
-        //notesText.text = notes
+        notesText.text = notes
     }
 
     

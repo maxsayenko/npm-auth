@@ -14,7 +14,6 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var eventNameLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
-    //@IBOutlet var eventUsersLabel: UILabel!
     
     @IBOutlet var notesText: UITextView!
     @IBOutlet var joinView: UIView!
@@ -69,6 +68,10 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         annotation.title = "Start"
         annotation.subtitle = "Details..."
         mapView.addAnnotation(annotation)
+        
+        var logButton : UIBarButtonItem = UIBarButtonItem(title: "RigthButtonTitle", style: UIBarButtonItemStyle.Plain, target: self, action: "")
+        
+        self.navigationItem.rightBarButtonItem = logButton
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -112,17 +115,6 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         let cell: textViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("textCell", forIndexPath: indexPath) as! textViewCell
         cell.textInCell.text = users[indexPath.row] as? String
         return cell
-    }
-    
-    // not sure if I need it here
-    func longPressAction(gestureRecognizer: UIGestureRecognizer) {
-        var touchPoint = gestureRecognizer.locationInView(self.mapView)
-        var newCoordinate:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: self.mapView)
-        var annotation = MKPointAnnotation()
-        annotation.coordinate = newCoordinate
-        annotation.title = "Finish"
-        annotation.subtitle = "Details..."
-        mapView.addAnnotation(annotation)
     }
 
     override func didReceiveMemoryWarning() {

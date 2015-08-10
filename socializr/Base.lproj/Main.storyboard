@@ -599,7 +599,13 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Event details" id="Fhf-8X-kII"/>
+                    <navigationItem key="navigationItem" title="Event details" id="Fhf-8X-kII">
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="flag" style="done" id="cfL-ms-OpS">
+                            <connections>
+                                <action selector="flagButtonClick:" destination="HQM-U0-m9h" id="BLv-73-JIh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>

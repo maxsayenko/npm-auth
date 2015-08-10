@@ -28,6 +28,10 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         joinView.hidden = true
     }
     
+    @IBAction func flagButtonClick(sender: UIBarButtonItem) {
+        Console.log("blah")
+    }
+    
     var id = "1"
     var name = ""
     var lat:CLLocationDegrees = 0
@@ -45,9 +49,9 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         longPressRecognizer.minimumPressDuration = 2
         mapView.addGestureRecognizer(longPressRecognizer)
         
-// ancestry coords
-//        var latitude:CLLocationDegrees = 37.779492
-//        var longditude:CLLocationDegrees = -122.391669
+        // ancestry coords
+        //        var latitude:CLLocationDegrees = 37.779492
+        //        var longditude:CLLocationDegrees = -122.391669
         
         var latitude:CLLocationDegrees = lat
         var longditude:CLLocationDegrees = lng
@@ -69,9 +73,12 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         annotation.subtitle = "Details..."
         mapView.addAnnotation(annotation)
         
-        var logButton : UIBarButtonItem = UIBarButtonItem(title: "RigthButtonTitle", style: UIBarButtonItemStyle.Plain, target: self, action: "")
         
-        self.navigationItem.rightBarButtonItem = logButton
+        
+        
+        var flagButton : UIBarButtonItem = UIBarButtonItem(title: "RigthButtonTitle", style: UIBarButtonItemStyle.Plain, target: self, action: "")
+        
+        //self.navigationItem.rightBarButtonItem = logButton
     }
     
     override func viewDidAppear(animated: Bool) {

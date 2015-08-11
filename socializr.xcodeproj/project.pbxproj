@@ -34,7 +34,8 @@
 		E26BFF781ABD4FE900269700 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BFF771ABD4FE900269700 /* Parse.framework */; };
 		E26BFF7A1ABD500000269700 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BFF791ABD500000269700 /* Bolts.framework */; };
 		E26BFF7C1ABD511A00269700 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BFF7B1ABD511A00269700 /* Social.framework */; };
-		E281B8B51B788DB4006DD183 /* flagFilled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = E281B8B41B788DB4006DD183 /* flagFilled-50.png */; };
+		E281B8B81B79DE9C006DD183 /* flagFilled-22.png in Resources */ = {isa = PBXBuildFile; fileRef = E281B8B61B79DE9C006DD183 /* flagFilled-22.png */; };
+		E281B8B91B79DE9C006DD183 /* flagFilled-44.png in Resources */ = {isa = PBXBuildFile; fileRef = E281B8B71B79DE9C006DD183 /* flagFilled-44.png */; };
 		E293EFF41B43912C00298977 /* textViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E293EFF31B43912C00298977 /* textViewCell.swift */; };
 		E2A46EC01A9FAFCE0090FDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A46EBF1A9FAFCE0090FDCB /* AppDelegate.swift */; };
 		E2A46EC31A9FAFCE0090FDCB /* socializr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2A46EC11A9FAFCE0090FDCB /* socializr.xcdatamodeld */; };
@@ -90,7 +91,8 @@
 		E26BFF771ABD4FE900269700 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		E26BFF791ABD500000269700 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		E26BFF7B1ABD511A00269700 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		E281B8B41B788DB4006DD183 /* flagFilled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flagFilled-50.png"; sourceTree = "<group>"; };
+		E281B8B61B79DE9C006DD183 /* flagFilled-22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flagFilled-22.png"; path = "icons/flagFilled-22.png"; sourceTree = "<group>"; };
+		E281B8B71B79DE9C006DD183 /* flagFilled-44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flagFilled-44.png"; path = "icons/flagFilled-44.png"; sourceTree = "<group>"; };
 		E293EFF31B43912C00298977 /* textViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = textViewCell.swift; path = ../textViewCell.swift; sourceTree = "<group>"; };
 		E2A46EBA1A9FAFCE0090FDCB /* socializr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socializr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A46EBE1A9FAFCE0090FDCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -260,7 +262,8 @@
 		E2EB29F31ACBCEFC00634DD8 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				E281B8B41B788DB4006DD183 /* flagFilled-50.png */,
+				E281B8B61B79DE9C006DD183 /* flagFilled-22.png */,
+				E281B8B71B79DE9C006DD183 /* flagFilled-44.png */,
 				E20DFD331B2C0EFC00D4021F /* nextArrow.png */,
 				E2B8D5481AF0AF7100DC4D2A /* loginLogo.png */,
 			);
@@ -358,13 +361,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2B8D5491AF0AF7100DC4D2A /* loginLogo.png in Resources */,
-				E281B8B51B788DB4006DD183 /* flagFilled-50.png in Resources */,
 				E20DFD341B2C0EFC00D4021F /* nextArrow.png in Resources */,
 				E2537A5D1AE0E712008DBF81 /* Images-2.xcassets in Resources */,
+				E281B8B91B79DE9C006DD183 /* flagFilled-44.png in Resources */,
 				E2A46EC81A9FAFCE0090FDCB /* Main.storyboard in Resources */,
 				E21782FA1B28135300263D6E /* eventTableCell.xib in Resources */,
 				E2A46ECD1A9FAFCE0090FDCB /* LaunchScreen.xib in Resources */,
 				E2A46ECA1A9FAFCE0090FDCB /* Images.xcassets in Resources */,
+				E281B8B81B79DE9C006DD183 /* flagFilled-22.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

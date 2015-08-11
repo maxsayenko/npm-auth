@@ -600,7 +600,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Event details" id="Fhf-8X-kII">
-                        <barButtonItem key="rightBarButtonItem" tag="1" title="flagButton" style="done" id="cfL-ms-OpS">
+                        <barButtonItem key="rightBarButtonItem" tag="1" image="flagIcon" style="done" id="cfL-ms-OpS">
                             <connections>
                                 <action selector="flagButtonClick:" destination="HQM-U0-m9h" id="BLv-73-JIh"/>
                             </connections>
@@ -623,6 +623,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="flagIcon" width="44" height="44"/>
         <image name="loginLogo.png" width="202" height="121"/>
     </resources>
 </document>

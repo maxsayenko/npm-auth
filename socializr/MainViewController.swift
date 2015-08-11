@@ -66,6 +66,11 @@ class MainViewController: UIViewController, UITableViewDelegate {
 //        var usr:PFUser = PFUser.currentUser()
 //
 //        println("usr=\(usr) -- \(usr.email) -- \(usr.username)")
+        
+        
+        // Regestering custom table cell
+        var nib = UINib(nibName: "eventTableCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "eventTableCellId")
     }
     
     // Get Cell Count
@@ -75,34 +80,40 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     // Populate table items
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+      
+//        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+//        cell.textLabel?.text = self.events[indexPath.row]["name"] as? String
+
         
-        // just testing
-        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
-        cell.textLabel?.text = self.events[indexPath.row]["name"] as? String
+        
+        var cell:eventTableCellClass = self.tableView.dequeueReusableCellWithIdentifier("eventTableCellId") as! eventTableCellClass
+        cell.label.text = self.events[indexPath.row]["name"] as? String
         return cell
     }
     
     // Cell Click
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //Console.log("tableCellClicked \(indexPath)")
+        //println("tableCellClicked \(indexPath)")
         //CODE TO BE RUN ON CELL TOUCH
-        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as! EventViewController
+        let eventViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as! EventViewController
         
         var event: AnyObject = self.events[indexPath.row] as AnyObject
         
         if(event["id"]! != nil) {
-            eventsViewController.id = event["id"] as! String
+            eventViewController.id = event["id"] as! String
         }
         
         if(event["name"]! != nil) {
-            eventsViewController.name = event["name"] as! String
+            eventViewController.name = event["name"] as! String
         }
         
         if(event["startTime"]! != nil) {
-            eventsViewController.startTime = convertStringToDate(event["startTime"] as! NSString)
+            eventViewController.startTime = convertStringToDate(event["startTime"] as! NSString)
         }
         
         if(event["endTime"]! != nil) {
-            eventsViewController.endTime = convertStringToDate(event["endTime"] as! NSString)
+            eventViewController.endTime = convertStringToDate(event["endTime"] as! NSString)
         }
         
         var location: AnyObject? = event["location"]
@@ -110,18 +121,18 @@ class MainViewController: UIViewController, UITableViewDelegate {
         var lat:Double = location?["lat"] as! Double
         var lng:Double = location?["lng"] as! Double
         
-        eventsViewController.lat = lat
-        eventsViewController.lng = lng
+        eventViewController.lat = lat
+        eventViewController.lng = lng
         
         if(event["users"]! != nil) {
-            eventsViewController.users = event["users"] as! NSMutableArray
+            eventViewController.users = event["users"] as! NSMutableArray
         }
         
         if(event["notes"]! != nil) {
-            eventsViewController.notes = event["notes"] as! String
+            eventViewController.notes = event["notes"] as! String
         }
         
-        self.navigationController?.pushViewController(eventsViewController, animated: true)
+        self.navigationController?.pushViewController(eventViewController, animated: true)
     }
     
     func convertStringToDate(date: NSString) -> NSDate {
@@ -191,11 +202,13 @@ class MainViewController: UIViewController, UITableViewDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
+        println("MainViewCtrlr")
         self.navigationController?.navigationBarHidden = false
     }
     
     
     override func viewDidAppear(animated: Bool) {
+        println("MainViewCtrlrDid")
         Singleton.sharedInstance.eventLocation  = nil
     }
     

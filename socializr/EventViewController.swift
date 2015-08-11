@@ -9,15 +9,16 @@
 import UIKit
 import MapKit
 
-class EventViewController: UIViewController {
+class EventViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var eventNameLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
-    @IBOutlet var eventUsersLabel: UILabel!
     
     @IBOutlet var notesText: UITextView!
     @IBOutlet var joinView: UIView!
+    
+    @IBOutlet var namesCollectionView: UICollectionView!
     
     @IBAction func yesButtonClick(sender: AnyObject) {
         joinView.hidden = true
@@ -25,6 +26,10 @@ class EventViewController: UIViewController {
     
     @IBAction func noButtonClick(sender: AnyObject) {
         joinView.hidden = true
+    }
+    
+    @IBAction func flagButtonClick(sender: UIBarButtonItem) {
+        Console.log("blah")
     }
     
     var id = "1"
@@ -44,9 +49,9 @@ class EventViewController: UIViewController {
         longPressRecognizer.minimumPressDuration = 2
         mapView.addGestureRecognizer(longPressRecognizer)
         
-// ancestry coords
-//        var latitude:CLLocationDegrees = 37.779492
-//        var longditude:CLLocationDegrees = -122.391669
+        // ancestry coords
+        //        var latitude:CLLocationDegrees = 37.779492
+        //        var longditude:CLLocationDegrees = -122.391669
         
         var latitude:CLLocationDegrees = lat
         var longditude:CLLocationDegrees = lng
@@ -68,7 +73,12 @@ class EventViewController: UIViewController {
         annotation.subtitle = "Details..."
         mapView.addAnnotation(annotation)
         
-        // Do any additional setup after loading the view.
+        
+        
+        
+        var flagButton : UIBarButtonItem = UIBarButtonItem(title: "RigthButtonTitle", style: UIBarButtonItemStyle.Plain, target: self, action: "")
+        
+        //self.navigationItem.rightBarButtonItem = logButton
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -88,22 +98,30 @@ class EventViewController: UIViewController {
             for name in self.users {
                 usersString += "\(name)\n"
             }
-            
-            eventUsersLabel.text = usersString
         }
         
-        // eventUsersLabel.text = "one \n two \n three \n four \n five \n six \n seven"
         notesText.text = notes
     }
+
     
-    func longPressAction(gestureRecognizer: UIGestureRecognizer) {
-        var touchPoint = gestureRecognizer.locationInView(self.mapView)
-        var newCoordinate:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: self.mapView)
-        var annotation = MKPointAnnotation()
-        annotation.coordinate = newCoordinate
-        annotation.title = "Finish"
-        annotation.subtitle = "Details..."
-        mapView.addAnnotation(annotation)
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+    {
+        let numberOfCellsPerRow : CGFloat = 3.0
+        let minGapBetweenCells : CGFloat = 10.0
+        let totalSpaceBetweenCells : CGFloat = (numberOfCellsPerRow - 1) * minGapBetweenCells
+        let cellWidth : CGFloat = (collectionView.frame.size.width - totalSpaceBetweenCells) / numberOfCellsPerRow
+
+        return CGSize(width: cellWidth, height: 20)
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return users.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell: textViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("textCell", forIndexPath: indexPath) as! textViewCell
+        cell.textInCell.text = users[indexPath.row] as? String
+        return cell
     }
 
     override func didReceiveMemoryWarning() {

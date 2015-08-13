@@ -29,7 +29,26 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     @IBAction func flagButtonClick(sender: UIBarButtonItem) {
-        Console.log("blah")
+        let alertController = UIAlertController(title: "Flag this event", message: "You can report this event if it contains offensive message. Do you want to report it?", preferredStyle: .Alert)
+        
+        let okAction = UIAlertAction(title: "Report", style:UIAlertActionStyle.Default,
+        handler: {
+            (alertCtrl: UIAlertAction!) -> Void in
+                Console.log("booo - \(alertCtrl)")
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style:UIAlertActionStyle.Cancel,
+            handler: {
+                (alertCtrl: UIAlertAction!) -> Void in
+                Console.log("Cancel - \(alertCtrl)")
+        })
+        
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        self.presentViewController(alertController, animated: true, completion: {
+            () -> Void in
+        })
     }
     
     var id = "1"

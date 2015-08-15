@@ -112,13 +112,6 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         eventNameLabel.text = name
         dateLabel.text = "\(startDate) - \(endDate)"
         
-        if(users.count > 0) {
-            var usersString = ""
-            for name in self.users {
-                usersString += "\(name)\n"
-            }
-        }
-        
         notesText.text = notes
     }
 

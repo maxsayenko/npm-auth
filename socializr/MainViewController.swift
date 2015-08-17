@@ -29,45 +29,16 @@ class MainViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func ButtonClick(sender: UIButton) {
-
-        // joinLunchRoulette();
-//        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as EventViewController
-//        self.navigationController?.pushViewController(eventsViewController, animated: true)
-
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        
-        //      self.navigationController?.navigationBarHidden = true
-        
+
         NSNotificationCenter.defaultCenter().removeObserver(self)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateList:", name: "EventsUpdated", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "eventChanged:", name: "EventChanged", object: nil)
-        
-//        var permissions = ["public_profile", "email"]
-        
-//        PFFacebookUtils.logInWithPermissions(permissions, {
-//            (user: PFUser!, error: NSError!) -> Void in
-//            if let user = user {
-//                if (user.isNew) {
-//                    println("User signed up and logged in through Facebook!")
-//                    println(user)
-//                } else {
-//                    println("User logged in through Facebook!")
-//                    println(user)
-//                }
-//            } else {
-//                println("Uh oh. The user cancelled the Facebook login.")
-//            }
-//        })
-//        
-//        var usr:PFUser = PFUser.currentUser()
-//
-//        println("usr=\(usr) -- \(usr.email) -- \(usr.username)")
-        
-        
+
         // Regestering custom table cell
         var nib = UINib(nibName: "eventTableCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "eventTableCellId")
@@ -80,14 +51,21 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     // Populate table items
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      
-//        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
-//        cell.textLabel?.text = self.events[indexPath.row]["name"] as? String
-
-        
-        
         var cell:eventTableCellClass = self.tableView.dequeueReusableCellWithIdentifier("eventTableCellId") as! eventTableCellClass
         cell.label.text = self.events[indexPath.row]["name"] as? String
+        
+        // find out if this event was flagged by this user already
+        if let eventFlags: NSDictionary = self.events[indexPath.row]["flags"] as? NSDictionary {
+            for (flagId, flag) in eventFlags {
+                if let fbId = flag["fbId"] as? String {
+                    if (fbId == PFUser.currentUser()!["fbId"] as! String) {
+                        Console.log("Found it :) ")
+                        break
+                    }
+                }
+            }
+        }
+        
         return cell
     }
     
@@ -143,8 +121,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
     }
     
     
-    // Responds to EventsUpdated event from Firebase.
+    // Responds to EventsUpdated event from Firebase. (Initial load of the events)
     func updateList(notification: NSNotification) {
+        self.events = []
         for event in notification.userInfo!{
             // event.0 is an ID of the event. event.1 is actual event data (with id as property)
             self.events.addObject(event.1)

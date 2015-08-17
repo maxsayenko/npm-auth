@@ -16,12 +16,14 @@ class EventsCollection {
     init() {
         firebase.observeEventType(.Value, withBlock: { snapshot in
             var events = snapshot.value as! NSDictionary
+            Console.log("EventsUpdated")
             NSNotificationCenter.defaultCenter().postNotificationName("EventsUpdated", object: self, userInfo: events as [NSObject : AnyObject])
         })
         
         // Get the data on a post that has changed
         firebase.observeEventType(.ChildChanged, withBlock: { snapshot in
             var events = snapshot.value as! NSDictionary
+            Console.log("EventChanged")
             NSNotificationCenter.defaultCenter().postNotificationName("EventChanged", object: self, userInfo: events as [NSObject : AnyObject])
         })
     }
@@ -36,10 +38,10 @@ class EventsCollection {
     }
     
     static func flagEvent(eventId: String) {
-        let eventFlagsRef = firebase.childByAppendingPath(eventId + "/flag")
+        let eventFlagsRef = firebase.childByAppendingPath(eventId + "/flags")
         let newFlagRef = eventFlagsRef.childByAutoId()
-        let userCreatingFlag = [PFUser.currentUser()!["fbId"] as! String: PFUser.currentUser()!.username! as String]
-    
+        let userCreatingFlag = ["fbId": PFUser.currentUser()!["fbId"] as! String, "name": PFUser.currentUser()!.username! as String]
+        
         newFlagRef.setValue(userCreatingFlag)
     }
     

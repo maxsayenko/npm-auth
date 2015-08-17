@@ -50,6 +50,8 @@
 		E2BBD8951AA02B8A005EA3AE /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BBD8941AA02B8A005EA3AE /* NewEventViewController.swift */; };
 		E2BBD8971AA03070005EA3AE /* MapPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BBD8961AA03070005EA3AE /* MapPickViewController.swift */; };
 		E2BBD8991AA04E7C005EA3AE /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BBD8981AA04E7C005EA3AE /* Singleton.swift */; };
+		E2DB0D5F1B81AA0200ACF1BC /* redFlagFilled-22.png in Resources */ = {isa = PBXBuildFile; fileRef = E2DB0D5D1B81AA0200ACF1BC /* redFlagFilled-22.png */; };
+		E2DB0D601B81AA0200ACF1BC /* redFlagFilled-44.png in Resources */ = {isa = PBXBuildFile; fileRef = E2DB0D5E1B81AA0200ACF1BC /* redFlagFilled-44.png */; };
 		E2EB29FA1ACBD28200634DD8 /* ParseFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EB29F91ACBD28200634DD8 /* ParseFacebook.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +113,8 @@
 		E2BBD8941AA02B8A005EA3AE /* NewEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		E2BBD8961AA03070005EA3AE /* MapPickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPickViewController.swift; sourceTree = "<group>"; };
 		E2BBD8981AA04E7C005EA3AE /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		E2DB0D5D1B81AA0200ACF1BC /* redFlagFilled-22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "redFlagFilled-22.png"; path = "icons/redFlagFilled-22.png"; sourceTree = "<group>"; };
+		E2DB0D5E1B81AA0200ACF1BC /* redFlagFilled-44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "redFlagFilled-44.png"; path = "icons/redFlagFilled-44.png"; sourceTree = "<group>"; };
 		E2EB29F91ACBD28200634DD8 /* ParseFacebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseFacebook.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -262,6 +266,8 @@
 		E2EB29F31ACBCEFC00634DD8 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				E2DB0D5D1B81AA0200ACF1BC /* redFlagFilled-22.png */,
+				E2DB0D5E1B81AA0200ACF1BC /* redFlagFilled-44.png */,
 				E281B8B61B79DE9C006DD183 /* flagFilled-22.png */,
 				E281B8B71B79DE9C006DD183 /* flagFilled-44.png */,
 				E20DFD331B2C0EFC00D4021F /* nextArrow.png */,
@@ -361,10 +367,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2B8D5491AF0AF7100DC4D2A /* loginLogo.png in Resources */,
+				E2DB0D601B81AA0200ACF1BC /* redFlagFilled-44.png in Resources */,
 				E20DFD341B2C0EFC00D4021F /* nextArrow.png in Resources */,
 				E2537A5D1AE0E712008DBF81 /* Images-2.xcassets in Resources */,
 				E281B8B91B79DE9C006DD183 /* flagFilled-44.png in Resources */,
 				E2A46EC81A9FAFCE0090FDCB /* Main.storyboard in Resources */,
+				E2DB0D5F1B81AA0200ACF1BC /* redFlagFilled-22.png in Resources */,
 				E21782FA1B28135300263D6E /* eventTableCell.xib in Resources */,
 				E2A46ECD1A9FAFCE0090FDCB /* LaunchScreen.xib in Resources */,
 				E2A46ECA1A9FAFCE0090FDCB /* Images.xcassets in Resources */,

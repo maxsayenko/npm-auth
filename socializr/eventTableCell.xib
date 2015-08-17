@@ -14,7 +14,7 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4DR-jf-xlb" id="50p-TE-Y1D">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3j1-bd-Jlf">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3j1-bd-Jlf" userLabel="eventName">
                         <rect key="frame" x="8" y="16.5" width="42" height="20.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="205" id="D42-MA-fRV"/>
@@ -40,6 +40,9 @@
                                 <exclude reference="15r-yt-dVo"/>
                             </mask>
                         </variation>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="whk-2g-j8s" userLabel="flagIcon">
+                        <rect key="frame" x="410" y="14" width="25" height="25"/>
                     </imageView>
                 </subviews>
                 <constraints>

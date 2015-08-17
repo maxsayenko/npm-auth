@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController, UITableViewDelegate {
     var eventsCollection = EventsCollection()
-    var events:NSMutableArray = NSMutableArray()
+    var events: NSMutableArray = NSMutableArray()
     var rouletteEvents:NSMutableArray = NSMutableArray()
     var userId = Singleton.sharedInstance.userId
 
@@ -93,8 +93,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     // Cell Click
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //Console.log("tableCellClicked \(indexPath)")
-        //println("tableCellClicked \(indexPath)")
         //CODE TO BE RUN ON CELL TOUCH
         let eventViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as! EventViewController
         
@@ -144,9 +142,12 @@ class MainViewController: UIViewController, UITableViewDelegate {
         return dateFormatter.dateFromString(date as String)!
     }
     
+    
+    // Responds to EventsUpdated event from Firebase.
     func updateList(notification: NSNotification) {
-        for e in notification.userInfo!{
-            self.events.addObject(e.1)
+        for event in notification.userInfo!{
+            // event.0 is an ID of the event. event.1 is actual event data (with id as property)
+            self.events.addObject(event.1)
         }
 
         tableView.reloadData()

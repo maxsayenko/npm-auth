@@ -49,6 +49,8 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         self.presentViewController(alertController, animated: true, completion: {
             () -> Void in
         })
+        
+        EventsCollection.flagEvent(id)
     }
     
     var id = "1"

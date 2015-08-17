@@ -12,6 +12,7 @@ class eventTableCellClass: UITableViewCell {
 
     @IBOutlet var label: UILabel!
     @IBOutlet var flagIcon: UIImageView!
+    var isFlagged: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()

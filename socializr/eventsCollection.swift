@@ -14,6 +14,7 @@ var firebase = Firebase(url: "http://socializr.firebaseio.com/events")
 class EventsCollection {
     
     init() {
+        Console.log("Initing... ")
         firebase.observeEventType(.Value, withBlock: { snapshot in
             var events = snapshot.value as! NSDictionary
             Console.log("EventsUpdated")

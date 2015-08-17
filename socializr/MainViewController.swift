@@ -9,7 +9,7 @@
 import UIKit
 
 class MainViewController: UIViewController, UITableViewDelegate {
-    var eventsCollection: EventsCollection = EventsCollection()
+    var eventsCollection: EventsCollection! = EventsCollection()
     var events: NSMutableArray = NSMutableArray()
     var rouletteEvents:NSMutableArray = NSMutableArray()
     var userId = Singleton.sharedInstance.userId
@@ -60,6 +60,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
                 if let fbId = flag["fbId"] as? String {
                     if (fbId == PFUser.currentUser()!["fbId"] as! String) {
                         cell.flagIcon.image = UIImage(named: "redFlagIcon")
+                        cell.isFlagged = true
                         break
                     }
                 }
@@ -72,7 +73,11 @@ class MainViewController: UIViewController, UITableViewDelegate {
     // Cell Click
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //CODE TO BE RUN ON CELL TOUCH
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath) as! eventTableCellClass
+        
         let eventViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as! EventViewController
+        
+        Console.log(currentCell.isFlagged)
         
         var event: AnyObject = self.events[indexPath.row] as AnyObject
         
@@ -123,6 +128,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     // Responds to EventsUpdated event from Firebase. (Initial load of the events)
     func updateList(notification: NSNotification) {
+        Console.log("Updating events ..")
         self.events = []
         for event in notification.userInfo!{
             // event.0 is an ID of the event. event.1 is actual event data (with id as property)
@@ -182,13 +188,13 @@ class MainViewController: UIViewController, UITableViewDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-        println("MainViewCtrlr")
+        Console.log("MainViewCtrlr")
         self.navigationController?.navigationBarHidden = false
     }
     
     
     override func viewDidAppear(animated: Bool) {
-        println("MainViewCtrlrDid")
+        Console.log("MainViewCtrlrDid")
         Singleton.sharedInstance.eventLocation  = nil
     }
     

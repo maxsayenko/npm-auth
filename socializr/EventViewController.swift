@@ -35,12 +35,12 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         handler: {
             (alertCtrl: UIAlertAction!) -> Void in
             EventsCollection.flagEvent(self.id)
+            self.navigationItem.rightBarButtonItem = nil
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style:UIAlertActionStyle.Cancel,
             handler: {
                 (alertCtrl: UIAlertAction!) -> Void in
-                Console.log("Cancel - \(alertCtrl)")
         })
         
         alertController.addAction(okAction)
@@ -91,13 +91,6 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         annotation.title = "Start"
         annotation.subtitle = "Details..."
         mapView.addAnnotation(annotation)
-        
-        
-        
-        
-        var flagButton : UIBarButtonItem = UIBarButtonItem(title: "RigthButtonTitle", style: UIBarButtonItemStyle.Plain, target: self, action: "")
-        
-        //self.navigationItem.rightBarButtonItem = logButton
     }
     
     override func viewDidAppear(animated: Bool) {

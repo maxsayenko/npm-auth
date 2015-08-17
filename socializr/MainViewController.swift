@@ -9,7 +9,7 @@
 import UIKit
 
 class MainViewController: UIViewController, UITableViewDelegate {
-    var eventsCollection = EventsCollection()
+    var eventsCollection: EventsCollection = EventsCollection()
     var events: NSMutableArray = NSMutableArray()
     var rouletteEvents:NSMutableArray = NSMutableArray()
     var userId = Singleton.sharedInstance.userId

@@ -600,7 +600,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Event details" id="Fhf-8X-kII">
-                        <barButtonItem key="rightBarButtonItem" tag="1" image="flagIcon" style="done" id="cfL-ms-OpS">
+                        <barButtonItem key="rightBarButtonItem" tag="1" image="flagIcon" style="done" id="cfL-ms-OpS" userLabel="FlagIcon">
                             <connections>
                                 <action selector="flagButtonClick:" destination="HQM-U0-m9h" id="BLv-73-JIh"/>
                             </connections>

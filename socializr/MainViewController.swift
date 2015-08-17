@@ -59,7 +59,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
             for (flagId, flag) in eventFlags {
                 if let fbId = flag["fbId"] as? String {
                     if (fbId == PFUser.currentUser()!["fbId"] as! String) {
-                        Console.log("Found it :) ")
+                        cell.flagIcon.image = UIImage(named: "redFlagIcon")
                         break
                     }
                 }

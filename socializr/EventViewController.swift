@@ -34,7 +34,7 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         let okAction = UIAlertAction(title: "Report", style:UIAlertActionStyle.Default,
         handler: {
             (alertCtrl: UIAlertAction!) -> Void in
-                Console.log("booo - \(alertCtrl)")
+            EventsCollection.flagEvent(self.id)
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style:UIAlertActionStyle.Cancel,
@@ -49,8 +49,6 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         self.presentViewController(alertController, animated: true, completion: {
             () -> Void in
         })
-        
-        EventsCollection.flagEvent(id)
     }
     
     var id = "1"

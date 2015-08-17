@@ -14,8 +14,8 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4DR-jf-xlb" id="50p-TE-Y1D">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3j1-bd-Jlf" userLabel="eventName">
-                        <rect key="frame" x="8" y="16.5" width="42" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3j1-bd-Jlf" userLabel="eventName">
+                        <rect key="frame" x="8" y="17" width="42" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="205" id="D42-MA-fRV"/>
                         </constraints>
@@ -41,8 +41,17 @@
                             </mask>
                         </variation>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="whk-2g-j8s" userLabel="flagIcon">
-                        <rect key="frame" x="410" y="14" width="25" height="25"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="whk-2g-j8s" userLabel="flagIcon">
+                        <rect key="frame" x="413" y="17" width="17" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="17" id="Ro3-jC-yrO"/>
+                            <constraint firstAttribute="width" constant="25" id="hFy-nH-fXg"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hFy-nH-fXg"/>
+                            </mask>
+                        </variation>
                     </imageView>
                 </subviews>
                 <constraints>
@@ -51,7 +60,9 @@
                     <constraint firstItem="3j1-bd-Jlf" firstAttribute="top" secondItem="50p-TE-Y1D" secondAttribute="topMargin" id="4w3-bn-LWL"/>
                     <constraint firstItem="gT6-YC-EhW" firstAttribute="top" secondItem="50p-TE-Y1D" secondAttribute="topMargin" constant="7" id="72c-Ds-n2l"/>
                     <constraint firstItem="3j1-bd-Jlf" firstAttribute="bottom" secondItem="50p-TE-Y1D" secondAttribute="bottomMargin" id="7m8-wK-bhu"/>
+                    <constraint firstItem="whk-2g-j8s" firstAttribute="top" secondItem="50p-TE-Y1D" secondAttribute="topMargin" constant="6" id="8Or-i7-yW0"/>
                     <constraint firstItem="3j1-bd-Jlf" firstAttribute="top" secondItem="50p-TE-Y1D" secondAttribute="topMargin" constant="6" id="8jJ-cX-HJW"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="whk-2g-j8s" secondAttribute="bottom" constant="2.5" id="9Ac-Kx-1y1"/>
                     <constraint firstItem="gT6-YC-EhW" firstAttribute="centerY" secondItem="50p-TE-Y1D" secondAttribute="centerY" constant="-1" id="BCl-d1-3QG"/>
                     <constraint firstAttribute="bottomMargin" secondItem="gT6-YC-EhW" secondAttribute="bottom" constant="-7" id="CoC-OR-YNf"/>
                     <constraint firstAttribute="trailingMargin" secondItem="gT6-YC-EhW" secondAttribute="trailing" constant="-8" id="EMO-wO-4AO"/>
@@ -59,13 +70,18 @@
                     <constraint firstItem="gT6-YC-EhW" firstAttribute="top" secondItem="50p-TE-Y1D" secondAttribute="topMargin" constant="-9" id="HhY-CB-CBB"/>
                     <constraint firstAttribute="trailingMargin" secondItem="gT6-YC-EhW" secondAttribute="trailing" constant="-8" id="IAG-lL-i0L"/>
                     <constraint firstAttribute="bottomMargin" secondItem="gT6-YC-EhW" secondAttribute="bottom" id="P5b-Kc-6w9"/>
+                    <constraint firstItem="gT6-YC-EhW" firstAttribute="leading" secondItem="whk-2g-j8s" secondAttribute="trailing" constant="8" symbolic="YES" id="Qmf-fT-8pM"/>
                     <constraint firstAttribute="trailingMargin" secondItem="gT6-YC-EhW" secondAttribute="trailing" constant="-8" id="Ty3-zf-e38"/>
+                    <constraint firstItem="whk-2g-j8s" firstAttribute="top" secondItem="gT6-YC-EhW" secondAttribute="top" id="XDu-6b-OS9"/>
                     <constraint firstItem="gT6-YC-EhW" firstAttribute="trailing" secondItem="50p-TE-Y1D" secondAttribute="trailingMargin" id="YpE-hk-Jc3"/>
+                    <constraint firstItem="gT6-YC-EhW" firstAttribute="top" secondItem="3j1-bd-Jlf" secondAttribute="top" id="ZHk-wK-vaz"/>
                     <constraint firstItem="3j1-bd-Jlf" firstAttribute="leading" secondItem="50p-TE-Y1D" secondAttribute="leadingMargin" id="Zby-iT-can"/>
                     <constraint firstItem="gT6-YC-EhW" firstAttribute="top" secondItem="50p-TE-Y1D" secondAttribute="topMargin" id="gj8-8f-AYa"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="whk-2g-j8s" secondAttribute="bottom" constant="2.5" id="jt9-mh-8BI"/>
                     <constraint firstItem="3j1-bd-Jlf" firstAttribute="centerY" secondItem="50p-TE-Y1D" secondAttribute="centerY" constant="1.75" id="nbb-WL-WOv"/>
                     <constraint firstItem="gT6-YC-EhW" firstAttribute="top" secondItem="50p-TE-Y1D" secondAttribute="top" constant="5" id="pDn-nq-ce1"/>
                     <constraint firstAttribute="trailingMargin" secondItem="gT6-YC-EhW" secondAttribute="trailing" constant="-8" id="rhb-d7-89a"/>
+                    <constraint firstItem="gT6-YC-EhW" firstAttribute="leading" secondItem="whk-2g-j8s" secondAttribute="trailing" constant="8" symbolic="YES" id="ySQ-S0-WaR"/>
                     <constraint firstAttribute="trailingMargin" secondItem="gT6-YC-EhW" secondAttribute="trailing" constant="12" id="ym8-8x-Ype"/>
                 </constraints>
                 <variation key="default">
@@ -73,6 +89,8 @@
                         <exclude reference="4w3-bn-LWL"/>
                         <exclude reference="7m8-wK-bhu"/>
                         <exclude reference="8jJ-cX-HJW"/>
+                        <exclude reference="8Or-i7-yW0"/>
+                        <exclude reference="9Ac-Kx-1y1"/>
                         <exclude reference="1Sm-S0-7cU"/>
                         <exclude reference="72c-Ds-n2l"/>
                         <exclude reference="BCl-d1-3QG"/>
@@ -86,11 +104,13 @@
                         <exclude reference="gj8-8f-AYa"/>
                         <exclude reference="pDn-nq-ce1"/>
                         <exclude reference="rhb-d7-89a"/>
+                        <exclude reference="ySQ-S0-WaR"/>
                         <exclude reference="ym8-8x-Ype"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="flagIcon" destination="whk-2g-j8s" id="dWh-iq-1Td"/>
                 <outlet property="label" destination="3j1-bd-Jlf" id="oEr-pj-WKu"/>
             </connections>
             <point key="canvasLocation" x="335.5" y="279"/>

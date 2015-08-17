@@ -11,10 +11,10 @@ import MapKit
 
 class NewEventViewController: UIViewController, UITextFieldDelegate {
 
-    var startDatePickerView : UIDatePicker = UIDatePicker()
-    var endDatePickerView : UIDatePicker = UIDatePicker()
-    var startDate : NSDate = NSDate()
-    var endDate : NSDate = NSDate()
+    var startDatePickerView: UIDatePicker = UIDatePicker()
+    var endDatePickerView: UIDatePicker = UIDatePicker()
+    var startDate: NSDate = NSDate()
+    var endDate: NSDate = NSDate()
     
 
     @IBOutlet var viewControl: UIControl!

@@ -76,8 +76,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
         let currentCell = tableView.cellForRowAtIndexPath(indexPath) as! eventTableCellClass
         
         let eventViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as! EventViewController
-        
-        Console.log(currentCell.isFlagged)
+
+        // TODO: replace with the real model
+        eventViewController.isFlagged = currentCell.isFlagged
         
         var event: AnyObject = self.events[indexPath.row] as AnyObject
         

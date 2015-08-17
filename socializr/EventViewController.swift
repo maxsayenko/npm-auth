@@ -59,11 +59,16 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     var endTime:NSDate = NSDate()
     var users:NSMutableArray = NSMutableArray()
     var notes: String = ""
+    var isFlagged: Bool = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if isFlagged {
+            self.navigationItem.rightBarButtonItem = nil
+        }
+        
         var longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressAction:")
         longPressRecognizer.minimumPressDuration = 2
         mapView.addGestureRecognizer(longPressRecognizer)

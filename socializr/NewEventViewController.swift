@@ -40,18 +40,17 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         var startDateText = dateFormatter.stringFromDate(startDate)
         var endDateText = dateFormatter.stringFromDate(endDate)
         var name = titleTxt.text
-        var lnt = Singleton.sharedInstance.eventLocation.latitude
-        var lng = Singleton.sharedInstance.eventLocation.longitude
+        var location: AnyObject = []
         
-        // save to firebase
+        if let eventLocation = Singleton.sharedInstance.eventLocation {
+            location = ["lat":eventLocation.latitude, "lng": eventLocation.longitude]
+        }
+        
+        // save the event
         var eventId = NSUUID().UUIDString
-        var firebaseRef = Firebase(url: "http://socializr.firebaseio.com/events")
-        
-        var data = ["id": eventId, "name": name, "startTime": startDateText, "endTime": endDateText, "notes": noteTxtBox.text]
-        var eventRef = firebaseRef.childByAppendingPath(eventId)
+        var eventData = ["id": eventId, "name": name, "startTime": startDateText, "endTime": endDateText, "notes": noteTxtBox.text, "location": location]
 
-        eventRef.setValue(data)
-        eventRef.childByAppendingPath("location").setValue(["lat":lnt, "lng": lng])
+        EventsCollection.addNewEvent(eventId, data: eventData)
         
         self.navigationController?.popViewControllerAnimated(true)
     }

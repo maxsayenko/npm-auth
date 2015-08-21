@@ -46,6 +46,11 @@ class EventsCollection {
         newFlagRef.setValue(userCreatingFlag)
     }
     
+    static func addNewEvent(newEventId: String, data: AnyObject) {
+        var eventRef = firebase.childByAppendingPath(newEventId)
+        eventRef.setValue(data)
+    }
+    
     func addUserToEvent(eventId: String) {
         Console.log(eventId)
     }

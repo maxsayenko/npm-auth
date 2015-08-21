@@ -98,14 +98,11 @@ class MainViewController: UIViewController, UITableViewDelegate {
             eventViewController.endTime = convertStringToDate(event["endTime"] as! NSString)
         }
         
-        var location: AnyObject? = event["location"]
-        
-        var lat:Double = location?["lat"] as! Double
-        var lng:Double = location?["lng"] as! Double
-        
-        eventViewController.lat = lat
-        eventViewController.lng = lng
-        
+        if let location: AnyObject = event["location"] {
+            eventViewController.lat = location["lat"] as! Double
+            eventViewController.lng = location["lng"] as! Double
+        }
+
         if(event["users"]! != nil) {
             eventViewController.users = event["users"] as! NSMutableArray
         }

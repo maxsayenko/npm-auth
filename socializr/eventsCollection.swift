@@ -41,9 +41,7 @@ class EventsCollection {
     static func flagEvent(eventId: String) {
         let eventFlagsRef = firebase.childByAppendingPath(eventId + "/flags")
         let newFlagRef = eventFlagsRef.childByAutoId()
-        let userCreatingFlag = ["fbId": PFUser.currentUser()!["fbId"] as! String, "name": PFUser.currentUser()!.username! as String]
-        
-        newFlagRef.setValue(userCreatingFlag)
+        newFlagRef.setValue(ParseFacebook.getCurrentUser())
     }
     
     static func addNewEvent(newEventId: String, data: AnyObject) {

@@ -48,7 +48,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         
         // save the event
         var eventId = NSUUID().UUIDString
-        var eventData = ["id": eventId, "name": name, "startTime": startDateText, "endTime": endDateText, "notes": noteTxtBox.text, "location": location]
+        var eventData = ["id": eventId, "name": name, "startTime": startDateText, "endTime": endDateText, "notes": noteTxtBox.text, "location": location, "creator": ParseFacebook.getCurrentUser()]
 
         EventsCollection.addNewEvent(eventId, data: eventData)
         

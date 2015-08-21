@@ -106,4 +106,8 @@ class ParseFacebook {
             }
         }   
     }
+    
+    static func getCurrentUser() -> AnyObject {
+        return ["fbId": PFUser.currentUser()!["fbId"] as! String, "name": PFUser.currentUser()!.username! as String]
+    }
 }

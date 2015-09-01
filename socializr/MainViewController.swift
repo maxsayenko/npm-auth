@@ -103,8 +103,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
             eventViewController.lng = location["lng"] as! Double
         }
 
-        if(event["users"]! != nil) {
-            eventViewController.users = event["users"] as! NSMutableArray
+        if let users: AnyObject = event["users"] {
+            Console.log(users)
+            eventViewController.users = users as! NSMutableArray
         }
         
         if(event["notes"]! != nil) {

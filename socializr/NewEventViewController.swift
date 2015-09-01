@@ -9,21 +9,21 @@
 import UIKit
 import MapKit
 
-class NewEventViewController: UIViewController, UITextFieldDelegate {
-
+class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+    
     var startDatePickerView: UIDatePicker = UIDatePicker()
     var endDatePickerView: UIDatePicker = UIDatePicker()
     var startDate: NSDate = NSDate()
     var endDate: NSDate = NSDate()
     
-
+    
     @IBOutlet var viewControl: UIControl!
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var endDateTxt: UITextField!
     @IBOutlet var startDateTxt: UITextField!
     @IBOutlet var noteTxtBox: UITextView!
     @IBOutlet var titleTxt: UITextField!
-
+    
     @IBAction func addButtonClick(sender: UIBarButtonItem) {
         ////var dateFormatter = NSDateFormatter()
         ////date Formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -46,9 +46,8 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
             location = ["lat":eventLocation.latitude, "lng": eventLocation.longitude]
         }
         
-        // save the event
+        // add the event
         var eventData = ["name": name, "startTime": startDateText, "endTime": endDateText, "notes": noteTxtBox.text, "location": location]
-
         EventsCollection.addNewEvent(eventData)
         
         self.navigationController?.popViewControllerAnimated(true)
@@ -57,7 +56,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
     @IBAction func backgroundTouched(sender: UIControl) {
         viewControl.endEditing(true)
     }
-
+    
     override func viewDidAppear(animated: Bool) {
         if(Singleton.sharedInstance.eventLocation != nil) {
             locationLabel.text = "Set"
@@ -68,6 +67,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         startDateTxt.delegate = self
         endDateTxt.delegate = self
+        noteTxtBox.delegate = self
         
         startDatePickerView = UIDatePicker()
         startDatePickerView.datePickerMode = UIDatePickerMode.DateAndTime
@@ -78,12 +78,17 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         endDatePickerView.datePickerMode = UIDatePickerMode.DateAndTime
         endDateTxt.inputView = endDatePickerView
         endDatePickerView.addTarget( self, action: Selector("handelEndDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
-
+        
+        
+        // Placeholder for TextView
+        noteTxtBox.text = "Notes"
+        noteTxtBox.textColor = UIColor.lightGrayColor()
+        
     }
     
     func handelStartDatePicker(datePicker:UIDatePicker) {
         var dateFormatter = NSDateFormatter()
-
+        
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
@@ -102,7 +107,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         endDateTxt.text =  strDate
         endDate = datePicker.date
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -113,5 +118,20 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true;
     }
-
+    
+    
+    // Placeholder for TextView
+    func textViewDidBeginEditing(textView: UITextView) {
+        if (textView.textColor == UIColor.lightGrayColor()) {
+            textView.text = nil
+            textView.textColor = UIColor.blackColor()
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if (textView.text.isEmpty) {
+            textView.text = "Notes"
+            textView.textColor = UIColor.lightGrayColor()
+        }
+    }
 }

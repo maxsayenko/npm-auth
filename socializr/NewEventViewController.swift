@@ -47,10 +47,9 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         }
         
         // save the event
-        var eventId = NSUUID().UUIDString
-        var eventData = ["id": eventId, "name": name, "startTime": startDateText, "endTime": endDateText, "notes": noteTxtBox.text, "location": location, "creator": ParseFacebook.getCurrentUser()]
+        var eventData = ["name": name, "startTime": startDateText, "endTime": endDateText, "notes": noteTxtBox.text, "location": location]
 
-        EventsCollection.addNewEvent(eventId, data: eventData)
+        EventsCollection.addNewEvent(eventData)
         
         self.navigationController?.popViewControllerAnimated(true)
     }

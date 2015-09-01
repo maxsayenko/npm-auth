@@ -44,9 +44,20 @@ class EventsCollection {
         newFlagRef.setValue(ParseFacebook.getCurrentUser())
     }
     
-    static func addNewEvent(newEventId: String, data: AnyObject) {
-        var eventRef = firebase.childByAppendingPath(newEventId)
-        eventRef.setValue(data)
+    static func addNewEvent(data: [String : AnyObject]) {
+        let newEventId = NSUUID().UUIDString
+        let eventRef = firebase.childByAppendingPath(newEventId)
+        
+        var dataWrapper: Dictionary<String, AnyObject> = data
+        
+//        let eventUsersRef = eventRef.childByAppendingPath("/users")
+//        let newUser = eventUsersRef.childByAutoId()
+//        newUser.setValue(ParseFacebook.getCurrentUser())
+        
+        dataWrapper["users"] = [ParseFacebook.getCurrentUser()]
+        dataWrapper["creator"] = ParseFacebook.getCurrentUser()
+        
+        eventRef.setValue(dataWrapper)
     }
     
     func addUserToEvent(eventId: String) {

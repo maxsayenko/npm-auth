@@ -48,12 +48,8 @@ class EventsCollection {
         let newEventId = NSUUID().UUIDString
         let eventRef = firebase.childByAppendingPath(newEventId)
         
+        // Weird bug. Have to use wrapper to be able to edit this data
         var dataWrapper: Dictionary<String, AnyObject> = data
-        
-//        let eventUsersRef = eventRef.childByAppendingPath("/users")
-//        let newUser = eventUsersRef.childByAutoId()
-//        newUser.setValue(ParseFacebook.getCurrentUser())
-        
         dataWrapper["users"] = [ParseFacebook.getCurrentUser()]
         dataWrapper["creator"] = ParseFacebook.getCurrentUser()
         

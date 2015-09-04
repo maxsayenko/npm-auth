@@ -64,7 +64,7 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         if isFlagged {
             self.navigationItem.rightBarButtonItem = nil
         }
@@ -72,10 +72,6 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         var longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressAction:")
         longPressRecognizer.minimumPressDuration = 2
         mapView.addGestureRecognizer(longPressRecognizer)
-        
-        // ancestry coords
-        //        var latitude:CLLocationDegrees = 37.779492
-        //        var longditude:CLLocationDegrees = -122.391669
         
         var latitude:CLLocationDegrees = lat
         var longditude:CLLocationDegrees = lng
@@ -130,7 +126,9 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: textViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("textCell", forIndexPath: indexPath) as! textViewCell
-        cell.textInCell.text = users[indexPath.row] as? String
+        if let name: String = users[indexPath.row]["name"] as? String {
+            cell.textInCell.text = name
+        }
         return cell
     }
 

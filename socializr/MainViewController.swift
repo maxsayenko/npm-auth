@@ -104,7 +104,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
         }
 
         if let users: AnyObject = event["users"] {
-            Console.log(users)
             eventViewController.users = users as! NSMutableArray
         }
         

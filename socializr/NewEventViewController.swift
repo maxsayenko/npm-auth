@@ -24,16 +24,24 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewD
     @IBOutlet var noteTxtBox: UITextView!
     @IBOutlet var titleTxt: UITextField!
     
-    @IBAction func addButtonClick(sender: UIBarButtonItem) {
-        ////var dateFormatter = NSDateFormatter()
-        ////date Formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        //dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        //var sDate = dateFormatter.dateFromString(startDateTxt.text)
-        //var date = dateFormatter.stringFromDate(startDate)
-        ////println(startDateTxt.text)
-        //println(sDate)
-        ////var startDate = startDateTxt.text
-        
+    @IBAction func addButtonClick(sender: UIBarButtonItem) -> Void {
+        if(titleTxt.text.isEmpty) {
+            let alertController = UIAlertController(title: "Missing title", message: "Name of the event is missing", preferredStyle: .Alert)
+            
+            let okAction = UIAlertAction(title: "Ok", style:UIAlertActionStyle.Default,
+                handler: {
+                    (alertCtrl: UIAlertAction!) -> Void in
+            })
+            
+            alertController.addAction(okAction)
+            
+            self.presentViewController(alertController, animated: true, completion: {
+                () -> Void in
+            })
+
+            return
+        }
+
         var dateFormatter = NSDateFormatter()
         
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"

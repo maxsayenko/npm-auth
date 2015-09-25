@@ -11,7 +11,7 @@ import Foundation
 class Console {
     class func log(message: AnyObject, function: String = __FUNCTION__) -> Void {
         #if DEBUG
-            println("\(function): \(message)")
+            print("\(function): \(message)")
         #endif
     }
 }

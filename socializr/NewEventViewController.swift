@@ -30,7 +30,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewD
             
             let okAction = UIAlertAction(title: "Ok", style:UIAlertActionStyle.Default,
                 handler: {
-                    (alertCtrl: UIAlertAction!) -> Void in
+                    (alertCtrl: UIAlertAction) -> Void in
             })
             
             alertController.addAction(okAction)
@@ -95,23 +95,23 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewD
     }
     
     func handelStartDatePicker(datePicker:UIDatePicker) {
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
-        var strDate = dateFormatter.stringFromDate(datePicker.date)
+        let strDate = dateFormatter.stringFromDate(datePicker.date)
         startDateTxt.text =  strDate
         startDate = datePicker.date
     }
     
     func handelEndDatePicker(datePicker:UIDatePicker) {
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
-        var strDate = dateFormatter.stringFromDate(datePicker.date)
+        let strDate = dateFormatter.stringFromDate(datePicker.date)
         endDateTxt.text =  strDate
         endDate = datePicker.date
     }

@@ -40,7 +40,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "eventChanged:", name: "EventChanged", object: nil)
 
         // Regestering custom table cell
-        var nib = UINib(nibName: "eventTableCell", bundle: nil)
+        let nib = UINib(nibName: "eventTableCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "eventTableCellId")
     }
     
@@ -51,7 +51,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     // Populate table items
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:eventTableCellClass = self.tableView.dequeueReusableCellWithIdentifier("eventTableCellId") as! eventTableCellClass
+        let cell:eventTableCellClass = self.tableView.dequeueReusableCellWithIdentifier("eventTableCellId") as! eventTableCellClass
         cell.label.text = self.events[indexPath.row]["name"] as? String
         
         // find out if this event was flagged by this user already
@@ -80,7 +80,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         // TODO: replace with the real model
         eventViewController.isFlagged = currentCell.isFlagged
         
-        var event: AnyObject = self.events[indexPath.row] as AnyObject
+        let event: AnyObject = self.events[indexPath.row] as AnyObject
         
         if(event["id"]! != nil) {
             eventViewController.id = event["id"] as! String
@@ -149,7 +149,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     // schedule notification
     func scheduleNotification() {
         
-        var localNotification:UILocalNotification = UILocalNotification()
+        let localNotification:UILocalNotification = UILocalNotification()
         localNotification.alertAction = "Testing notifications on iOS8"
         localNotification.alertBody = "New Ancestry event created, please check it out!"
         localNotification.fireDate = NSDate(timeIntervalSinceNow: 3)
@@ -167,7 +167,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     func parseRouletteEvents(notification: NSNotification) {
         for e in notification.userInfo! {
-            var users:NSMutableArray = e.1["users"] as! NSMutableArray
+            let users:NSMutableArray = e.1["users"] as! NSMutableArray
             if (users.count < 5) {
                 self.rouletteEvents.addObject(e.1)
             }
@@ -176,8 +176,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
     }
     
     func addUserToEvent() {
-        var index = randomInt(0, max: self.rouletteEvents.count)
-        var event:NSDictionary = self.rouletteEvents[index] as! NSDictionary
+        let index = randomInt(0, max: self.rouletteEvents.count)
+        let event:NSDictionary = self.rouletteEvents[index] as! NSDictionary
         eventsCollection.addUserToEvent(event["id"] as! String)
     }
     

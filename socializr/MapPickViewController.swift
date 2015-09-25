@@ -16,40 +16,40 @@ class MapPickViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressAction:")
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressAction:")
         //longPressRecognizer.minimumPressDuration = 2
         mapView.addGestureRecognizer(longPressRecognizer)
         
         
-        var latitude:CLLocationDegrees = 37.779492
-        var longditude:CLLocationDegrees = -122.391669
+        let latitude:CLLocationDegrees = 37.779492
+        let longditude:CLLocationDegrees = -122.391669
         
-        var latDelta:CLLocationDegrees = 0.01
-        var longDelta:CLLocationDegrees = 0.01
+        let latDelta:CLLocationDegrees = 0.01
+        let longDelta:CLLocationDegrees = 0.01
         
-        var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+        let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
         
         var placeLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longditude)
         
         if(Singleton.sharedInstance.eventLocation != nil) {
             placeLocation = Singleton.sharedInstance.eventLocation
             
-            var annotation = MKPointAnnotation()
+            let annotation = MKPointAnnotation()
             annotation.coordinate = placeLocation
             annotation.title = "Start"
             annotation.subtitle = "Details..."
             mapView.addAnnotation(annotation)
         }
         
-        var theRegion:MKCoordinateRegion = MKCoordinateRegionMake(placeLocation, theSpan)
+        let theRegion:MKCoordinateRegion = MKCoordinateRegionMake(placeLocation, theSpan)
         mapView.setRegion(theRegion, animated: true)
     }
 
     
     func longPressAction(gestureRecognizer: UIGestureRecognizer) {
         if(gestureRecognizer.state == UIGestureRecognizerState.Began) {
-            var touchPoint = gestureRecognizer.locationInView(self.mapView)
-            var newCoordinate:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: self.mapView)
+            let touchPoint = gestureRecognizer.locationInView(self.mapView)
+            let newCoordinate:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: self.mapView)
             
             Singleton.sharedInstance.eventLocation = newCoordinate
             self.navigationController?.popViewControllerAnimated(true)

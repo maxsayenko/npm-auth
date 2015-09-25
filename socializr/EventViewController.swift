@@ -33,14 +33,14 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         let okAction = UIAlertAction(title: "Report", style:UIAlertActionStyle.Default,
         handler: {
-            (alertCtrl: UIAlertAction!) -> Void in
+            (alertCtrl: UIAlertAction) -> Void in
             EventsCollection.flagEvent(self.id)
             self.navigationItem.rightBarButtonItem = nil
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style:UIAlertActionStyle.Cancel,
             handler: {
-                (alertCtrl: UIAlertAction!) -> Void in
+                (alertCtrl: UIAlertAction) -> Void in
         })
         
         alertController.addAction(okAction)
@@ -69,25 +69,25 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
             self.navigationItem.rightBarButtonItem = nil
         }
         
-        var longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressAction:")
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressAction:")
         longPressRecognizer.minimumPressDuration = 2
         mapView.addGestureRecognizer(longPressRecognizer)
         
-        var latitude:CLLocationDegrees = lat
-        var longditude:CLLocationDegrees = lng
+        let latitude:CLLocationDegrees = lat
+        let longditude:CLLocationDegrees = lng
         
-        var latDelta:CLLocationDegrees = 0.03
-        var longDelta:CLLocationDegrees = 0.03
+        let latDelta:CLLocationDegrees = 0.03
+        let longDelta:CLLocationDegrees = 0.03
         
-        var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+        let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
         
-        var placeLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longditude)
+        let placeLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longditude)
         
-        var theRegion:MKCoordinateRegion = MKCoordinateRegionMake(placeLocation, theSpan)
+        let theRegion:MKCoordinateRegion = MKCoordinateRegionMake(placeLocation, theSpan)
         
         mapView.setRegion(theRegion, animated: true)
         
-        var annotation = MKPointAnnotation()
+        let annotation = MKPointAnnotation()
         annotation.coordinate = placeLocation
         annotation.title = "Start"
         annotation.subtitle = "Details..."
@@ -95,13 +95,13 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     override func viewDidAppear(animated: Bool) {
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
-        var startDate = dateFormatter.stringFromDate(startTime)
-        var endDate = dateFormatter.stringFromDate(endTime)
+        let startDate = dateFormatter.stringFromDate(startTime)
+        let endDate = dateFormatter.stringFromDate(endTime)
         
         eventNameLabel.text = name
         dateLabel.text = "\(startDate) - \(endDate)"

@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 
+@available(iOS 8.0, *)
 class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     var startDatePickerView: UIDatePicker = UIDatePicker()
@@ -25,7 +26,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewD
     @IBOutlet var titleTxt: UITextField!
     
     @IBAction func addButtonClick(sender: UIBarButtonItem) -> Void {
-        if(titleTxt.text.isEmpty) {
+        if(titleTxt.text!.isEmpty) {
             let alertController = UIAlertController(title: "Missing title", message: "Name of the event is missing", preferredStyle: .Alert)
             
             let okAction = UIAlertAction(title: "Ok", style:UIAlertActionStyle.Default,
@@ -42,12 +43,12 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewD
             return
         }
 
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        var startDateText = dateFormatter.stringFromDate(startDate)
-        var endDateText = dateFormatter.stringFromDate(endDate)
-        var name = titleTxt.text
+        let startDateText = dateFormatter.stringFromDate(startDate)
+        let endDateText = dateFormatter.stringFromDate(endDate)
+        let name = titleTxt.text
         var location: AnyObject = []
         
         if let eventLocation = Singleton.sharedInstance.eventLocation {
@@ -55,7 +56,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewD
         }
         
         // add the event
-        var eventData = ["name": name, "startTime": startDateText, "endTime": endDateText, "notes": noteTxtBox.text, "location": location]
+        let eventData: [String : AnyObject] = ["name": name as! AnyObject, "startTime": startDateText, "endTime": endDateText, "notes": noteTxtBox.text, "location": location]
         EventsCollection.addNewEvent(eventData)
         
         self.navigationController?.popViewControllerAnimated(true)

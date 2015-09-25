@@ -8,6 +8,7 @@
 
 import UIKit
 
+@available(iOS 8.0, *)
 class MainViewController: UIViewController, UITableViewDelegate {
     var eventsCollection: EventsCollection! = EventsCollection()
     var events: NSMutableArray = NSMutableArray()
@@ -56,7 +57,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
         
         // find out if this event was flagged by this user already
         if let eventFlags: NSDictionary = self.events[indexPath.row]["flags"] as? NSDictionary {
-            for (flagId, flag) in eventFlags {
+            // _ is a flagId that not being used (XCode was complaining)
+            for (_, flag) in eventFlags {
                 if let fbId = flag["fbId"] as? String {
                     if (fbId == PFUser.currentUser()!["fbId"] as! String) {
                         cell.flagIcon.image = UIImage(named: "redFlagIcon")

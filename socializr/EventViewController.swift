@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 
+@available(iOS 8.0, *)
 class EventViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet var mapView: MKMapView!
@@ -30,7 +31,7 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     @IBAction func flagButtonClick(sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "Flag this event", message: "You can report this event if it contains offensive message. Do you want to report it?", preferredStyle: .Alert)
-        
+
         let okAction = UIAlertAction(title: "Report", style:UIAlertActionStyle.Default,
         handler: {
             (alertCtrl: UIAlertAction) -> Void in

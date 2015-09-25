@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+@available(iOS 8.0, *)
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -61,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         category.identifier = "invite"
         category.setActions([acceptAction, declineAction], forContext: UIUserNotificationActionContext.Default)
         let categories = NSSet(array: [category])
-        let settings = UIUserNotificationSettings(forTypes: notificationType, categories: categories as! Set<NSObject>)
+        let settings = UIUserNotificationSettings(forTypes: notificationType, categories: categories as? Set<UIUserNotificationCategory>)
         application.registerUserNotificationSettings(settings)
         return true
     }
@@ -132,10 +133,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             dict[NSUnderlyingErrorKey] = error
-            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict as [NSObject : AnyObject])
+            // [Max] This was throwing an eror after converting to Swift 2.0 (Commented out JUST next line)
+            //error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict as [NSObject : AnyObject])
             // Replace this with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            Console.log("Unresolved error \(error), \(error!.userInfo)")
+            Console.log("Unresolved error \(error1), \(error1.userInfo)")
             abort()
         } catch {
             fatalError()

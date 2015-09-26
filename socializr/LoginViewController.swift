@@ -8,6 +8,7 @@
 
 import UIKit
 
+@available(iOS 8.0, *)
 class LoginViewController: UIViewController {
     
     @IBAction func FBLoginClick(sender: UIButton) {

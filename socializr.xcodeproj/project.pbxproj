@@ -50,6 +50,8 @@
 		E2BBD8951AA02B8A005EA3AE /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BBD8941AA02B8A005EA3AE /* NewEventViewController.swift */; };
 		E2BBD8971AA03070005EA3AE /* MapPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BBD8961AA03070005EA3AE /* MapPickViewController.swift */; };
 		E2BBD8991AA04E7C005EA3AE /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BBD8981AA04E7C005EA3AE /* Singleton.swift */; };
+		E2DB0D5F1B81AA0200ACF1BC /* redFlagFilled-22.png in Resources */ = {isa = PBXBuildFile; fileRef = E2DB0D5D1B81AA0200ACF1BC /* redFlagFilled-22.png */; };
+		E2DB0D601B81AA0200ACF1BC /* redFlagFilled-44.png in Resources */ = {isa = PBXBuildFile; fileRef = E2DB0D5E1B81AA0200ACF1BC /* redFlagFilled-44.png */; };
 		E2EB29FA1ACBD28200634DD8 /* ParseFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EB29F91ACBD28200634DD8 /* ParseFacebook.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +113,8 @@
 		E2BBD8941AA02B8A005EA3AE /* NewEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		E2BBD8961AA03070005EA3AE /* MapPickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPickViewController.swift; sourceTree = "<group>"; };
 		E2BBD8981AA04E7C005EA3AE /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		E2DB0D5D1B81AA0200ACF1BC /* redFlagFilled-22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "redFlagFilled-22.png"; path = "icons/redFlagFilled-22.png"; sourceTree = "<group>"; };
+		E2DB0D5E1B81AA0200ACF1BC /* redFlagFilled-44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "redFlagFilled-44.png"; path = "icons/redFlagFilled-44.png"; sourceTree = "<group>"; };
 		E2EB29F91ACBD28200634DD8 /* ParseFacebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseFacebook.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -262,6 +266,8 @@
 		E2EB29F31ACBCEFC00634DD8 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				E2DB0D5D1B81AA0200ACF1BC /* redFlagFilled-22.png */,
+				E2DB0D5E1B81AA0200ACF1BC /* redFlagFilled-44.png */,
 				E281B8B61B79DE9C006DD183 /* flagFilled-22.png */,
 				E281B8B71B79DE9C006DD183 /* flagFilled-44.png */,
 				E20DFD331B2C0EFC00D4021F /* nextArrow.png */,
@@ -323,7 +329,9 @@
 		E2A46EB21A9FAFCE0090FDCB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Max Saienko";
 				TargetAttributes = {
 					E2A46EB91A9FAFCE0090FDCB = {
@@ -361,10 +369,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2B8D5491AF0AF7100DC4D2A /* loginLogo.png in Resources */,
+				E2DB0D601B81AA0200ACF1BC /* redFlagFilled-44.png in Resources */,
 				E20DFD341B2C0EFC00D4021F /* nextArrow.png in Resources */,
 				E2537A5D1AE0E712008DBF81 /* Images-2.xcassets in Resources */,
 				E281B8B91B79DE9C006DD183 /* flagFilled-44.png in Resources */,
 				E2A46EC81A9FAFCE0090FDCB /* Main.storyboard in Resources */,
+				E2DB0D5F1B81AA0200ACF1BC /* redFlagFilled-22.png in Resources */,
 				E21782FA1B28135300263D6E /* eventTableCell.xib in Resources */,
 				E2A46ECD1A9FAFCE0090FDCB /* LaunchScreen.xib in Resources */,
 				E2A46ECA1A9FAFCE0090FDCB /* Images.xcassets in Resources */,
@@ -457,9 +467,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Maksym Saienko (HU58VK33C8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Maksym Saienko (HU58VK33C8)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -477,6 +489,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "278693be-7145-40b7-9a17-feee81993780";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -499,7 +512,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Maksym Saienko (HU58VK33C8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Maksym Saienko (HU58VK33C8)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -512,6 +526,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "278693be-7145-40b7-9a17-feee81993780";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -523,7 +538,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Maksym Saienko (HU58VK33C8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Maksym Saienko (HU58VK33C8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(PROJECT_DIR)",
@@ -533,7 +549,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				"OTHER_SWIFT_FLAGS[arch=*]" = "-D DEBUG";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "278693be-7145-40b7-9a17-feee81993780";
 				SWIFT_OBJC_BRIDGING_HEADER = "socializr/socializr-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -546,7 +564,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Maksym Saienko (HU58VK33C8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Maksym Saienko (HU58VK33C8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(PROJECT_DIR)",
@@ -555,7 +574,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "278693be-7145-40b7-9a17-feee81993780";
 				SWIFT_OBJC_BRIDGING_HEADER = "socializr/socializr-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -576,6 +597,7 @@
 				);
 				INFOPLIST_FILE = socializrTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.max.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/socializr.app/socializr";
 			};
@@ -592,6 +614,7 @@
 				);
 				INFOPLIST_FILE = socializrTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.max.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/socializr.app/socializr";
 			};

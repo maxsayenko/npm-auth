@@ -8,9 +8,10 @@
 
 import UIKit
 
+@available(iOS 8.0, *)
 class MainViewController: UIViewController, UITableViewDelegate {
-    var eventsCollection = EventsCollection()
-    var events:NSMutableArray = NSMutableArray()
+    var eventsCollection: EventsCollection! = EventsCollection()
+    var events: NSMutableArray = NSMutableArray()
     var rouletteEvents:NSMutableArray = NSMutableArray()
     var userId = Singleton.sharedInstance.userId
 
@@ -29,47 +30,18 @@ class MainViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func ButtonClick(sender: UIButton) {
-
-        // joinLunchRoulette();
-//        let eventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as EventViewController
-//        self.navigationController?.pushViewController(eventsViewController, animated: true)
-
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        
-        //      self.navigationController?.navigationBarHidden = true
-        
+
         NSNotificationCenter.defaultCenter().removeObserver(self)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateList:", name: "EventsUpdated", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "eventChanged:", name: "EventChanged", object: nil)
-        
-//        var permissions = ["public_profile", "email"]
-        
-//        PFFacebookUtils.logInWithPermissions(permissions, {
-//            (user: PFUser!, error: NSError!) -> Void in
-//            if let user = user {
-//                if (user.isNew) {
-//                    println("User signed up and logged in through Facebook!")
-//                    println(user)
-//                } else {
-//                    println("User logged in through Facebook!")
-//                    println(user)
-//                }
-//            } else {
-//                println("Uh oh. The user cancelled the Facebook login.")
-//            }
-//        })
-//        
-//        var usr:PFUser = PFUser.currentUser()
-//
-//        println("usr=\(usr) -- \(usr.email) -- \(usr.username)")
-        
-        
+
         // Regestering custom table cell
-        var nib = UINib(nibName: "eventTableCell", bundle: nil)
+        let nib = UINib(nibName: "eventTableCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "eventTableCellId")
     }
     
@@ -80,25 +52,37 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     // Populate table items
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      
-//        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
-//        cell.textLabel?.text = self.events[indexPath.row]["name"] as? String
-
-        
-        
-        var cell:eventTableCellClass = self.tableView.dequeueReusableCellWithIdentifier("eventTableCellId") as! eventTableCellClass
+        let cell:eventTableCellClass = self.tableView.dequeueReusableCellWithIdentifier("eventTableCellId") as! eventTableCellClass
         cell.label.text = self.events[indexPath.row]["name"] as? String
+        
+        // find out if this event was flagged by this user already
+        if let eventFlags: NSDictionary = self.events[indexPath.row]["flags"] as? NSDictionary {
+            // _ is a flagId that not being used (XCode was complaining)
+            for (_, flag) in eventFlags {
+                if let fbId = flag["fbId"] as? String {
+                    if (fbId == PFUser.currentUser()!["fbId"] as! String) {
+                        cell.flagIcon.image = UIImage(named: "redFlagIcon")
+                        cell.isFlagged = true
+                        break
+                    }
+                }
+            }
+        }
+        
         return cell
     }
     
     // Cell Click
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //Console.log("tableCellClicked \(indexPath)")
-        //println("tableCellClicked \(indexPath)")
         //CODE TO BE RUN ON CELL TOUCH
-        let eventViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as! EventViewController
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath) as! eventTableCellClass
         
-        var event: AnyObject = self.events[indexPath.row] as AnyObject
+        let eventViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as! EventViewController
+
+        // TODO: replace with the real model
+        eventViewController.isFlagged = currentCell.isFlagged
+        
+        let event: AnyObject = self.events[indexPath.row] as AnyObject
         
         if(event["id"]! != nil) {
             eventViewController.id = event["id"] as! String
@@ -116,16 +100,13 @@ class MainViewController: UIViewController, UITableViewDelegate {
             eventViewController.endTime = convertStringToDate(event["endTime"] as! NSString)
         }
         
-        var location: AnyObject? = event["location"]
-        
-        var lat:Double = location?["lat"] as! Double
-        var lng:Double = location?["lng"] as! Double
-        
-        eventViewController.lat = lat
-        eventViewController.lng = lng
-        
-        if(event["users"]! != nil) {
-            eventViewController.users = event["users"] as! NSMutableArray
+        if let location: AnyObject = event["location"] {
+            eventViewController.lat = location["lat"] as! Double
+            eventViewController.lng = location["lng"] as! Double
+        }
+
+        if let users: AnyObject = event["users"] {
+            eventViewController.users = users as! NSMutableArray
         }
         
         if(event["notes"]! != nil) {
@@ -144,9 +125,14 @@ class MainViewController: UIViewController, UITableViewDelegate {
         return dateFormatter.dateFromString(date as String)!
     }
     
+    
+    // Responds to EventsUpdated event from Firebase. (Initial load of the events)
     func updateList(notification: NSNotification) {
-        for e in notification.userInfo!{
-            self.events.addObject(e.1)
+        Console.log("Updating events ..")
+        self.events = []
+        for event in notification.userInfo!{
+            // event.0 is an ID of the event. event.1 is actual event data (with id as property)
+            self.events.addObject(event.1)
         }
 
         tableView.reloadData()
@@ -165,7 +151,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     // schedule notification
     func scheduleNotification() {
         
-        var localNotification:UILocalNotification = UILocalNotification()
+        let localNotification:UILocalNotification = UILocalNotification()
         localNotification.alertAction = "Testing notifications on iOS8"
         localNotification.alertBody = "New Ancestry event created, please check it out!"
         localNotification.fireDate = NSDate(timeIntervalSinceNow: 3)
@@ -183,7 +169,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     func parseRouletteEvents(notification: NSNotification) {
         for e in notification.userInfo! {
-            var users:NSMutableArray = e.1["users"] as! NSMutableArray
+            let users:NSMutableArray = e.1["users"] as! NSMutableArray
             if (users.count < 5) {
                 self.rouletteEvents.addObject(e.1)
             }
@@ -192,8 +178,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
     }
     
     func addUserToEvent() {
-        var index = randomInt(0, max: self.rouletteEvents.count)
-        var event:NSDictionary = self.rouletteEvents[index] as! NSDictionary
+        let index = randomInt(0, max: self.rouletteEvents.count)
+        let event:NSDictionary = self.rouletteEvents[index] as! NSDictionary
         eventsCollection.addUserToEvent(event["id"] as! String)
     }
     
@@ -202,13 +188,13 @@ class MainViewController: UIViewController, UITableViewDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-        println("MainViewCtrlr")
+        Console.log("MainViewCtrlr")
         self.navigationController?.navigationBarHidden = false
     }
     
     
     override func viewDidAppear(animated: Bool) {
-        println("MainViewCtrlrDid")
+        Console.log("MainViewCtrlrDid")
         Singleton.sharedInstance.eventLocation  = nil
     }
     

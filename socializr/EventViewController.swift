@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 
+@available(iOS 8.0, *)
 class EventViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet var mapView: MKMapView!
@@ -29,7 +30,26 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     @IBAction func flagButtonClick(sender: UIBarButtonItem) {
-        Console.log("blah")
+        let alertController = UIAlertController(title: "Flag this event", message: "You can report this event if it contains offensive message. Do you want to report it?", preferredStyle: .Alert)
+
+        let okAction = UIAlertAction(title: "Report", style:UIAlertActionStyle.Default,
+        handler: {
+            (alertCtrl: UIAlertAction) -> Void in
+            EventsCollection.flagEvent(self.id)
+            self.navigationItem.rightBarButtonItem = nil
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style:UIAlertActionStyle.Cancel,
+            handler: {
+                (alertCtrl: UIAlertAction) -> Void in
+        })
+        
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        self.presentViewController(alertController, animated: true, completion: {
+            () -> Void in
+        })
     }
     
     var id = "1"
@@ -40,65 +60,52 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     var endTime:NSDate = NSDate()
     var users:NSMutableArray = NSMutableArray()
     var notes: String = ""
+    var isFlagged: Bool = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        var longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressAction:")
+        
+        if isFlagged {
+            self.navigationItem.rightBarButtonItem = nil
+        }
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressAction:")
         longPressRecognizer.minimumPressDuration = 2
         mapView.addGestureRecognizer(longPressRecognizer)
         
-        // ancestry coords
-        //        var latitude:CLLocationDegrees = 37.779492
-        //        var longditude:CLLocationDegrees = -122.391669
+        let latitude:CLLocationDegrees = lat
+        let longditude:CLLocationDegrees = lng
         
-        var latitude:CLLocationDegrees = lat
-        var longditude:CLLocationDegrees = lng
+        let latDelta:CLLocationDegrees = 0.03
+        let longDelta:CLLocationDegrees = 0.03
         
-        var latDelta:CLLocationDegrees = 0.03
-        var longDelta:CLLocationDegrees = 0.03
+        let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
         
-        var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+        let placeLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longditude)
         
-        var placeLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longditude)
-        
-        var theRegion:MKCoordinateRegion = MKCoordinateRegionMake(placeLocation, theSpan)
+        let theRegion:MKCoordinateRegion = MKCoordinateRegionMake(placeLocation, theSpan)
         
         mapView.setRegion(theRegion, animated: true)
         
-        var annotation = MKPointAnnotation()
+        let annotation = MKPointAnnotation()
         annotation.coordinate = placeLocation
         annotation.title = "Start"
         annotation.subtitle = "Details..."
         mapView.addAnnotation(annotation)
-        
-        
-        
-        
-        var flagButton : UIBarButtonItem = UIBarButtonItem(title: "RigthButtonTitle", style: UIBarButtonItemStyle.Plain, target: self, action: "")
-        
-        //self.navigationItem.rightBarButtonItem = logButton
     }
     
     override func viewDidAppear(animated: Bool) {
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
-        var startDate = dateFormatter.stringFromDate(startTime)
-        var endDate = dateFormatter.stringFromDate(endTime)
+        let startDate = dateFormatter.stringFromDate(startTime)
+        let endDate = dateFormatter.stringFromDate(endTime)
         
         eventNameLabel.text = name
         dateLabel.text = "\(startDate) - \(endDate)"
-        
-        if(users.count > 0) {
-            var usersString = ""
-            for name in self.users {
-                usersString += "\(name)\n"
-            }
-        }
         
         notesText.text = notes
     }
@@ -120,7 +127,9 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: textViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("textCell", forIndexPath: indexPath) as! textViewCell
-        cell.textInCell.text = users[indexPath.row] as? String
+        if let name: String = users[indexPath.row]["name"] as? String {
+            cell.textInCell.text = name
+        }
         return cell
     }
 

@@ -21,7 +21,7 @@ class ParseFacebook {
     }
     
     class func logInWithFacebook(completion: (() -> Void)!) -> Void {
-        var permissions = ["public_profile", "email"]
+        let permissions = ["public_profile", "email"]
         
         PFFacebookUtils.logInWithPermissions(permissions) {
             (user: PFUser?, error: NSError?) -> Void in
@@ -105,5 +105,9 @@ class ParseFacebook {
                 })
             }
         }   
+    }
+    
+    static func getCurrentUser() -> AnyObject {
+        return ["fbId": PFUser.currentUser()!["fbId"] as! String, "name": PFUser.currentUser()!.username! as String]
     }
 }

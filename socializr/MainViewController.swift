@@ -39,7 +39,18 @@ class MainViewController: UIViewController, UITableViewDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateList:", name: "EventsUpdated", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "eventChanged:", name: "EventChanged", object: nil)
-
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let isAccepted: Bool = defaults.boolForKey("EULAaccepted")
+        {
+            print(isAccepted)
+        }
+        
+        let modalsStoryboard = UIStoryboard(name: "Modals", bundle: nil)
+        let intro = modalsStoryboard.instantiateViewControllerWithIdentifier("EULAView") as UIViewController?
+        intro!.modalPresentationStyle = UIModalPresentationStyle.FormSheet
+        self.presentViewController(intro!, animated: true, completion: nil)
+        
         // Regestering custom table cell
         let nib = UINib(nibName: "eventTableCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "eventTableCellId")

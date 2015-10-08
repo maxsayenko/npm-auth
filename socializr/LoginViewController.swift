@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true
-        if(ParseFacebook.loggedIn()) {
+        if(ParseFacebook.isUserLoggedIn()) {
             Console.log("User is already logged in")
             let mainViewController = self.storyboard?.instantiateViewControllerWithIdentifier("mainView") as! MainViewController
             self.navigationController?.pushViewController(mainViewController, animated: true)

@@ -10,15 +10,16 @@ import Foundation
 
 class ParseFacebook {
     
-    class func notLoggedIn() -> Bool {
+    class func isUserLoggedIn() -> Bool {
         let user = PFUser.currentUser()
         // here I assume that a user must be linked to Facebook
-        return user == nil || !PFFacebookUtils.isLinkedWithUser(user!)
+        // testing if user not logged in and reverting
+        return !(user == nil || !PFFacebookUtils.isLinkedWithUser(user!))
     }
     
-    class func loggedIn() -> Bool {
-        return !notLoggedIn()
-    }
+//    class func loggedIn() -> Bool {
+//        return !notLoggedIn()
+//    }
     
     class func logInWithFacebook(completion: (() -> Void)!) -> Void {
         let permissions = ["public_profile", "email"]
@@ -56,7 +57,7 @@ class ParseFacebook {
     }
     
     class func obtainUserNameAndFbId() {
-        if notLoggedIn() {
+        if !isUserLoggedIn() {
             return
         }
         

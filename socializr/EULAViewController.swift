@@ -10,6 +10,15 @@ import UIKit
 
 @available(iOS 8.0, *)
 class EULAViewController: UIViewController {
+    
+    @IBOutlet var webViewEULA: UIWebView!
+    
+    override func viewDidLoad() {
+        let url = NSBundle.mainBundle().URLForResource("EULAtext", withExtension:"html")
+        let request = NSURLRequest(URL: url!)
+        webViewEULA.loadRequest(request)
+    }
+    
     override func viewDidAppear(animated: Bool) {
         
     }

@@ -13,25 +13,8 @@ class MainViewController: UIViewController, UITableViewDelegate, EULAViewControl
     // dependecy variables
     var firebaseService: FirebaseService! = FirebaseService()
     var events: NSMutableArray = NSMutableArray()
-    var rouletteEvents:NSMutableArray = NSMutableArray()
-    var userId = Singleton.sharedInstance.userId
     
-    @IBOutlet var lunchRouletteView: UIView!
-    
-    @IBAction func noButtonClick(sender: UIButton) {
-        lunchRouletteView.hidden = true
-    }
-    
-    @IBAction func yesButtonClick(sender: UIButton) {
-        //joinLunchRoulette()
-        lunchRouletteView.hidden = true
-    }
-    
-    //var newEvents:NS
     @IBOutlet weak var tableView: UITableView!
-    
-    @IBAction func ButtonClick(sender: UIButton) {
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,7 +133,6 @@ class MainViewController: UIViewController, UITableViewDelegate, EULAViewControl
     
     // schedule notification
     func scheduleNotification() {
-        
         let localNotification:UILocalNotification = UILocalNotification()
         localNotification.alertAction = "Testing notifications on iOS8"
         localNotification.alertBody = "New Ancestry event created, please check it out!"
@@ -158,33 +140,6 @@ class MainViewController: UIViewController, UITableViewDelegate, EULAViewControl
         localNotification.soundName = UILocalNotificationDefaultSoundName
         localNotification.category = "invite"
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-    }
-    
-    func joinLunchRoulette() {
-        rouletteEvents = NSMutableArray()
-        firebaseService.fetchLunchRouletteEvents()
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "parseRouletteEvents:", name: "GetRouletteEvents", object: nil)
-    }
-    
-    func parseRouletteEvents(notification: NSNotification) {
-        for e in notification.userInfo! {
-            let users:NSMutableArray = e.1["users"] as! NSMutableArray
-            if (users.count < 5) {
-                self.rouletteEvents.addObject(e.1)
-            }
-        }
-        addUserToEvent()
-    }
-    
-    func addUserToEvent() {
-        let index = randomInt(0, max: self.rouletteEvents.count)
-        let event:NSDictionary = self.rouletteEvents[index] as! NSDictionary
-        firebaseService.addUserToEvent(event["id"] as! String)
-    }
-    
-    func randomInt(min: Int, max:Int) -> Int {
-        return min + Int(arc4random_uniform(UInt32(max - min + 1)))
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -308,66 +308,13 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="MZg-WZ-8VE"/>
                                 </connections>
                             </tableView>
-                            <view hidden="YES" opaque="NO" alpha="0.94999999999999996" tag="10" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8R-yg-a7Q" userLabel="LunchRoulette">
-                                <rect key="frame" x="0.0" y="64" width="320" height="85"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Dm-tR-2qG">
-                                        <rect key="frame" x="74" y="37" width="75" height="30"/>
-                                        <state key="normal" title="Yes! I'm in">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="yesButtonClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ipf-t6-eQc"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLM-zt-cfM">
-                                        <rect key="frame" x="168" y="37" width="63" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="63" id="vHM-8L-p9t"/>
-                                        </constraints>
-                                        <state key="normal" title="Busy :(">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="noButtonClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kSY-eq-7a9"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join Lunch Roulette today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UT3-eS-hRz">
-                                        <rect key="frame" x="56" y="8" width="207" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="p6d-60-O4p"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.34509803921568627" green="0.62352941176470589" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="SLM-zt-cfM" firstAttribute="leading" secondItem="5Dm-tR-2qG" secondAttribute="trailing" constant="19" id="A23-jN-qFR"/>
-                                    <constraint firstAttribute="trailing" secondItem="SLM-zt-cfM" secondAttribute="trailing" constant="89" id="Btx-Zn-0ib"/>
-                                    <constraint firstAttribute="height" constant="85" id="K2S-aR-A6F"/>
-                                    <constraint firstItem="SLM-zt-cfM" firstAttribute="baseline" secondItem="5Dm-tR-2qG" secondAttribute="baseline" id="PeD-gL-UUG"/>
-                                    <constraint firstItem="SLM-zt-cfM" firstAttribute="top" secondItem="UT3-eS-hRz" secondAttribute="bottom" constant="8" symbolic="YES" id="cD1-M6-w7U"/>
-                                    <constraint firstItem="UT3-eS-hRz" firstAttribute="top" secondItem="i8R-yg-a7Q" secondAttribute="topMargin" id="lxH-bY-Rg0"/>
-                                    <constraint firstItem="5Dm-tR-2qG" firstAttribute="leading" secondItem="i8R-yg-a7Q" secondAttribute="leading" constant="74" id="sQQ-Kc-EeH"/>
-                                    <constraint firstAttribute="centerX" secondItem="UT3-eS-hRz" secondAttribute="centerX" id="ukI-ey-p1E"/>
-                                    <constraint firstItem="UT3-eS-hRz" firstAttribute="centerX" secondItem="i8R-yg-a7Q" secondAttribute="centerX" id="xF1-0p-PJC"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="CMe-AF-wkX" secondAttribute="trailing" constant="-16" id="B8H-aR-hXC"/>
-                            <constraint firstAttribute="centerX" secondItem="i8R-yg-a7Q" secondAttribute="centerX" id="Hij-lg-NWu"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="CMe-AF-wkX" secondAttribute="bottom" id="drb-lZ-JGJ"/>
                             <constraint firstItem="CMe-AF-wkX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="h37-1h-9eE"/>
                             <constraint firstItem="CMe-AF-wkX" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="iXv-HZ-lmZ"/>
-                            <constraint firstItem="i8R-yg-a7Q" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="mxb-1f-Me9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="i8R-yg-a7Q" secondAttribute="trailing" constant="-16" id="pmN-0E-YZJ"/>
-                            <constraint firstItem="i8R-yg-a7Q" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="64" id="qvQ-9g-vOx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="All Events" id="ZSb-tK-DaI">
@@ -380,7 +327,6 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="lunchRouletteView" destination="i8R-yg-a7Q" id="qmO-so-VZi"/>
                         <outlet property="tableView" destination="CMe-AF-wkX" id="1Qp-PU-cmK"/>
                         <segue destination="HQM-U0-m9h" kind="show" identifier="toEventView" id="4ZC-hb-ORm"/>
                     </connections>

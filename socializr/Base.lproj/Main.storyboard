@@ -430,7 +430,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </scrollView>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="textCell" id="4CV-qt-Ybc" customClass="textViewCell" customModule="socializr" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="textCell" id="4CV-qt-Ybc" customClass="TextViewCell" customModule="socializr" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="20"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">

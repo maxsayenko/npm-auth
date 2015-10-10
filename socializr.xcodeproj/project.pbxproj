@@ -16,9 +16,10 @@
 		8114B4751A9FD4F500AC4CB7 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4741A9FD4F500AC4CB7 /* Firebase.framework */; };
 		8114B4761A9FD4F500AC4CB7 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4741A9FD4F500AC4CB7 /* Firebase.framework */; };
 		E20D7D491BC8F68D000EA055 /* EventDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20D7D481BC8F68D000EA055 /* EventDataModel.swift */; settings = {ASSET_TAGS = (); }; };
+		E20D7D4C1BC8FBC8000EA055 /* LocationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20D7D4B1BC8FBC8000EA055 /* LocationDataModel.swift */; settings = {ASSET_TAGS = (); }; };
 		E20DFD341B2C0EFC00D4021F /* nextArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E20DFD331B2C0EFC00D4021F /* nextArrow.png */; };
-		E21782FA1B28135300263D6E /* eventTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E21782F91B28135300263D6E /* eventTableCell.xib */; };
-		E21782FD1B28143700263D6E /* eventTableCellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21782FC1B28143700263D6E /* eventTableCellClass.swift */; };
+		E21782FA1B28135300263D6E /* EventTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E21782F91B28135300263D6E /* EventTableCell.xib */; };
+		E21782FD1B28143700263D6E /* EventTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21782FC1B28143700263D6E /* EventTableCell.swift */; };
 		E22C5DDB1AF8B1FD00F06F23 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C5DDA1AF8B1FD00F06F23 /* Console.swift */; };
 		E235E38F1ACA72E7008CF278 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E235E38E1ACA72E7008CF278 /* LoginViewController.swift */; };
 		E23D34E51AC2946F00EC2E90 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23D34E41AC2946F00EC2E90 /* FacebookSDK.framework */; };
@@ -79,9 +80,10 @@
 		8114B46E1A9FC53D00AC4CB7 /* socializr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "socializr-Bridging-Header.h"; sourceTree = "<group>"; };
 		8114B4741A9FD4F500AC4CB7 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		E20D7D481BC8F68D000EA055 /* EventDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDataModel.swift; sourceTree = "<group>"; };
+		E20D7D4B1BC8FBC8000EA055 /* LocationDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDataModel.swift; sourceTree = "<group>"; };
 		E20DFD331B2C0EFC00D4021F /* nextArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nextArrow.png; path = icons/nextArrow.png; sourceTree = "<group>"; };
-		E21782F91B28135300263D6E /* eventTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = eventTableCell.xib; sourceTree = "<group>"; };
-		E21782FC1B28143700263D6E /* eventTableCellClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = eventTableCellClass.swift; sourceTree = "<group>"; };
+		E21782F91B28135300263D6E /* EventTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableCell.xib; sourceTree = "<group>"; };
+		E21782FC1B28143700263D6E /* EventTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableCell.swift; sourceTree = "<group>"; };
 		E22C5DDA1AF8B1FD00F06F23 /* Console.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
 		E235E38E1ACA72E7008CF278 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E23D34E41AC2946F00EC2E90 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				E293EFF31B43912C00298977 /* TextViewCell.swift */,
 				E2BBD8981AA04E7C005EA3AE /* Singleton.swift */,
 				E20D7D481BC8F68D000EA055 /* EventDataModel.swift */,
+				E20D7D4B1BC8FBC8000EA055 /* LocationDataModel.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -186,8 +189,8 @@
 		E21782FB1B28135A00263D6E /* customUI */ = {
 			isa = PBXGroup;
 			children = (
-				E21782F91B28135300263D6E /* eventTableCell.xib */,
-				E21782FC1B28143700263D6E /* eventTableCellClass.swift */,
+				E21782F91B28135300263D6E /* EventTableCell.xib */,
+				E21782FC1B28143700263D6E /* EventTableCell.swift */,
 			);
 			name = customUI;
 			sourceTree = "<group>";
@@ -405,7 +408,7 @@
 				E2A46EC81A9FAFCE0090FDCB /* Main.storyboard in Resources */,
 				E2DB0D5F1B81AA0200ACF1BC /* redFlagFilled-22.png in Resources */,
 				E2E5DEA91BC79B9E0029E00D /* EULAtext.html in Resources */,
-				E21782FA1B28135300263D6E /* eventTableCell.xib in Resources */,
+				E21782FA1B28135300263D6E /* EventTableCell.xib in Resources */,
 				E2A46ECD1A9FAFCE0090FDCB /* LaunchScreen.xib in Resources */,
 				E2A46ECA1A9FAFCE0090FDCB /* Images.xcassets in Resources */,
 				E281B8B81B79DE9C006DD183 /* flagFilled-22.png in Resources */,
@@ -432,13 +435,14 @@
 				E2EB29FA1ACBD28200634DD8 /* ParseFacebook.swift in Sources */,
 				E2A46EE31A9FC9910090FDCB /* EventViewController.swift in Sources */,
 				E29D4DA61BC65672002FC08A /* EULAViewController.swift in Sources */,
+				E20D7D4C1BC8FBC8000EA055 /* LocationDataModel.swift in Sources */,
 				8114541E1A9FEE1000E6B556 /* FirebaseService.swift in Sources */,
 				E2A46EC31A9FAFCE0090FDCB /* socializr.xcdatamodeld in Sources */,
 				E20D7D491BC8F68D000EA055 /* EventDataModel.swift in Sources */,
 				E2BBD8991AA04E7C005EA3AE /* Singleton.swift in Sources */,
 				E2BBD8951AA02B8A005EA3AE /* NewEventViewController.swift in Sources */,
 				E293EFF41B43912C00298977 /* TextViewCell.swift in Sources */,
-				E21782FD1B28143700263D6E /* eventTableCellClass.swift in Sources */,
+				E21782FD1B28143700263D6E /* EventTableCell.swift in Sources */,
 				E22C5DDB1AF8B1FD00F06F23 /* Console.swift in Sources */,
 				E2A46EC01A9FAFCE0090FDCB /* AppDelegate.swift in Sources */,
 			);

@@ -25,7 +25,7 @@ class AllEventsViewController: UIViewController, UITableViewDelegate, EULAViewCo
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "eventChanged:", name: "EventChanged", object: nil)
         
         // Regestering custom table cell
-        let nib = UINib(nibName: "eventTableCell", bundle: nil)
+        let nib = UINib(nibName: "EventTableCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "eventTableCellId")
     }
     
@@ -36,7 +36,7 @@ class AllEventsViewController: UIViewController, UITableViewDelegate, EULAViewCo
     
     // Populate table items
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:eventTableCellClass = self.tableView.dequeueReusableCellWithIdentifier("eventTableCellId") as! eventTableCellClass
+        let cell: EventTableCell = self.tableView.dequeueReusableCellWithIdentifier("eventTableCellId") as! EventTableCell
         cell.label.text = self.events[indexPath.row]["name"] as? String
         
         // find out if this event was flagged by this user already
@@ -58,7 +58,7 @@ class AllEventsViewController: UIViewController, UITableViewDelegate, EULAViewCo
     
     // Cell Click
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let currentCell = tableView.cellForRowAtIndexPath(indexPath) as! eventTableCellClass
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath) as! EventTableCell
         
         let eventViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventViewController") as! EventViewController
         

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class eventTableCellClass: UITableViewCell {
+class EventTableCell: UITableViewCell {
 
     @IBOutlet var label: UILabel!
     @IBOutlet var flagIcon: UIImageView!

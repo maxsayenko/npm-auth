@@ -29,15 +29,6 @@ class FirebaseService {
         })
     }
     
-    func fetchLunchRouletteEvents() {
-        firebase.queryOrderedByChild("type").queryStartingAtValue("lunchRoulette")
-            .observeEventType(.Value, withBlock: {
-                snapshot in
-                let events = snapshot.value as! NSDictionary
-                NSNotificationCenter.defaultCenter().postNotificationName("GetRouletteEvents", object: self, userInfo: events as [NSObject : AnyObject])
-            })
-    }
-    
     static func flagEvent(eventId: String) {
         let eventFlagsRef = firebase.childByAppendingPath(eventId + "/flags")
         let newFlagRef = eventFlagsRef.childByAutoId()

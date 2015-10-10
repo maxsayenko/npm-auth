@@ -126,7 +126,7 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell: textViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("textCell", forIndexPath: indexPath) as! textViewCell
+        let cell: TextViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("textCell", forIndexPath: indexPath) as! TextViewCell
         if let name: String = users[indexPath.row]["name"] as? String {
             cell.textInCell.text = name
         }

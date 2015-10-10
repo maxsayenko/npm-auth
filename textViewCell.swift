@@ -8,6 +8,6 @@
 
 import UIKit
 
-class textViewCell: UICollectionViewCell {
+class TextViewCell: UICollectionViewCell {
     @IBOutlet var textInCell: UILabel!
 }

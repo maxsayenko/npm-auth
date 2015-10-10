@@ -15,6 +15,7 @@
 		8114B46D1A9FC2F000AC4CB7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B46C1A9FC2F000AC4CB7 /* SystemConfiguration.framework */; };
 		8114B4751A9FD4F500AC4CB7 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4741A9FD4F500AC4CB7 /* Firebase.framework */; };
 		8114B4761A9FD4F500AC4CB7 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4741A9FD4F500AC4CB7 /* Firebase.framework */; };
+		E20D7D491BC8F68D000EA055 /* EventDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20D7D481BC8F68D000EA055 /* EventDataModel.swift */; settings = {ASSET_TAGS = (); }; };
 		E20DFD341B2C0EFC00D4021F /* nextArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E20DFD331B2C0EFC00D4021F /* nextArrow.png */; };
 		E21782FA1B28135300263D6E /* eventTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E21782F91B28135300263D6E /* eventTableCell.xib */; };
 		E21782FD1B28143700263D6E /* eventTableCellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21782FC1B28143700263D6E /* eventTableCellClass.swift */; };
@@ -36,7 +37,7 @@
 		E26BFF7C1ABD511A00269700 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BFF7B1ABD511A00269700 /* Social.framework */; };
 		E281B8B81B79DE9C006DD183 /* flagFilled-22.png in Resources */ = {isa = PBXBuildFile; fileRef = E281B8B61B79DE9C006DD183 /* flagFilled-22.png */; };
 		E281B8B91B79DE9C006DD183 /* flagFilled-44.png in Resources */ = {isa = PBXBuildFile; fileRef = E281B8B71B79DE9C006DD183 /* flagFilled-44.png */; };
-		E293EFF41B43912C00298977 /* textViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E293EFF31B43912C00298977 /* textViewCell.swift */; };
+		E293EFF41B43912C00298977 /* TextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E293EFF31B43912C00298977 /* TextViewCell.swift */; };
 		E29D4DA31BC655C1002FC08A /* Modals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E29D4DA21BC655C1002FC08A /* Modals.storyboard */; settings = {ASSET_TAGS = (); }; };
 		E29D4DA61BC65672002FC08A /* EULAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29D4DA51BC65672002FC08A /* EULAViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		E2A46EC01A9FAFCE0090FDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A46EBF1A9FAFCE0090FDCB /* AppDelegate.swift */; };
@@ -77,6 +78,7 @@
 		8114B46C1A9FC2F000AC4CB7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8114B46E1A9FC53D00AC4CB7 /* socializr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "socializr-Bridging-Header.h"; sourceTree = "<group>"; };
 		8114B4741A9FD4F500AC4CB7 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		E20D7D481BC8F68D000EA055 /* EventDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDataModel.swift; sourceTree = "<group>"; };
 		E20DFD331B2C0EFC00D4021F /* nextArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nextArrow.png; path = icons/nextArrow.png; sourceTree = "<group>"; };
 		E21782F91B28135300263D6E /* eventTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = eventTableCell.xib; sourceTree = "<group>"; };
 		E21782FC1B28143700263D6E /* eventTableCellClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = eventTableCellClass.swift; sourceTree = "<group>"; };
@@ -98,7 +100,7 @@
 		E26BFF7B1ABD511A00269700 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		E281B8B61B79DE9C006DD183 /* flagFilled-22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flagFilled-22.png"; path = "icons/flagFilled-22.png"; sourceTree = "<group>"; };
 		E281B8B71B79DE9C006DD183 /* flagFilled-44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flagFilled-44.png"; path = "icons/flagFilled-44.png"; sourceTree = "<group>"; };
-		E293EFF31B43912C00298977 /* textViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = textViewCell.swift; path = ../textViewCell.swift; sourceTree = "<group>"; };
+		E293EFF31B43912C00298977 /* TextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextViewCell.swift; path = ../TextViewCell.swift; sourceTree = "<group>"; };
 		E29D4DA21BC655C1002FC08A /* Modals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Modals.storyboard; sourceTree = "<group>"; };
 		E29D4DA51BC65672002FC08A /* EULAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EULAViewController.swift; sourceTree = "<group>"; };
 		E2A46EBA1A9FAFCE0090FDCB /* socializr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socializr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,8 +168,9 @@
 		8114B47A1A9FEA8800AC4CB7 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				E293EFF31B43912C00298977 /* textViewCell.swift */,
+				E293EFF31B43912C00298977 /* TextViewCell.swift */,
 				E2BBD8981AA04E7C005EA3AE /* Singleton.swift */,
+				E20D7D481BC8F68D000EA055 /* EventDataModel.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -431,9 +434,10 @@
 				E29D4DA61BC65672002FC08A /* EULAViewController.swift in Sources */,
 				8114541E1A9FEE1000E6B556 /* FirebaseService.swift in Sources */,
 				E2A46EC31A9FAFCE0090FDCB /* socializr.xcdatamodeld in Sources */,
+				E20D7D491BC8F68D000EA055 /* EventDataModel.swift in Sources */,
 				E2BBD8991AA04E7C005EA3AE /* Singleton.swift in Sources */,
 				E2BBD8951AA02B8A005EA3AE /* NewEventViewController.swift in Sources */,
-				E293EFF41B43912C00298977 /* textViewCell.swift in Sources */,
+				E293EFF41B43912C00298977 /* TextViewCell.swift in Sources */,
 				E21782FD1B28143700263D6E /* eventTableCellClass.swift in Sources */,
 				E22C5DDB1AF8B1FD00F06F23 /* Console.swift in Sources */,
 				E2A46EC01A9FAFCE0090FDCB /* AppDelegate.swift in Sources */,

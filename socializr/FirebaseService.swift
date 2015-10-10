@@ -41,6 +41,7 @@ class FirebaseService {
         
         // Weird bug. Have to use wrapper to be able to edit this data
         var dataWrapper: Dictionary<String, AnyObject> = data
+        dataWrapper["id"] = newEventId
         dataWrapper["users"] = [ParseFacebook.getCurrentUser()]
         dataWrapper["creator"] = ParseFacebook.getCurrentUser()
         

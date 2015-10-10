@@ -31,7 +31,7 @@
         <!--Login-->
         <scene sceneID="LCV-fW-hMl">
             <objects>
-                <viewController storyboardIdentifier="loginView" id="S1H-LK-s5k" customClass="LoginViewController" customModule="socializr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="S1H-LK-s5k" customClass="LoginViewController" customModule="socializr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q95-eX-hLi"/>
                         <viewControllerLayoutGuide type="bottom" id="4Yl-zm-EZ7"/>
@@ -104,7 +104,7 @@
         <!--New Ancestry Event-->
         <scene sceneID="YwQ-7m-v6F">
             <objects>
-                <viewController storyboardIdentifier="newEvent" id="3yT-aS-1Jk" customClass="NewEventViewController" customModule="socializr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newEventVewController" id="3yT-aS-1Jk" customClass="NewEventViewController" customModule="socializr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dO8-Ux-Rcx"/>
                         <viewControllerLayoutGuide type="bottom" id="4Lh-yf-5zx"/>
@@ -255,7 +255,7 @@
         <!--Map Pick View Controller-->
         <scene sceneID="Toe-hz-T57">
             <objects>
-                <viewController storyboardIdentifier="mapPick" id="dZ0-RD-0jm" customClass="MapPickViewController" customModule="socializr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapPickViewController" id="dZ0-RD-0jm" customClass="MapPickViewController" customModule="socializr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="R9I-Dq-39R"/>
                         <viewControllerLayoutGuide type="bottom" id="PPz-op-68N"/>

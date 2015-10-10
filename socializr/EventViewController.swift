@@ -35,7 +35,7 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         let okAction = UIAlertAction(title: "Report", style:UIAlertActionStyle.Default,
         handler: {
             (alertCtrl: UIAlertAction) -> Void in
-            EventsCollection.flagEvent(self.id)
+            FirebaseService.flagEvent(self.id)
             self.navigationItem.rightBarButtonItem = nil
         })
         

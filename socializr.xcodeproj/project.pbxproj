@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8114541E1A9FEE1000E6B556 /* EventsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114541D1A9FEE1000E6B556 /* EventsCollection.swift */; };
+		8114541E1A9FEE1000E6B556 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114541D1A9FEE1000E6B556 /* FirebaseService.swift */; };
 		8114B4651A9FC29C00AC4CB7 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4641A9FC29C00AC4CB7 /* libicucore.dylib */; };
 		8114B4671A9FC2C500AC4CB7 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4661A9FC2C500AC4CB7 /* libc++.dylib */; };
 		8114B4691A9FC2D400AC4CB7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114B4681A9FC2D400AC4CB7 /* CFNetwork.framework */; };
@@ -69,7 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8114541D1A9FEE1000E6B556 /* EventsCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCollection.swift; sourceTree = "<group>"; };
+		8114541D1A9FEE1000E6B556 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		8114B4641A9FC29C00AC4CB7 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		8114B4661A9FC2C500AC4CB7 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		8114B4681A9FC2D400AC4CB7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -167,10 +167,17 @@
 			isa = PBXGroup;
 			children = (
 				E293EFF31B43912C00298977 /* textViewCell.swift */,
-				8114541D1A9FEE1000E6B556 /* EventsCollection.swift */,
 				E2BBD8981AA04E7C005EA3AE /* Singleton.swift */,
 			);
 			name = models;
+			sourceTree = "<group>";
+		};
+		E20D7D471BC8EC3B000EA055 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				8114541D1A9FEE1000E6B556 /* FirebaseService.swift */,
+			);
+			name = services;
 			sourceTree = "<group>";
 		};
 		E21782FB1B28135A00263D6E /* customUI */ = {
@@ -233,6 +240,7 @@
 		E2A46EBC1A9FAFCE0090FDCB /* socializr */ = {
 			isa = PBXGroup;
 			children = (
+				E20D7D471BC8EC3B000EA055 /* services */,
 				E29D4DA41BC65629002FC08A /* modals */,
 				E21782FB1B28135A00263D6E /* customUI */,
 				E2EB29F81ACBD1FB00634DD8 /* utils */,
@@ -421,7 +429,7 @@
 				E2EB29FA1ACBD28200634DD8 /* ParseFacebook.swift in Sources */,
 				E2A46EE31A9FC9910090FDCB /* EventViewController.swift in Sources */,
 				E29D4DA61BC65672002FC08A /* EULAViewController.swift in Sources */,
-				8114541E1A9FEE1000E6B556 /* EventsCollection.swift in Sources */,
+				8114541E1A9FEE1000E6B556 /* FirebaseService.swift in Sources */,
 				E2A46EC31A9FAFCE0090FDCB /* socializr.xcdatamodeld in Sources */,
 				E2BBD8991AA04E7C005EA3AE /* Singleton.swift in Sources */,
 				E2BBD8951AA02B8A005EA3AE /* NewEventViewController.swift in Sources */,

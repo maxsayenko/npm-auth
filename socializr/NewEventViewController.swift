@@ -57,7 +57,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewD
         
         // add the event
         let eventData: [String : AnyObject] = ["name": name as! AnyObject, "startTime": startDateText, "endTime": endDateText, "notes": noteTxtBox.text, "location": location]
-        EventsCollection.addNewEvent(eventData)
+        FirebaseService.addNewEvent(eventData)
         
         self.navigationController?.popViewControllerAnimated(true)
     }

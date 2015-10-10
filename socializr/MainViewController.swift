@@ -11,7 +11,7 @@ import UIKit
 @available(iOS 8.0, *)
 class MainViewController: UIViewController, UITableViewDelegate, EULAViewControllerDelegate {
     // dependecy variables
-    var eventsCollection: EventsCollection! = EventsCollection()
+    var firebaseService: FirebaseService! = FirebaseService()
     var events: NSMutableArray = NSMutableArray()
     var rouletteEvents:NSMutableArray = NSMutableArray()
     var userId = Singleton.sharedInstance.userId
@@ -162,7 +162,7 @@ class MainViewController: UIViewController, UITableViewDelegate, EULAViewControl
     
     func joinLunchRoulette() {
         rouletteEvents = NSMutableArray()
-        eventsCollection.fetchLunchRouletteEvents()
+        firebaseService.fetchLunchRouletteEvents()
         NSNotificationCenter.defaultCenter().removeObserver(self)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "parseRouletteEvents:", name: "GetRouletteEvents", object: nil)
     }
@@ -180,7 +180,7 @@ class MainViewController: UIViewController, UITableViewDelegate, EULAViewControl
     func addUserToEvent() {
         let index = randomInt(0, max: self.rouletteEvents.count)
         let event:NSDictionary = self.rouletteEvents[index] as! NSDictionary
-        eventsCollection.addUserToEvent(event["id"] as! String)
+        firebaseService.addUserToEvent(event["id"] as! String)
     }
     
     func randomInt(min: Int, max:Int) -> Int {

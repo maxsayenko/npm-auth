@@ -9,7 +9,7 @@
 import UIKit
 
 @available(iOS 8.0, *)
-class MainViewController: UIViewController, UITableViewDelegate, EULAViewControllerDelegate {
+class AllEventsViewController: UIViewController, UITableViewDelegate, EULAViewControllerDelegate {
     // dependecy variables
     var firebaseService: FirebaseService! = FirebaseService()
     var events: NSMutableArray = NSMutableArray()

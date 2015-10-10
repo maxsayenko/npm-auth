@@ -41,7 +41,7 @@
 		E29D4DA61BC65672002FC08A /* EULAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29D4DA51BC65672002FC08A /* EULAViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		E2A46EC01A9FAFCE0090FDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A46EBF1A9FAFCE0090FDCB /* AppDelegate.swift */; };
 		E2A46EC31A9FAFCE0090FDCB /* socializr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2A46EC11A9FAFCE0090FDCB /* socializr.xcdatamodeld */; };
-		E2A46EC51A9FAFCE0090FDCB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A46EC41A9FAFCE0090FDCB /* MainViewController.swift */; };
+		E2A46EC51A9FAFCE0090FDCB /* AllEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A46EC41A9FAFCE0090FDCB /* AllEventsViewController.swift */; };
 		E2A46EC81A9FAFCE0090FDCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A46EC61A9FAFCE0090FDCB /* Main.storyboard */; };
 		E2A46ECA1A9FAFCE0090FDCB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2A46EC91A9FAFCE0090FDCB /* Images.xcassets */; };
 		E2A46ECD1A9FAFCE0090FDCB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2A46ECB1A9FAFCE0090FDCB /* LaunchScreen.xib */; };
@@ -105,7 +105,7 @@
 		E2A46EBE1A9FAFCE0090FDCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2A46EBF1A9FAFCE0090FDCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2A46EC21A9FAFCE0090FDCB /* socializr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = socializr.xcdatamodel; sourceTree = "<group>"; };
-		E2A46EC41A9FAFCE0090FDCB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E2A46EC41A9FAFCE0090FDCB /* AllEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventsViewController.swift; sourceTree = "<group>"; };
 		E2A46EC71A9FAFCE0090FDCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2A46EC91A9FAFCE0090FDCB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E2A46ECC1A9FAFCE0090FDCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -250,7 +250,7 @@
 				E2A46EE21A9FC9910090FDCB /* EventViewController.swift */,
 				E2BBD8961AA03070005EA3AE /* MapPickViewController.swift */,
 				E2BBD8941AA02B8A005EA3AE /* NewEventViewController.swift */,
-				E2A46EC41A9FAFCE0090FDCB /* MainViewController.swift */,
+				E2A46EC41A9FAFCE0090FDCB /* AllEventsViewController.swift */,
 				E235E38E1ACA72E7008CF278 /* LoginViewController.swift */,
 				E2A46EC61A9FAFCE0090FDCB /* Main.storyboard */,
 				E2A46EC91A9FAFCE0090FDCB /* Images.xcassets */,
@@ -425,7 +425,7 @@
 			files = (
 				E235E38F1ACA72E7008CF278 /* LoginViewController.swift in Sources */,
 				E2BBD8971AA03070005EA3AE /* MapPickViewController.swift in Sources */,
-				E2A46EC51A9FAFCE0090FDCB /* MainViewController.swift in Sources */,
+				E2A46EC51A9FAFCE0090FDCB /* AllEventsViewController.swift in Sources */,
 				E2EB29FA1ACBD28200634DD8 /* ParseFacebook.swift in Sources */,
 				E2A46EE31A9FC9910090FDCB /* EventViewController.swift in Sources */,
 				E29D4DA61BC65672002FC08A /* EULAViewController.swift in Sources */,

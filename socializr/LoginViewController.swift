@@ -13,9 +13,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func FBLoginClick(sender: UIButton) {
         ParseFacebook.logInWithFacebook({() -> Void in
-            let mainViewController = self.storyboard?.instantiateViewControllerWithIdentifier("mainView") as! MainViewController
+            let allEventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("allEventsViewController") as! AllEventsViewController
             Console.log("Before redirect")
-            self.navigationController?.pushViewController(mainViewController, animated: true)
+            self.navigationController?.pushViewController(allEventsViewController, animated: true)
         })
     }
     
@@ -23,8 +23,8 @@ class LoginViewController: UIViewController {
         self.navigationController?.navigationBarHidden = true
         if(ParseFacebook.isUserLoggedIn()) {
             Console.log("User is already logged in")
-            let mainViewController = self.storyboard?.instantiateViewControllerWithIdentifier("mainView") as! MainViewController
-            self.navigationController?.pushViewController(mainViewController, animated: true)
+            let allEventsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("allEventsViewController") as! AllEventsViewController
+            self.navigationController?.pushViewController(allEventsViewController, animated: true)
         }
     }
 }

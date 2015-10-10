@@ -288,7 +288,7 @@
         <!--All Events-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="mainView" id="vXZ-lx-hvc" customClass="MainViewController" customModule="socializr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="allEventsViewController" id="vXZ-lx-hvc" customClass="AllEventsViewController" customModule="socializr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>

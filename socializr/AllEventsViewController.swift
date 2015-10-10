@@ -60,7 +60,7 @@ class AllEventsViewController: UIViewController, UITableViewDelegate, EULAViewCo
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let currentCell = tableView.cellForRowAtIndexPath(indexPath) as! eventTableCellClass
         
-        let eventViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as! EventViewController
+        let eventViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventViewController") as! EventViewController
         
         // TODO: replace with the real model
         eventViewController.isFlagged = currentCell.isFlagged

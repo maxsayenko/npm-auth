@@ -35,7 +35,7 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         let okAction = UIAlertAction(title: "Report", style:UIAlertActionStyle.Default,
         handler: {
             (alertCtrl: UIAlertAction) -> Void in
-            FirebaseService.flagEvent(self.id)
+            FirebaseService.flagEvent(self.eventDataModel.id)
             self.navigationItem.rightBarButtonItem = nil
         })
         
@@ -52,16 +52,8 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         })
     }
     
-    var id = "1"
-    var name = ""
-    var lat:CLLocationDegrees = 0
-    var lng:CLLocationDegrees = 0
-    var startTime:NSDate = NSDate()
-    var endTime:NSDate = NSDate()
-    var users:NSMutableArray = NSMutableArray()
-    var notes: String = ""
+    var eventDataModel: EventDataModel = EventDataModel()
     var isFlagged: Bool = false
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,19 +65,13 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressAction:")
         longPressRecognizer.minimumPressDuration = 2
         mapView.addGestureRecognizer(longPressRecognizer)
-        
-        let latitude:CLLocationDegrees = lat
-        let longditude:CLLocationDegrees = lng
-        
+
         let latDelta:CLLocationDegrees = 0.03
         let longDelta:CLLocationDegrees = 0.03
         
         let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
-        
-        let placeLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longditude)
-        
+        let placeLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(eventDataModel.location.lat, eventDataModel.location.lng)
         let theRegion:MKCoordinateRegion = MKCoordinateRegionMake(placeLocation, theSpan)
-        
         mapView.setRegion(theRegion, animated: true)
         
         let annotation = MKPointAnnotation()
@@ -101,13 +87,13 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
-        let startDate = dateFormatter.stringFromDate(startTime)
-        let endDate = dateFormatter.stringFromDate(endTime)
-        
-        eventNameLabel.text = name
+        let startDate = dateFormatter.stringFromDate(eventDataModel.startTime)
+        let endDate = dateFormatter.stringFromDate(eventDataModel.endTime)
         dateLabel.text = "\(startDate) - \(endDate)"
         
-        notesText.text = notes
+        eventNameLabel.text = eventDataModel.name
+
+        notesText.text = eventDataModel.notes
     }
 
     
@@ -122,12 +108,12 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return users.count
+        return eventDataModel.users.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: TextViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("textCell", forIndexPath: indexPath) as! TextViewCell
-        if let name: String = users[indexPath.row]["name"] as? String {
+        if let name: String = eventDataModel.users[indexPath.row]["name"] as? String {
             cell.textInCell.text = name
         }
         return cell

@@ -62,52 +62,14 @@ class AllEventsViewController: UIViewController, UITableViewDelegate, EULAViewCo
         
         let eventViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventViewController") as! EventViewController
         
-        // TODO: replace with the real model
         eventViewController.isFlagged = currentCell.isFlagged
         
         let event: AnyObject = self.events[indexPath.row] as AnyObject
-        
-        if(event["id"]! != nil) {
-            eventViewController.id = event["id"] as! String
-        }
-        
-        if(event["name"]! != nil) {
-            eventViewController.name = event["name"] as! String
-        }
-        
-        if(event["startTime"]! != nil) {
-            eventViewController.startTime = convertStringToDate(event["startTime"] as! NSString)
-        }
-        
-        if(event["endTime"]! != nil) {
-            eventViewController.endTime = convertStringToDate(event["endTime"] as! NSString)
-        }
-        
-        if let location: AnyObject = event["location"] {
-            eventViewController.lat = location["lat"] as! Double
-            eventViewController.lng = location["lng"] as! Double
-        }
-        
-        if let users: AnyObject = event["users"] {
-            eventViewController.users = users as! NSMutableArray
-        }
-        
-        if(event["notes"]! != nil) {
-            eventViewController.notes = event["notes"] as! String
-        }
+        let eventDataModel: EventDataModel = EventDataModel.Map(event)
+        eventViewController.eventDataModel = eventDataModel
         
         self.navigationController?.pushViewController(eventViewController, animated: true)
     }
-    
-    func convertStringToDate(date: NSString) -> NSDate {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        /*find out and place date format from http://userguide.icu-project.org/formatparse/datetime*/
-        // println(dateFormatter.dateFromString(date))
-        return dateFormatter.dateFromString(date as String)!
-    }
-    
     
     // Responds to EventsUpdated event from Firebase. (Initial load of the events)
     func updateList(notification: NSNotification) {

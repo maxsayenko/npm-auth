@@ -9,23 +9,24 @@
 import UIKit
 
 @available(iOS 8.0, *)
-class MainViewController: UIViewController, UITableViewDelegate {
+class MainViewController: UIViewController, UITableViewDelegate, EULAViewControllerDelegate {
+    // dependecy variables
     var eventsCollection: EventsCollection! = EventsCollection()
     var events: NSMutableArray = NSMutableArray()
     var rouletteEvents:NSMutableArray = NSMutableArray()
     var userId = Singleton.sharedInstance.userId
-
+    
     @IBOutlet var lunchRouletteView: UIView!
-
+    
     @IBAction func noButtonClick(sender: UIButton) {
         lunchRouletteView.hidden = true
     }
-
+    
     @IBAction func yesButtonClick(sender: UIButton) {
         //joinLunchRoulette()
         lunchRouletteView.hidden = true
     }
-
+    
     //var newEvents:NS
     @IBOutlet weak var tableView: UITableView!
     
@@ -35,21 +36,10 @@ class MainViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-
+        
         NSNotificationCenter.defaultCenter().removeObserver(self)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateList:", name: "EventsUpdated", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "eventChanged:", name: "EventChanged", object: nil)
-        
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let isAccepted: Bool = defaults.boolForKey("EULAaccepted")
-        {
-            print(isAccepted)
-        }
-        
-        let modalsStoryboard = UIStoryboard(name: "Modals", bundle: nil)
-        let intro = modalsStoryboard.instantiateViewControllerWithIdentifier("EULAView") as UIViewController?
-        intro!.modalPresentationStyle = UIModalPresentationStyle.FormSheet
-        self.presentViewController(intro!, animated: true, completion: nil)
         
         // Regestering custom table cell
         let nib = UINib(nibName: "eventTableCell", bundle: nil)
@@ -85,11 +75,10 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     // Cell Click
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //CODE TO BE RUN ON CELL TOUCH
         let currentCell = tableView.cellForRowAtIndexPath(indexPath) as! eventTableCellClass
         
         let eventViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventView") as! EventViewController
-
+        
         // TODO: replace with the real model
         eventViewController.isFlagged = currentCell.isFlagged
         
@@ -115,7 +104,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
             eventViewController.lat = location["lat"] as! Double
             eventViewController.lng = location["lng"] as! Double
         }
-
+        
         if let users: AnyObject = event["users"] {
             eventViewController.users = users as! NSMutableArray
         }
@@ -139,13 +128,13 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     // Responds to EventsUpdated event from Firebase. (Initial load of the events)
     func updateList(notification: NSNotification) {
-        Console.log("Updating events ..")
+        Console.log("Updating events ...")
         self.events = []
         for event in notification.userInfo!{
             // event.0 is an ID of the event. event.1 is actual event data (with id as property)
             self.events.addObject(event.1)
         }
-
+        
         tableView.reloadData()
         
         scheduleNotification()
@@ -201,11 +190,27 @@ class MainViewController: UIViewController, UITableViewDelegate {
     override func viewWillAppear(animated: Bool) {
         Console.log("MainViewCtrlr")
         self.navigationController?.navigationBarHidden = false
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let isEULAaccepted: Bool = defaults.boolForKey("isEULAaccepted") {
+            if(!isEULAaccepted) {
+                let modalsStoryboard = UIStoryboard(name: "Modals", bundle: nil)
+                let EULAmodal = modalsStoryboard.instantiateViewControllerWithIdentifier("EULAView") as! EULAViewController
+                EULAmodal.modalPresentationStyle = UIModalPresentationStyle.FormSheet
+                EULAmodal.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+                EULAmodal.delegate = self
+                self.presentViewController(EULAmodal, animated: true, completion: nil)
+            }
+        }
     }
     
+    func isEULAaccepted(isAccepted: Bool) {
+        if(isAccepted) {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isEULAaccepted")
+        }
+    }
     
     override func viewDidAppear(animated: Bool) {
-        Console.log("MainViewCtrlrDid")
         Singleton.sharedInstance.eventLocation  = nil
     }
     

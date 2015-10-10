@@ -10,16 +10,31 @@ import UIKit
 
 @available(iOS 8.0, *)
 class EULAViewController: UIViewController {
+    var delegate:EULAViewControllerDelegate? = nil
     
     @IBOutlet var webViewEULA: UIWebView!
     
     override func viewDidLoad() {
+        // Load html content into webView
         let url = NSBundle.mainBundle().URLForResource("EULAtext", withExtension:"html")
         let request = NSURLRequest(URL: url!)
         webViewEULA.loadRequest(request)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        
+    @IBAction func disagreeBtnClick(sender: UIButton) {
+        closeModal(false)
     }
+    
+    @IBAction func agreeBtnClick(sender: UIButton) {
+        closeModal(true)
+    }
+    
+    func closeModal(isEULAaccepted: Bool) -> Void {
+        self.delegate?.isEULAaccepted(isEULAaccepted)
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
+protocol EULAViewControllerDelegate {
+    func isEULAaccepted(value: Bool)
 }

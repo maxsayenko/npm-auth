@@ -37,27 +37,16 @@ class AllEventsViewController: UIViewController, UITableViewDelegate, EULAViewCo
     // Populate table items
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: EventTableCell = self.tableView.dequeueReusableCellWithIdentifier("eventTableCellId") as! EventTableCell
-        cell.label.text = self.events[indexPath.row]["name"] as? String
-        
-        // find out if this event was flagged by this user already
-        if let eventFlags: NSDictionary = self.events[indexPath.row]["flags"] as? NSDictionary {
-            // _ is a flagId that not being used (XCode was complaining)
-            for (_, flag) in eventFlags {
-                if let fbId = flag["fbId"] as? String {
-                    if (fbId == PFUser.currentUser()!["fbId"] as! String) {
-                        cell.flagIcon.image = UIImage(named: "redFlagIcon")
-                        cell.isFlagged = true
-                        break
-                    }
-                }
-            }
-        }
-        
+        let cellTitle = self.events[indexPath.row]["name"] as? String
+        let isFlagged: Bool = FirebaseService.isEventFlaggedByCurrentUser(self.events[indexPath.row])
+
+        cell.loadCell(title: cellTitle!, isFlagged: isFlagged)
         return cell
     }
     
     // Cell Click
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let currentCell = tableView.cellForRowAtIndexPath(indexPath) as! EventTableCell
         
         let eventViewController = self.storyboard?.instantiateViewControllerWithIdentifier("eventViewController") as! EventViewController

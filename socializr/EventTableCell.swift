@@ -14,14 +14,9 @@ class EventTableCell: UITableViewCell {
     @IBOutlet var flagIcon: UIImageView!
     var isFlagged: Bool = false
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func loadCell(title title: String, isFlagged: Bool) {
+        flagIcon.image = isFlagged ? UIImage(named: "redFlagIcon") : nil
+        self.isFlagged = isFlagged
+        label.text = title
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-    }
-
 }

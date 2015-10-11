@@ -48,6 +48,25 @@ class FirebaseService {
         eventRef.setValue(dataWrapper)
     }
     
+    static func isEventFlaggedByCurrentUser(event: AnyObject) -> Bool {
+        var isFlagged = false
+        
+        // find out if this event was flagged by this user already
+        if let eventFlags: NSDictionary = event["flags"] as? NSDictionary {
+            // _ is a flagId that not being used (XCode was complaining)
+            for (_, flag) in eventFlags {
+                if let fbId = flag["fbId"] as? String {
+                    if (fbId == PFUser.currentUser()!["fbId"] as! String) {
+                        isFlagged = true
+                        break
+                    }
+                }
+            }
+        }
+        
+        return isFlagged
+    }
+    
     func addUserToEvent(eventId: String) {
         Console.log(eventId)
     }
